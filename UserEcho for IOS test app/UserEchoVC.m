@@ -9,6 +9,10 @@
 #import "UserEchoVC.h"
 #import "TopicVC.h"
 #import "API.h"
+//#import "UeOauth2VC.h"
+
+#import "GTMOAuth2SignIn.h"
+#import "GTMOAuth2ViewControllerTouch.h"
 
 @interface UserEchoVC ()
 
@@ -20,6 +24,16 @@ NSArray *topicsStream;
 
 - (void)backToMainApp {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)signIn {
+    //SignInCode
+    NSLog(@"SignIn pushed");
+    //oauth2* oauth2 = [super init];
+    
+    //id ue_signin = [[UeOauth2VC alloc] init];
+    [self signInToCustomService];
+    NSLog(@"SignIn end");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,6 +52,8 @@ NSArray *topicsStream;
     
     self.navigationItem.title = @"UserEcho";
     self.navigationItem.leftBarButtonItem = btnBack;
+    
+    self.navigationItem.rightBarButtonItem = btnSignIn;
     
     [self refreshStream];
 }
@@ -151,5 +167,72 @@ NSArray *topicsStream;
         TopicVC.topicId = sender;
     }
 }
+
+NSString *kMyClientID = @"78049c2c768bf2e6f80d";     // pre-assigned by service
+NSString *kMyClientSecret = @"7caa4c068663a2c4f4ea25757a7b886f14ec948c"; // pre-assigned by service
+static NSString *const kKeychainItemName = @"UserEcho: auth";
+
+- (GTMOAuth2Authentication *)authForCustomService {
+    
+    //NSURL *tokenURL = [NSURL URLWithString:@"https://api.example.com/oauth/token"];
+    NSURL *tokenURL = [NSURL URLWithString:@"https://userecho.com/oauth2/access_token/"];
+    
+    // We'll make up an arbitrary redirectURI.  The controller will watch for
+    // the server to redirect the web view to this URI, but this URI will not be
+    // loaded, so it need not be for any actual web page.
+    NSString *redirectURI = @"https://userecho.com/OAuthCallback";
+    
+    GTMOAuth2Authentication *auth;
+    auth = [GTMOAuth2Authentication authenticationWithServiceProvider:@"Custom Service"
+                                                             tokenURL:tokenURL
+                                                          redirectURI:redirectURI
+                                                             clientID:kMyClientID
+                                                         clientSecret:kMyClientSecret];
+    return auth;
+}
+
+- (void)signInToCustomService {
+    NSLog(@"SignIn called");
+    //[self signOut];
+    
+    GTMOAuth2Authentication *auth = [self authForCustomService];
+    
+    // Specify the appropriate scope string, if any, according to the service's API documentation
+    auth.scope = @"read";
+    
+    NSURL *authURL = [NSURL URLWithString:@"https://userecho.com/oauth2/authorize/"];
+    
+    // Display the authentication view
+    GTMOAuth2ViewControllerTouch *viewController;
+    viewController = [[GTMOAuth2ViewControllerTouch alloc] initWithAuthentication:auth
+                                                                  authorizationURL:authURL
+                                                                  keychainItemName:kKeychainItemName
+                                                                          delegate:self
+                                                                  finishedSelector:@selector(viewController:finishedWithAuth:error:)];
+    
+    // Now push our sign-in view
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)viewController:(GTMOAuth2ViewControllerTouch * )viewController
+      finishedWithAuth:(GTMOAuth2Authentication * )auth
+                 error:(NSError * )error
+{
+    [self.navigationController popToViewController:self animated:NO];
+    if (error != nil) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error Authorizing with UserEcho"
+                                                         message:[error localizedDescription]
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+        [alert show];
+    } else {
+        //Authorization was successful - get location information
+       // [self getLocationInfo:[auth accessToken]];
+        NSLog(@"Token=%@",[auth accessToken]);
+    }
+}
+
+
 
 @end

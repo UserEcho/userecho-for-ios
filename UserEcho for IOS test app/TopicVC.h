@@ -12,9 +12,12 @@
 {
 IBOutlet UILabel* topicHeader;
 IBOutlet UIWebView* topicDescription;
+IBOutlet UIScrollView* topicScrollView;
 }
     
 @property (assign, nonatomic) NSNumber* topicId;
+
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *webViewHeightConstraint;
 
 @end
 

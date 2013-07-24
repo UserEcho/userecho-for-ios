@@ -70,6 +70,11 @@ NSDictionary *topic;
 
 //Description auto-height
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
+    
+    aWebView.scrollView.scrollEnabled = NO;
+    //aWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
+
+    
     NSLog(@"WEB VIEW LOADED");
 
     CGRect frame = aWebView.frame;
@@ -80,7 +85,29 @@ NSDictionary *topic;
     frame.size = fittingSize;
     aWebView.frame = frame;
     
-    NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
+    
+    
+   // NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
+    
+    //NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
+    
+   topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, fittingSize.height + aWebView.frame.origin.y);
+    
+    
+  //  self.webViewHeightConstraint.constant = 2000;
+
+//    textViewHeightConstraint.constant = textView.contentSize.height;
+    
+  //  [topicScrollView layoutIfNeeded];
+    
+    
+   // [topicScrollView setTranslatesAutoresizingMaskIntoConstraints:YES];
+//    [topicScrollView setContentSize:(CGSizeMake(320, 1000))];
+  //  scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, sizeOfContent);
+//    topicScrollView.translatesAutoresizingMaskIntoConstraints = NO;
+//    [topicScrollView setCons]self.webViewHeightConstraint.constant = [webHeight intValue];
+  
+    NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
 }
 
 @end

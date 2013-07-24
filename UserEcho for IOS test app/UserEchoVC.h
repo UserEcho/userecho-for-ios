@@ -13,8 +13,13 @@
 IBOutlet UITableView* topicsTable;
     
 IBOutlet UIBarButtonItem* btnBack;
+IBOutlet UIBarButtonItem* btnSignIn;
+    
+//IBOutlet UINavigationController* ueNavController;
 }
 
 -(IBAction)backToMainApp;
+-(IBAction)signIn;
+-(void)signInToUserEchoService;
 
 @end

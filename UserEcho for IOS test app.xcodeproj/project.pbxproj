@@ -21,6 +21,14 @@
 		600E6187178C151A00B7601B /* MainPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E6186178C151A00B7601B /* MainPageView.m */; };
 		600E6189178C1B5D00B7601B /* UserEcho.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600E6188178C1B5D00B7601B /* UserEcho.storyboard */; };
 		600E618D178C1C9900B7601B /* UserEchoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E618C178C1C9900B7601B /* UserEchoVC.m */; };
+		602F17CE179E697200111BCB /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17AA179E697100111BCB /* GTMHTTPFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		602F17EA179E6ADB00111BCB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 602F17E9179E6ADB00111BCB /* SystemConfiguration.framework */; };
+		602F17EC179E6AE200111BCB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 602F17EB179E6AE200111BCB /* Security.framework */; };
+		602F17EF179E6D5300111BCB /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F179E179E63DB00111BCB /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		602F17F0179E6D6200111BCB /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F179C179E63DB00111BCB /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		602F17F1179E6D6900111BCB /* GTMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17A1179E641D00111BCB /* GTMOAuth2ViewControllerTouch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		602F17F5179EDF0000111BCB /* GTMOAuth2ViewTouch.xib in Sources */ = {isa = PBXBuildFile; fileRef = 602F17A2179E641D00111BCB /* GTMOAuth2ViewTouch.xib */; };
+		602F17F8179FCEA100111BCB /* CommentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17F7179FCEA100111BCB /* CommentsVC.m */; };
 		6097E8A9178EB6450004CF02 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E897178EB6450004CF02 /* AFHTTPClient.m */; };
 		6097E8AA178EB6450004CF02 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E899178EB6450004CF02 /* AFHTTPRequestOperation.m */; };
 		6097E8AB178EB6450004CF02 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E89B178EB6450004CF02 /* AFImageRequestOperation.m */; };
@@ -57,6 +65,19 @@
 		600E6188178C1B5D00B7601B /* UserEcho.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEcho.storyboard; sourceTree = "<group>"; };
 		600E618B178C1C9900B7601B /* UserEchoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEchoVC.h; sourceTree = "<group>"; };
 		600E618C178C1C9900B7601B /* UserEchoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEchoVC.m; sourceTree = "<group>"; };
+		602F179B179E63DB00111BCB /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
+		602F179C179E63DB00111BCB /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2Authentication.m; sourceTree = "<group>"; };
+		602F179D179E63DB00111BCB /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
+		602F179E179E63DB00111BCB /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2SignIn.m; sourceTree = "<group>"; };
+		602F17A0179E641D00111BCB /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
+		602F17A1179E641D00111BCB /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
+		602F17A2179E641D00111BCB /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
+		602F17A9179E697100111BCB /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcher.h; sourceTree = "<group>"; };
+		602F17AA179E697100111BCB /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcher.m; sourceTree = "<group>"; };
+		602F17E9179E6ADB00111BCB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		602F17EB179E6AE200111BCB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		602F17F6179FCEA100111BCB /* CommentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsVC.h; sourceTree = "<group>"; };
+		602F17F7179FCEA100111BCB /* CommentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsVC.m; sourceTree = "<group>"; };
 		6097E896178EB6450004CF02 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6097E897178EB6450004CF02 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6097E898178EB6450004CF02 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -88,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602F17EC179E6AE200111BCB /* Security.framework in Frameworks */,
+				602F17EA179E6ADB00111BCB /* SystemConfiguration.framework in Frameworks */,
 				600E6163178C0F5100B7601B /* UIKit.framework in Frameworks */,
 				600E6165178C0F5100B7601B /* Foundation.framework in Frameworks */,
 				600E6167178C0F5100B7601B /* CoreGraphics.framework in Frameworks */,
@@ -117,6 +140,8 @@
 		600E6161178C0F5100B7601B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				602F17EB179E6AE200111BCB /* Security.framework */,
+				602F17E9179E6ADB00111BCB /* SystemConfiguration.framework */,
 				600E6162178C0F5100B7601B /* UIKit.framework */,
 				600E6164178C0F5100B7601B /* Foundation.framework */,
 				600E6166178C0F5100B7601B /* CoreGraphics.framework */,
@@ -127,6 +152,7 @@
 		600E6168178C0F5100B7601B /* UserEcho for IOS test app */ = {
 			isa = PBXGroup;
 			children = (
+				602F179A179E60C200111BCB /* gtm-oauth2 */,
 				6097E895178EB6450004CF02 /* AFNetworking */,
 				600E618A178C1B6C00B7601B /* UserEcho */,
 				600E6171178C0F5100B7601B /* AppDelegate.h */,
@@ -166,8 +192,42 @@
 				6097E8B2178EB6B70004CF02 /* API.h */,
 				6097E8B81797C6CA0004CF02 /* TopicVC.h */,
 				6097E8B91797C6CB0004CF02 /* TopicVC.m */,
+				602F17F6179FCEA100111BCB /* CommentsVC.h */,
+				602F17F7179FCEA100111BCB /* CommentsVC.m */,
 			);
 			name = UserEcho;
+			sourceTree = "<group>";
+		};
+		602F179A179E60C200111BCB /* gtm-oauth2 */ = {
+			isa = PBXGroup;
+			children = (
+				602F17A6179E697100111BCB /* HTTPFetcher */,
+				602F179F179E63E300111BCB /* touch */,
+				602F179B179E63DB00111BCB /* GTMOAuth2Authentication.h */,
+				602F179C179E63DB00111BCB /* GTMOAuth2Authentication.m */,
+				602F179D179E63DB00111BCB /* GTMOAuth2SignIn.h */,
+				602F179E179E63DB00111BCB /* GTMOAuth2SignIn.m */,
+			);
+			name = "gtm-oauth2";
+			sourceTree = "<group>";
+		};
+		602F179F179E63E300111BCB /* touch */ = {
+			isa = PBXGroup;
+			children = (
+				602F17A0179E641D00111BCB /* GTMOAuth2ViewControllerTouch.h */,
+				602F17A1179E641D00111BCB /* GTMOAuth2ViewControllerTouch.m */,
+				602F17A2179E641D00111BCB /* GTMOAuth2ViewTouch.xib */,
+			);
+			name = touch;
+			sourceTree = "<group>";
+		};
+		602F17A6179E697100111BCB /* HTTPFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				602F17A9179E697100111BCB /* GTMHTTPFetcher.h */,
+				602F17AA179E697100111BCB /* GTMHTTPFetcher.m */,
+			);
+			path = HTTPFetcher;
 			sourceTree = "<group>";
 		};
 		6097E895178EB6450004CF02 /* AFNetworking */ = {
@@ -272,6 +332,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602F17F5179EDF0000111BCB /* GTMOAuth2ViewTouch.xib in Sources */,
+				602F17F1179E6D6900111BCB /* GTMOAuth2ViewControllerTouch.m in Sources */,
+				602F17F0179E6D6200111BCB /* GTMOAuth2Authentication.m in Sources */,
+				602F17EF179E6D5300111BCB /* GTMOAuth2SignIn.m in Sources */,
 				600E616F178C0F5100B7601B /* main.m in Sources */,
 				600E6173178C0F5100B7601B /* AppDelegate.m in Sources */,
 				600E617F178C0F5100B7601B /* ViewController.m in Sources */,
@@ -282,12 +346,14 @@
 				6097E8AB178EB6450004CF02 /* AFImageRequestOperation.m in Sources */,
 				6097E8AC178EB6450004CF02 /* AFJSONRequestOperation.m in Sources */,
 				6097E8AD178EB6450004CF02 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				6097E8BA1797C6CB0004CF02 /* TopicVC.m in Sources */,
 				6097E8AE178EB6450004CF02 /* AFPropertyListRequestOperation.m in Sources */,
 				6097E8AF178EB6450004CF02 /* AFURLConnectionOperation.m in Sources */,
 				6097E8B0178EB6450004CF02 /* AFXMLRequestOperation.m in Sources */,
 				6097E8B1178EB6450004CF02 /* UIImageView+AFNetworking.m in Sources */,
 				6097E8B4178EB6B70004CF02 /* API.m in Sources */,
-				6097E8BA1797C6CB0004CF02 /* TopicVC.m in Sources */,
+				602F17CE179E697200111BCB /* GTMHTTPFetcher.m in Sources */,
+				602F17F8179FCEA100111BCB /* CommentsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +438,10 @@
 		600E6183178C0F5100B7601B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UserEcho for IOS test app/UserEcho for IOS test app-Prefix.pch";
 				INFOPLIST_FILE = "UserEcho for IOS test app/UserEcho for IOS test app-Info.plist";
@@ -383,6 +453,10 @@
 		600E6184178C0F5100B7601B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UserEcho for IOS test app/UserEcho for IOS test app-Prefix.pch";
 				INFOPLIST_FILE = "UserEcho for IOS test app/UserEcho for IOS test app-Info.plist";
