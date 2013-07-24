@@ -29,6 +29,7 @@
 		602F17F1179E6D6900111BCB /* GTMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17A1179E641D00111BCB /* GTMOAuth2ViewControllerTouch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		602F17F5179EDF0000111BCB /* GTMOAuth2ViewTouch.xib in Sources */ = {isa = PBXBuildFile; fileRef = 602F17A2179E641D00111BCB /* GTMOAuth2ViewTouch.xib */; };
 		602F17F8179FCEA100111BCB /* CommentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17F7179FCEA100111BCB /* CommentsVC.m */; };
+		602F17FB17A0308200111BCB /* TopicEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17FA17A0308200111BCB /* TopicEditVC.m */; };
 		6097E8A9178EB6450004CF02 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E897178EB6450004CF02 /* AFHTTPClient.m */; };
 		6097E8AA178EB6450004CF02 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E899178EB6450004CF02 /* AFHTTPRequestOperation.m */; };
 		6097E8AB178EB6450004CF02 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E89B178EB6450004CF02 /* AFImageRequestOperation.m */; };
@@ -78,6 +79,8 @@
 		602F17EB179E6AE200111BCB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		602F17F6179FCEA100111BCB /* CommentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsVC.h; sourceTree = "<group>"; };
 		602F17F7179FCEA100111BCB /* CommentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsVC.m; sourceTree = "<group>"; };
+		602F17F917A0308200111BCB /* TopicEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicEditVC.h; sourceTree = "<group>"; };
+		602F17FA17A0308200111BCB /* TopicEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicEditVC.m; sourceTree = "<group>"; };
 		6097E896178EB6450004CF02 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6097E897178EB6450004CF02 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6097E898178EB6450004CF02 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				6097E8B91797C6CB0004CF02 /* TopicVC.m */,
 				602F17F6179FCEA100111BCB /* CommentsVC.h */,
 				602F17F7179FCEA100111BCB /* CommentsVC.m */,
+				602F17F917A0308200111BCB /* TopicEditVC.h */,
+				602F17FA17A0308200111BCB /* TopicEditVC.m */,
 			);
 			name = UserEcho;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				6097E8B4178EB6B70004CF02 /* API.m in Sources */,
 				602F17CE179E697200111BCB /* GTMHTTPFetcher.m in Sources */,
 				602F17F8179FCEA100111BCB /* CommentsVC.m in Sources */,
+				602F17FB17A0308200111BCB /* TopicEditVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

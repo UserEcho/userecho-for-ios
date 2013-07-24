@@ -20,6 +20,6 @@ IBOutlet UIBarButtonItem* btnSignIn;
 
 -(IBAction)backToMainApp;
 -(IBAction)signIn;
--(void)signInToUserEchoService;
+//-(void)signInToUserEchoService;
 
 @end

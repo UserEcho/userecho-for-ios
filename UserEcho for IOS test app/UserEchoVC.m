@@ -145,7 +145,23 @@ NSArray *topicsStream;
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
     [queue addOperation:imageOperation];
     */
-     
+    
+    //Load user avatar
+    UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:11];
+    
+    NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
+    NSURL* imageURL = [NSURL URLWithString:urlString];
+    
+    AFImageRequestOperation* imageOperation =
+    [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
+                                                      success:^(UIImage *image) {
+                                                          avatar.image=image;
+                                                      }];
+    
+    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+    [queue addOperation:imageOperation];
+
+    
     return cell;
 }
 
@@ -233,6 +249,48 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     }
 }
 
+
+//Search
+
+-(void)searchStream:(NSString*)query {
+    //NSLog(@"Topic load item=%@",self.topicId);
+    //just call the "stream" command from the web API
+    [[API sharedInstance] get:[NSString stringWithFormat:@"forums/1/feedback/search.json?query=%@",query]
+                 onCompletion:^(NSArray *json) {
+                     //got stream
+                     NSLog(@"Stream received");
+                     //NSLog(@"%@", json);
+                     
+                     topicsStream = json;// allValues];//[json objectForKey:@"result"];
+                     NSLog(@"Loaded:%u",[topicsStream count]);
+                     NSLog(@"To table reload");
+                     [topicsTable reloadData];
+                 }];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"SB Search clicked");
+    [self searchStream:searchBar.text];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [self.view endEditing:YES];
+}
+
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"SB Cancel clicked");
+    searchBar.text = @"";
+    [searchBar resignFirstResponder];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [self refreshStream];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+	[searchBar becomeFirstResponder];
+	[searchBar setShowsCancelButton:YES animated:YES];
+    
+}
 
 
 @end

@@ -10,9 +10,10 @@
 
 @interface TopicVC : UIViewController
 {
-IBOutlet UILabel* topicHeader;
-IBOutlet UIWebView* topicDescription;
-IBOutlet UIScrollView* topicScrollView;
+    IBOutlet UILabel* topicHeader;
+    IBOutlet UIWebView* topicDescription;
+    IBOutlet UIScrollView* topicScrollView;
+    IBOutlet UIButton* btnComments;
 }
     
 @property (assign, nonatomic) NSNumber* topicId;

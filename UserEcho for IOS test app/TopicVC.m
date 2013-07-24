@@ -8,6 +8,7 @@
 
 #import "API.h"
 #import "TopicVC.h"
+#import "CommentsVC.h"
 
 @interface TopicVC ()
 
@@ -30,6 +31,7 @@ NSDictionary *topic;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    btnComments.tag=[self.topicId intValue];
     NSLog(@"TID=%@",self.topicId);
     [self getTopic];
 }
@@ -109,5 +111,19 @@ NSDictionary *topic;
   
     NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
 }
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ShowComments"]) {
+        
+        CommentsVC *CommentsVC = segue.destinationViewController;
+        UIButton *button=sender;
+        //NSLog(@"SEG showcomments called %ld",(long)button.tag);
+        
+        CommentsVC.topicId = [NSNumber numberWithInt:button.tag];
+        //NSLog(@"SEG showcomments called %@",TopicCommentsScreen.topicId2);
+    }
+}
+
 
 @end

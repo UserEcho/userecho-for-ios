@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CommentsVC : UIViewController
+@interface CommentsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+{
+    IBOutlet UITableView* commentsTable;
+    IBOutlet UITextField* message;
+}
+
+@property (strong, nonatomic) NSNumber* topicId;
 
 @end
