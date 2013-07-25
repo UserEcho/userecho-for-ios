@@ -9,7 +9,8 @@
 #import "UserEchoVC.h"
 #import "TopicVC.h"
 #import "API.h"
-//#import "UeOauth2VC.h"
+#import "UICKeyChainStore.h"
+#import "UEData.h"
 
 #import "GTMOAuth2SignIn.h"
 #import "GTMOAuth2ViewControllerTouch.h"
@@ -53,7 +54,12 @@ NSArray *topicsStream;
     self.navigationItem.title = @"UserEcho";
     self.navigationItem.leftBarButtonItem = btnBack;
     
-    self.navigationItem.rightBarButtonItem = btnSignIn;
+    //self.navigationItem.rightBarButtonItem = btnSignIn;
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSignIn, btnNewTopic, nil];
+    
+    //Restore authoorization
+    [self restoreAuth];
+    
     
     [self refreshStream];
 }
@@ -246,6 +252,12 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
         //Authorization was successful - get location information
        // [self getLocationInfo:[auth accessToken]];
         NSLog(@"Token=%@",[auth accessToken]);
+        
+        //Save token to keychain for later use
+        [UICKeyChainStore setString:[auth accessToken] forKey:@"access_token"];
+        
+        //Store to global var
+        [UEData getInstance].access_token= [auth accessToken];
     }
 }
 
@@ -292,5 +304,14 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     
 }
 
+//Restore Auth
+- (void)restoreAuth {
+    // Get the saved authentication, if any, from the keychain.
+    NSString *access_token=[UICKeyChainStore stringForKey:@"access_token"];
+    //Store to global var
+    [UEData getInstance].access_token = access_token;
+    NSLog(@"Token=%@",access_token);//[auth accessToken]);
+  
+}
 
 @end

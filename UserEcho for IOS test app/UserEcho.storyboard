@@ -56,6 +56,7 @@
                     <navigationItem key="navigationItem" id="B4x-i4-hif"/>
                     <connections>
                         <outlet property="btnBack" destination="fsf-eh-EYi" id="fhQ-mw-4XY"/>
+                        <outlet property="btnNewTopic" destination="xWs-AJ-COZ" id="M7r-iS-0kW"/>
                         <outlet property="btnSignIn" destination="rca-dd-7Q5" id="7hd-EE-rK5"/>
                         <outlet property="topicsTable" destination="Zat-Xs-ENI" id="AOD-kI-hYf"/>
                         <segue destination="qbi-Mc-4TB" kind="push" identifier="ShowTopic" id="ldP-6o-0jx"/>
@@ -72,8 +73,28 @@
                         <action selector="signIn" destination="nip-hP-Qce" id="Vrm-xo-rhK"/>
                     </connections>
                 </barButtonItem>
+                <barButtonItem title="New topic" id="xWs-AJ-COZ">
+                    <connections>
+                        <segue destination="OHL-3G-2w5" kind="push" id="nav-du-J1g"/>
+                    </connections>
+                </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="707" y="42"/>
+            <point key="canvasLocation" x="715" y="48"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7nZ-f8-V6X">
+            <objects>
+                <viewController id="OHL-3G-2w5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0jZ-Rg-Can">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="H17-Ge-ot7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VpY-sc-dI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="671"/>
         </scene>
         <!--TopicVC-->
         <scene sceneID="RB9-SU-MlZ">
@@ -136,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGO-Vi-cTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="42"/>
+            <point key="canvasLocation" x="1193" y="48"/>
         </scene>
         <!--CommentsVC-->
         <scene sceneID="vbN-nD-9fd">
@@ -206,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74U-9x-sLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531" y="42"/>
+            <point key="canvasLocation" x="1627" y="48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KxX-eL-7gL">

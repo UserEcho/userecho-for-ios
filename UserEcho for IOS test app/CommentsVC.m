@@ -8,6 +8,7 @@
 
 #import "CommentsVC.h"
 #import "API.h"
+#import "UEData.h"
 
 @interface CommentsVC ()
 
@@ -31,6 +32,8 @@ NSArray *commentsStream;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self refreshStream];
+
+    NSLog(@"Token=%@",[UEData getInstance].access_token);
 }
 
 - (void)didReceiveMemoryWarning

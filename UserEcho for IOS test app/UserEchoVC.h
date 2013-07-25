@@ -14,6 +14,8 @@ IBOutlet UITableView* topicsTable;
     
 IBOutlet UIBarButtonItem* btnBack;
 IBOutlet UIBarButtonItem* btnSignIn;
+IBOutlet UIBarButtonItem* btnNewTopic;
+
     
 //IBOutlet UINavigationController* ueNavController;
 }
