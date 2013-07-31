@@ -9,7 +9,11 @@
 #import "UEData.h"
 
 @implementation UEData
+
 @synthesize access_token;
+@synthesize forum;
+@synthesize user;
+
 static UEData *instance =nil;
 +(UEData *)getInstance
 {

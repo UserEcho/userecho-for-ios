@@ -7,11 +7,11 @@
 //
 
 #import "API.h"
+#import "UEData.h"
 
 //the web location of the service
 #define UEAPIHost @"https://userecho.com"
 #define UEAPIPath @"api/"
-
 #define UEToken @"60a7a52377471538d0c87d84fe5c6a21677dcaf3"
 
 @implementation API
@@ -55,11 +55,13 @@
 //GET method
 -(void)get:(NSString*)command onCompletion:(JSONResponseBlock)completionBlock
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@%@.json",UEAPIHost, UEAPIPath, command ]];
+    NSString* token=[UEData getInstance].access_token;
+    if(!token) token=UEToken;
     
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@%@.json",UEAPIHost, UEAPIPath, command ]];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
-
-    [request addValue:[NSString stringWithFormat:@"Bearer %@", UEToken] forHTTPHeaderField:@"Authorization"];
+    
+    [request addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
     
     AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: request];
     
@@ -79,24 +81,44 @@
     [operation start];
 }
 
--(void)commandWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
+-(void)post:(NSString*)command params:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
 {
-    NSMutableURLRequest *apiRequest =
+    NSString* token=[UEData getInstance].access_token;
+    if(!token) token=UEToken;
+    
+    NSString* path = [NSString stringWithFormat:@"%@/%@%@.json",UEAPIHost, UEAPIPath, command ];
+    
+    NSString *jsonString=nil;
+    NSData *jsonArray=nil;
+    
+    if([NSJSONSerialization isValidJSONObject:params])
+    {
+      jsonArray = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+      jsonString = [[NSString alloc]initWithData:jsonArray encoding:NSUTF8StringEncoding];
+    }
+    
+    
+    NSMutableURLRequest *request =
     [self multipartFormRequestWithMethod:@"POST"
-                                    path:UEAPIPath
+                                    path:path
                               parameters:params
                constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
                    //TODO: attach file if needed
                }];
     
-    AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: apiRequest];
+    [request setHTTPBody: jsonArray];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+    
+    AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: request];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         //success!
         completionBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //failure :(
-        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error1"]);
+        NSLog(@"OP=%@",operation.responseString);
+        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
     }];
     
     [operation start];

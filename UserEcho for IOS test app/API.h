@@ -18,6 +18,6 @@ typedef void (^JSONResponseBlock)(NSArray* json);
 
 //send an API command to the server
 -(void)get:(NSString*)command onCompletion:(JSONResponseBlock)completionBlock;
--(void)commandWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock;
+-(void)post:(NSString*)command params:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock;
 
 @end

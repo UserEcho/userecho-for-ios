@@ -32,6 +32,11 @@
 		602F17FB17A0308200111BCB /* TopicEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17FA17A0308200111BCB /* TopicEditVC.m */; };
 		602F17FF17A0F94C00111BCB /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17FE17A0F87200111BCB /* UICKeyChainStore.m */; };
 		602F180217A0FDDA00111BCB /* UEData.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F180117A0FDDA00111BCB /* UEData.m */; };
+		602F180B17A26DA700111BCB /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F180517A2624800111BCB /* FPPopoverController.m */; };
+		602F180C17A26EC700111BCB /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F180917A2626300111BCB /* FPTouchView.m */; };
+		602F180D17A26ECF00111BCB /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F180717A2625A00111BCB /* FPPopoverView.m */; };
+		602F181317A2850C00111BCB /* UserMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181217A2850C00111BCB /* UserMenuVC.m */; };
+		602F181617A2B72300111BCB /* VoterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181517A2B72300111BCB /* VoterTVC.m */; };
 		6097E8A9178EB6450004CF02 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E897178EB6450004CF02 /* AFHTTPClient.m */; };
 		6097E8AA178EB6450004CF02 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E899178EB6450004CF02 /* AFHTTPRequestOperation.m */; };
 		6097E8AB178EB6450004CF02 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E89B178EB6450004CF02 /* AFImageRequestOperation.m */; };
@@ -87,6 +92,17 @@
 		602F17FE17A0F87200111BCB /* UICKeyChainStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStore.m; path = ../../../../UICKeyChainStore/Lib/UICKeyChainStore.m; sourceTree = "<group>"; };
 		602F180017A0FDDA00111BCB /* UEData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UEData.h; sourceTree = "<group>"; };
 		602F180117A0FDDA00111BCB /* UEData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UEData.m; sourceTree = "<group>"; };
+		602F180417A2624800111BCB /* FPPopoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FPPopoverController.h; path = ../../../FPPopover/FPPopoverController.h; sourceTree = "<group>"; };
+		602F180517A2624800111BCB /* FPPopoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FPPopoverController.m; path = ../../../FPPopover/FPPopoverController.m; sourceTree = "<group>"; };
+		602F180617A2625A00111BCB /* FPPopoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FPPopoverView.h; path = ../../../FPPopover/FPPopoverView.h; sourceTree = "<group>"; };
+		602F180717A2625A00111BCB /* FPPopoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FPPopoverView.m; path = ../../../FPPopover/FPPopoverView.m; sourceTree = "<group>"; };
+		602F180817A2626300111BCB /* FPTouchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FPTouchView.h; path = ../../../FPPopover/FPTouchView.h; sourceTree = "<group>"; };
+		602F180917A2626300111BCB /* FPTouchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FPTouchView.m; path = ../../../FPPopover/FPTouchView.m; sourceTree = "<group>"; };
+		602F180A17A2626C00111BCB /* ARCMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ARCMacros.h; path = ../../../FPPopover/ARCMacros.h; sourceTree = "<group>"; };
+		602F181117A2850C00111BCB /* UserMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMenuVC.h; sourceTree = "<group>"; };
+		602F181217A2850C00111BCB /* UserMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMenuVC.m; sourceTree = "<group>"; };
+		602F181417A2B72300111BCB /* VoterTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoterTVC.h; sourceTree = "<group>"; };
+		602F181517A2B72300111BCB /* VoterTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoterTVC.m; sourceTree = "<group>"; };
 		6097E896178EB6450004CF02 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6097E897178EB6450004CF02 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6097E898178EB6450004CF02 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -193,6 +209,7 @@
 		600E618A178C1B6C00B7601B /* UserEcho */ = {
 			isa = PBXGroup;
 			children = (
+				602F180317A2621100111BCB /* FPPopover */,
 				602F17FC17A0F85A00111BCB /* UICKeyChainStore */,
 				6097E8BB1797E9930004CF02 /* Supporting Files */,
 				600E6188178C1B5D00B7601B /* UserEcho.storyboard */,
@@ -208,6 +225,10 @@
 				602F17FA17A0308200111BCB /* TopicEditVC.m */,
 				602F180017A0FDDA00111BCB /* UEData.h */,
 				602F180117A0FDDA00111BCB /* UEData.m */,
+				602F181117A2850C00111BCB /* UserMenuVC.h */,
+				602F181217A2850C00111BCB /* UserMenuVC.m */,
+				602F181417A2B72300111BCB /* VoterTVC.h */,
+				602F181517A2B72300111BCB /* VoterTVC.m */,
 			);
 			name = UserEcho;
 			sourceTree = "<group>";
@@ -251,6 +272,20 @@
 				602F17FE17A0F87200111BCB /* UICKeyChainStore.m */,
 			);
 			name = UICKeyChainStore;
+			sourceTree = "<group>";
+		};
+		602F180317A2621100111BCB /* FPPopover */ = {
+			isa = PBXGroup;
+			children = (
+				602F180A17A2626C00111BCB /* ARCMacros.h */,
+				602F180817A2626300111BCB /* FPTouchView.h */,
+				602F180917A2626300111BCB /* FPTouchView.m */,
+				602F180617A2625A00111BCB /* FPPopoverView.h */,
+				602F180717A2625A00111BCB /* FPPopoverView.m */,
+				602F180417A2624800111BCB /* FPPopoverController.h */,
+				602F180517A2624800111BCB /* FPPopoverController.m */,
+			);
+			name = FPPopover;
 			sourceTree = "<group>";
 		};
 		6097E895178EB6450004CF02 /* AFNetworking */ = {
@@ -355,6 +390,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602F180D17A26ECF00111BCB /* FPPopoverView.m in Sources */,
+				602F180C17A26EC700111BCB /* FPTouchView.m in Sources */,
+				602F180B17A26DA700111BCB /* FPPopoverController.m in Sources */,
 				602F17FF17A0F94C00111BCB /* UICKeyChainStore.m in Sources */,
 				602F17F5179EDF0000111BCB /* GTMOAuth2ViewTouch.xib in Sources */,
 				602F17F1179E6D6900111BCB /* GTMOAuth2ViewControllerTouch.m in Sources */,
@@ -380,6 +418,8 @@
 				602F17F8179FCEA100111BCB /* CommentsVC.m in Sources */,
 				602F17FB17A0308200111BCB /* TopicEditVC.m in Sources */,
 				602F180217A0FDDA00111BCB /* UEData.m in Sources */,
+				602F181317A2850C00111BCB /* UserMenuVC.m in Sources */,
+				602F181617A2B72300111BCB /* VoterTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +457,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -432,6 +474,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -448,6 +491,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -456,6 +501,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

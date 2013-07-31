@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TopicEditVC : UIViewController
+{
+    IBOutlet UITextField* topicHeader;
+    IBOutlet UIButton* btnSaveTopic;
+    
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "TopicEditVC.h"
+#import "API.h"
 
 @interface TopicEditVC ()
 
@@ -33,6 +34,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)btnSaveTopicTapped
+{
+    NSLog(@"Saving");
+    
+    [[API sharedInstance] post:[NSString stringWithFormat:@"forums/%u/feedback",  1]
+     
+     
+     
+                 params:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               topicHeader.text,@"header",
+                               @"1",@"feedback_type",
+                               nil]
+
+     
+                 onCompletion:^(NSArray *json) {
+                     //got stream
+                     NSLog(@"Comments stream received");
+                     NSLog(@"%@", json);
+                    
+                 }];
+
+
 }
 
 @end

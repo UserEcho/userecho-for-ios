@@ -15,6 +15,7 @@ IBOutlet UITableView* topicsTable;
 IBOutlet UIBarButtonItem* btnBack;
 IBOutlet UIBarButtonItem* btnSignIn;
 IBOutlet UIBarButtonItem* btnNewTopic;
+IBOutlet UIBarButtonItem* btnUser;
 
     
 //IBOutlet UINavigationController* ueNavController;
@@ -22,6 +23,9 @@ IBOutlet UIBarButtonItem* btnNewTopic;
 
 -(IBAction)backToMainApp;
 -(IBAction)signIn;
+-(IBAction)userClicked;
 //-(void)signInToUserEchoService;
+
+- (void)logOut;
 
 @end

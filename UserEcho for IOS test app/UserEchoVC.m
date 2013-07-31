@@ -11,6 +11,9 @@
 #import "API.h"
 #import "UICKeyChainStore.h"
 #import "UEData.h"
+#import "FPPopoverController.h"
+#import "UserMenuVC.h"
+#import "VoterTVC.h"
 
 #import "GTMOAuth2SignIn.h"
 #import "GTMOAuth2ViewControllerTouch.h"
@@ -22,6 +25,7 @@
 @implementation UserEchoVC
 
 NSArray *topicsStream;
+FPPopoverController *popover;
 
 - (void)backToMainApp {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -54,14 +58,90 @@ NSArray *topicsStream;
     self.navigationItem.title = @"UserEcho";
     self.navigationItem.leftBarButtonItem = btnBack;
     
-    //self.navigationItem.rightBarButtonItem = btnSignIn;
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSignIn, btnNewTopic, nil];
-    
-    //Restore authoorization
+    //Restore authorization
     [self restoreAuth];
     
+    if([UEData getInstance].access_token){
+        [self getCurrentUser:^{
+            
+            
+            //Load user avatar
+            NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[UEData getInstance].user objectForKey:@"avatar_url"]];
+
+            NSURL* imageURL = [NSURL URLWithString:urlString];
+            
+            AFImageRequestOperation* imageOperation =
+            [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
+                                                              success:^(UIImage *image) {
+                                                                  
+                                                                  [btnUser setImage: image];
+                                                                  
+                                                              }];
+            
+            NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+            [queue addOperation:imageOperation];
+            
+            
+            
+            
+            
+            }];
+        
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnUser, btnNewTopic, nil];
+    }
+        else
+        {
+            self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSignIn, btnNewTopic, nil];
+
+        }
     
-    [self refreshStream];
+    //Get default forum if forum not set
+    if(![UEData getInstance].forum) {
+     //   [self getDefaultForum @"xxx" completion:^{
+           // [self displayBalance];  // For example...
+      //  }];
+//        [self getDefaultForum:<#^(void)completionBlock#>]
+        [self getDefaultForum:^{
+            NSLog(@"Def forum received");
+            [self refreshStream];
+        }];
+    }
+    
+    
+}
+
+
+- (void) getCurrentUser:(void (^)(void))completionBlock{
+    [[API sharedInstance] get:@"users/current"
+                 onCompletion:^(NSArray *json) {
+                     //got stream
+                     NSLog(@"Stream received");
+                     NSLog(@"%@", json);
+                     
+                     [UEData getInstance].user=[json objectAtIndex:0];
+
+                     completionBlock();
+                 }];
+    
+}
+
+
+- (void) getDefaultForum:(void (^)(void))completionBlock{
+    [[API sharedInstance] get:@"forums"
+                 onCompletion:^(NSArray *json) {
+                     //got stream
+                     NSLog(@"Stream received");
+                     NSLog(@"%@", json);
+                     
+                     NSPredicate *p = [NSPredicate predicateWithFormat:@"default = %u", 1];
+                     NSArray *matchedDicts = [json filteredArrayUsingPredicate:p];
+                     
+                     NSString *forum_id=[[matchedDicts objectAtIndex:0] objectForKey:@"id"];
+                     [UEData getInstance].forum=forum_id;
+                     NSLog(@"%@", forum_id);
+                     completionBlock();
+                 }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,7 +154,7 @@ NSArray *topicsStream;
 -(void)refreshStream {
     //NSLog(@"Topic load item=%@",self.topicId);
     //just call the "stream" command from the web API
-    [[API sharedInstance] get:@"forums/1/feedback"
+    [[API sharedInstance] get:[NSString stringWithFormat:@"forums/%@/feedback",[UEData getInstance].forum]
                                    onCompletion:^(NSArray *json) {
                                    //got stream
                                    NSLog(@"Stream received");
@@ -130,8 +210,13 @@ NSArray *topicsStream;
     //label = (UILabel *)[cell.contentView viewWithTag:11];
     //[label setText:[topic objectForKey:@"comment"]];
     
-    //label = (UILabel *)[cell.contentView viewWithTag:12];
-    //[label setText:[topic objectForKey:@"date"]];
+    label = (UILabel *)[cell.contentView viewWithTag:12];
+    [label setText:[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_count"]]];
+    
+    UIButton *button = (UIButton* )[cell.contentView viewWithTag:13];
+    
+    [button addTarget: self action: @selector(Vote:withEvent:)
+             forControlEvents: UIControlEventTouchUpInside];
     
     
     //UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
@@ -220,7 +305,7 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     GTMOAuth2Authentication *auth = [self authForCustomService];
     
     // Specify the appropriate scope string, if any, according to the service's API documentation
-    auth.scope = @"read";
+    auth.scope = @"read write";
     
     NSURL *authURL = [NSURL URLWithString:@"https://userecho.com/oauth2/authorize/"];
     
@@ -251,7 +336,7 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     } else {
         //Authorization was successful - get location information
        // [self getLocationInfo:[auth accessToken]];
-        NSLog(@"Token=%@",[auth accessToken]);
+        NSLog(@"Auth=%@",auth);
         
         //Save token to keychain for later use
         [UICKeyChainStore setString:[auth accessToken] forKey:@"access_token"];
@@ -314,4 +399,55 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
   
 }
 
+//UserMenu
+- (IBAction)userClicked{
+    //the view controller you want to present as popover
+    UserMenuVC *controller = [[UIStoryboard storyboardWithName:@"UserEcho" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"UserMenu"];
+    controller.delegate = self;
+    
+    //our popover
+    popover = [[FPPopoverController alloc] initWithViewController:controller];
+    popover.contentSize = CGSizeMake(120,83);
+    
+    //the popover will be presented from the okButton view
+    UIView* btnView = [btnUser valueForKey:@"view"];
+    //On these cases is better to specify the arrow direction
+    [popover setArrowDirection:FPPopoverArrowDirectionUp];
+    [popover presentPopoverFromView:btnView];
+   
+}
+
+//LogOut
+- (void)logOut{
+    NSLog(@"Logout");
+    //[UICKeyChainStore setString:[auth accessToken] forKey:@"access_token"];
+    [UICKeyChainStore removeAllItems];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSignIn, btnNewTopic, nil];
+    [popover dismissPopoverAnimated:YES];
+}
+
+//Vote
+- (void)Vote: (id) sender withEvent: (UIEvent *) event{
+    NSLog(@"Vote");
+    UITouch * touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView: topicsTable];
+    NSIndexPath * indexPath = [topicsTable indexPathForRowAtPoint: location];
+    NSLog(@"Index=%@",indexPath);
+    
+    //Present vote popover
+    VoterTVC *controller = [[UIStoryboard storyboardWithName:@"UserEcho" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"VoterMenu"];
+    controller.delegate = self;
+    
+    //our popover
+    popover = [[FPPopoverController alloc] initWithViewController:controller];
+    popover.contentSize = CGSizeMake(180,120);
+    
+    //the popover will be presented from the okButton view
+    //UIView* btnView = [sender valueForKey:@"view"];
+    //On these cases is better to specify the arrow direction
+    [popover setArrowDirection:FPPopoverArrowDirectionLeft];
+    [popover presentPopoverFromView:sender];
+    
+    
+}
 @end

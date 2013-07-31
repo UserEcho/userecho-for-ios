@@ -112,6 +112,31 @@ NSArray *commentsStream;
     return cell;
 }
 
+-(IBAction)btnSendTapped
+{
+    NSLog(@"Send MSG %@",message.text);
+    // NSLog(@"Topic load item=%@",self.topicId);
+    
+    [[API sharedInstance] post:[NSString stringWithFormat:@"feedback/%@/comments",  self.topicId]
+     
+                        params:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                message.text,@"comment",
+                                nil]
+     
+     
+                  onCompletion:^(NSArray *json) {
+                      NSLog(@"Comment posted");
+                      [self refreshStream];
+                      
+                  }];
+    
+}
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    //   [add your method here];
+    //NSLog(@"RET");
+    return YES;
+}
 
 @end

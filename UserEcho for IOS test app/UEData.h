@@ -10,9 +10,13 @@
 
 @interface UEData : NSObject {
     NSString *access_token;
+    NSString *forum;
+    NSDictionary *user;
     }
 
 @property(nonatomic,retain)NSString *access_token;
+@property(nonatomic,retain)NSString *forum;
+@property(nonatomic,retain)NSDictionary *user;
 
 +(UEData*)getInstance;
 
