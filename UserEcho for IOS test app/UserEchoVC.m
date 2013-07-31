@@ -246,7 +246,8 @@ FPPopoverController *popover;
     AFImageRequestOperation* imageOperation =
     [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
                                                       success:^(UIImage *image) {
-                                                          avatar.image=image;
+                                                      avatar.image=image;
+                                                          
                                                       }];
     
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
@@ -428,19 +429,34 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
 
 //Vote
 - (void)Vote: (id) sender withEvent: (UIEvent *) event{
+    
     NSLog(@"Vote");
     UITouch * touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView: topicsTable];
     NSIndexPath * indexPath = [topicsTable indexPathForRowAtPoint: location];
     NSLog(@"Index=%@",indexPath);
     
+    //UITableViewCell *cell = (UITableViewCell *)[(UIView *)sender superview];
+    
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
     //Present vote popover
     VoterTVC *controller = [[UIStoryboard storyboardWithName:@"UserEcho" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"VoterMenu"];
     controller.delegate = self;
     
+    NSDictionary* topic = [topicsStream objectAtIndex:indexPath.row];
+    NSNumber* id=[topic objectForKey:@"id"];
+    
+    controller.topicId = id;
+    
     //our popover
     popover = [[FPPopoverController alloc] initWithViewController:controller];
     popover.contentSize = CGSizeMake(180,120);
+    
+    controller.popover = popover;
+    
+    UITableViewCell *cell = [topicsTable cellForRowAtIndexPath:indexPath];
+    controller.cell = cell;
     
     //the popover will be presented from the okButton view
     //UIView* btnView = [sender valueForKey:@"view"];

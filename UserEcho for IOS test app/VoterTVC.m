@@ -7,6 +7,7 @@
 //
 
 #import "VoterTVC.h"
+#import "API.h"
 
 @interface VoterTVC ()
 
@@ -113,6 +114,42 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Topic ID=%@",self.topicId);
+    NSLog(@"Action=%ld",(long)indexPath.row);
+    
+    NSNumber *value=[NSNumber numberWithInt:0];
+    
+    if(indexPath.row == 0)
+        {
+        value=[NSNumber numberWithInt:1];
+        }
+    else if (indexPath.row == 1)
+        {
+        value=[NSNumber numberWithInt:-1];
+        }
+    
+    [[API sharedInstance] post:[NSString stringWithFormat:@"feedback/%@/votes",  self.topicId]
+     
+                        params:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                value,@"value",
+                                nil]
+     
+     
+                  onCompletion:^(NSArray *json) {
+                      NSLog(@"Vote completion");
+                      //[self refreshStream];
+                      NSLog(@"Reply=%@",json);
+                      
+                      NSDictionary *topic = (NSDictionary *)json;
+
+                      UILabel *label = (UILabel *)[self.cell.contentView viewWithTag:12]; 
+                      [label setText:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"score"] objectForKey:@"vote_diff"]]];
+                      
+                      
+                      [self.popover dismissPopoverAnimated:YES];
+                  }];
+
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "UserEchoVC.h"
+#import "FPPopoverController.h"
 
 @interface VoterTVC : UITableViewController
 
 @property(nonatomic,assign) UserEchoVC *delegate;
+@property(assign, nonatomic) NSNumber* topicId;
+@property(assign, nonatomic) FPPopoverController *popover;
+
+@property(assign, nonatomic) UITableViewCell *cell;
 
 @end

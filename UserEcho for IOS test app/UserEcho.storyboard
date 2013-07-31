@@ -34,10 +34,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" id="TbE-7v-ihF">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" image="Default.png" id="TbE-7v-ihF">
                                                     <rect key="frame" x="53" y="4" width="32" height="36"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="12" contentMode="left" text="1352" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NcS-bs-i2G">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="12" contentMode="left" text="-135" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NcS-bs-i2G">
                                                     <rect key="frame" x="7" y="11" width="38" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -447,6 +447,53 @@
             <point key="canvasLocation" x="297" y="42"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
+    <classes>
+        <class className="CommentsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="message" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TopicEditVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicEditVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="btnSaveTopic" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TopicVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="btnComments" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="UserEchoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserEchoVC.h"/>
+            <relationships>
+                <relationship kind="action" name="backToMainApp"/>
+                <relationship kind="action" name="signIn"/>
+                <relationship kind="action" name="userClicked"/>
+                <relationship kind="outlet" name="btnBack" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnNewTopic" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnSignIn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnUser" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="topicsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UserMenuVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserMenuVC.h"/>
+        </class>
+        <class className="VoterTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoterTVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
