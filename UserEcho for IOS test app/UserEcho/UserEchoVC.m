@@ -205,21 +205,24 @@ FPPopoverController *popover;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"TSC=%@", [topicsStream count]);
+    NSLog(@"----");
+    NSLog(@"IP=%@", indexPath);
     
     static NSString *simpleTableIdentifier = @"TopicCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    //NSLog(@"Cell=%@", cell);
     
     //cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
     
     NSDictionary* topic = [topicsStream objectAtIndex:indexPath.row];
+   //NSLog(@"Topic=%@", topic);
     
     // Configure Cells
     
     //Topic header
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
-    //[label setText:@"XXX"];
+    //[label setText:[NSString stringWithFormat:@"R=%ld",(long)[indexPath row]]];
     [label setText:[topic objectForKey:@"header"]];
     
     //label = (UILabel *)[cell.contentView viewWithTag:11];
@@ -254,14 +257,32 @@ FPPopoverController *popover;
     
     //Load user avatar
     UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:11];
+    avatar.image=nil;
     
-    NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
+    NSString* urlString = nil;
+    NSString* avatarURL=[[topic objectForKey:@"author"] objectForKey:@"avatar_url"];
+    if([avatarURL hasPrefix:@"http"])
+    {
+        urlString=avatarURL;
+    }
+    else
+        {
+        urlString = [NSString stringWithFormat:@"http://userecho.com%@",avatarURL];
+        }
+        
+    
+    //NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
+    
+    
     NSURL* imageURL = [NSURL URLWithString:urlString];
     
     AFImageRequestOperation* imageOperation =
     [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
                                                       success:^(UIImage *image) {
-                                                      avatar.image=image;
+                                                      //NSLog(@"IP(LOAD)=%@", indexPath);
+                                                      UITableViewCell *cell2 = [tableView cellForRowAtIndexPath:indexPath];
+                                                      UIImageView *avatar2 = (UIImageView *)[cell2.contentView viewWithTag:11];
+                                                      avatar2.image=image;
                                                           
                                                       }];
     
