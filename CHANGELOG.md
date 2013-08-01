@@ -1,5 +1,6 @@
 ## 1.0.1 ##
 
+* Fix comments button on the topic screen now displayed below topic text and not overlaps it.
 * Fix async image loading on topic list fixed, no more mess with avatars.
 * Support for unicode characters in input data.
 * Fix case when application provide incorrect access_token.

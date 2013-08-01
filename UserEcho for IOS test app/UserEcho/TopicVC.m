@@ -87,14 +87,19 @@ NSDictionary *topic;
     frame.size = fittingSize;
     aWebView.frame = frame;
     
+    CGSize bounds = topicScrollView.bounds.size;
+    
+    btnComments.frame = CGRectMake( bounds.width/2-96/2, fittingSize.height+aWebView.frame.origin.y, 96, 44 );
+    
     
     
    // NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
     
     //NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
     
-   topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, fittingSize.height + aWebView.frame.origin.y);
+   topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, fittingSize.height + aWebView.frame.origin.y+44+10);
     
+   
     
   //  self.webViewHeightConstraint.constant = 2000;
 
