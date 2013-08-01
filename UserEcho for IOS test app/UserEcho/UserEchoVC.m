@@ -365,9 +365,17 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
 //Search
 
 -(void)searchStream:(NSString*)query {
-    //NSLog(@"Topic load item=%@",self.topicId);
+    //NSLog(@"Query=%@",query);
     //just call the "stream" command from the web API
-    [[API sharedInstance] get:[NSString stringWithFormat:@"forums/1/feedback/search.json?query=%@",query]
+    
+    NSString* strURL = [NSString stringWithFormat:@"forums/%@/feedback/search",[UEData getInstance].forum];
+    //NSLog(@"Query+URL=%@",strURL);
+    //NSString* encodedURL = [strURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    [[API sharedInstance] get:strURL
+                       params:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               query,@"query",
+                               nil]
                  onCompletion:^(NSArray *json) {
                      //got stream
                      NSLog(@"Stream received");

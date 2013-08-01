@@ -52,11 +52,48 @@
     return self;
 }
 
+-(void)get:(NSString*)command params:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
+{
+    //NSLog(@"Params=%@",params);
+    NSMutableArray* parametersArray = [[NSMutableArray alloc] init];
+    [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        //NSLog(@"Key=%@ Obj=%@",key,obj);
+        [parametersArray addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];
+    }];
+    
+    NSString* parameterString = [parametersArray componentsJoinedByString:@"&"];
+    NSString* encodedParams = [parameterString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //[self get:command onCompletion:completionBlock];
+    
+    NSString* token=[UEData getInstance].access_token;
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@%@.json?%@",UEAPIHost, UEAPIPath, command,encodedParams ]];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [request addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+    
+    AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //success!
+        //NSString *response = [operation responseString];
+        //NSLog(@"RESP=%@", response);
+        completionBlock(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //failure :(
+        NSLog(@"%@",error);
+        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
+    }];
+    
+    NSLog(@"API GET %@", url);
+    
+    [operation start];
+}
+
 //GET method
 -(void)get:(NSString*)command onCompletion:(JSONResponseBlock)completionBlock
 {
     NSString* token=[UEData getInstance].access_token;
-    //if(!token) token=UEToken;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@%@.json",UEAPIHost, UEAPIPath, command ]];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
