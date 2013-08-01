@@ -12,11 +12,18 @@
     NSString *access_token;
     NSString *forum;
     NSDictionary *user;
+    NSNumber *isAuthorised;
+    
+    NSString *key;
+    NSString *secret;
     }
 
 @property(nonatomic,retain)NSString *access_token;
 @property(nonatomic,retain)NSString *forum;
 @property(nonatomic,retain)NSDictionary *user;
+@property(nonatomic,retain)NSNumber *isAuthorised;
+@property(nonatomic,retain)NSString *key;
+@property(nonatomic,retain)NSString *secret;
 
 +(UEData*)getInstance;
 

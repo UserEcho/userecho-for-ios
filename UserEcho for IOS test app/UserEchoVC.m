@@ -55,13 +55,16 @@ FPPopoverController *popover;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //temp
+    //[UICKeyChainStore removeAllItems];
+    
     self.navigationItem.title = @"UserEcho";
     self.navigationItem.leftBarButtonItem = btnBack;
     
     //Restore authorization
     [self restoreAuth];
     
-    if([UEData getInstance].access_token){
+    if([UEData getInstance].isAuthorised==[NSNumber numberWithInt:1]){
         [self getCurrentUser:^{
             
             
@@ -276,8 +279,6 @@ FPPopoverController *popover;
     }
 }
 
-NSString *kMyClientID = @"78049c2c768bf2e6f80d";     // pre-assigned by service
-NSString *kMyClientSecret = @"7caa4c068663a2c4f4ea25757a7b886f14ec948c"; // pre-assigned by service
 static NSString *const kKeychainItemName = @"UserEcho: auth";
 
 - (GTMOAuth2Authentication *)authForCustomService {
@@ -294,8 +295,8 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     auth = [GTMOAuth2Authentication authenticationWithServiceProvider:@"Custom Service"
                                                              tokenURL:tokenURL
                                                           redirectURI:redirectURI
-                                                             clientID:kMyClientID
-                                                         clientSecret:kMyClientSecret];
+                                                             clientID:[UEData getInstance].key
+                                                         clientSecret:[UEData getInstance].secret];
     return auth;
 }
 
@@ -394,9 +395,13 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
 - (void)restoreAuth {
     // Get the saved authentication, if any, from the keychain.
     NSString *access_token=[UICKeyChainStore stringForKey:@"access_token"];
-    //Store to global var
-    [UEData getInstance].access_token = access_token;
-    NSLog(@"Token=%@",access_token);//[auth accessToken]);
+    //If exists store to global var
+    if(access_token)
+        {
+        [UEData getInstance].access_token = access_token;
+        [UEData getInstance].isAuthorised = [NSNumber numberWithInt:1];
+        NSLog(@"Restored Token=%@",access_token);//[auth accessToken]);
+        }
   
 }
 

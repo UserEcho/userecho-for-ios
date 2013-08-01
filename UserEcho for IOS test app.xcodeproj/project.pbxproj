@@ -37,6 +37,7 @@
 		602F180D17A26ECF00111BCB /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F180717A2625A00111BCB /* FPPopoverView.m */; };
 		602F181317A2850C00111BCB /* UserMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181217A2850C00111BCB /* UserMenuVC.m */; };
 		602F181617A2B72300111BCB /* VoterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181517A2B72300111BCB /* VoterTVC.m */; };
+		602F181917A918F700111BCB /* UserEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181817A918F700111BCB /* UserEcho.m */; };
 		6097E8A9178EB6450004CF02 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E897178EB6450004CF02 /* AFHTTPClient.m */; };
 		6097E8AA178EB6450004CF02 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E899178EB6450004CF02 /* AFHTTPRequestOperation.m */; };
 		6097E8AB178EB6450004CF02 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E89B178EB6450004CF02 /* AFImageRequestOperation.m */; };
@@ -103,6 +104,8 @@
 		602F181217A2850C00111BCB /* UserMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMenuVC.m; sourceTree = "<group>"; };
 		602F181417A2B72300111BCB /* VoterTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoterTVC.h; sourceTree = "<group>"; };
 		602F181517A2B72300111BCB /* VoterTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoterTVC.m; sourceTree = "<group>"; };
+		602F181717A918F700111BCB /* UserEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEcho.h; sourceTree = "<group>"; };
+		602F181817A918F700111BCB /* UserEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEcho.m; sourceTree = "<group>"; };
 		6097E896178EB6450004CF02 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6097E897178EB6450004CF02 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6097E898178EB6450004CF02 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				602F181217A2850C00111BCB /* UserMenuVC.m */,
 				602F181417A2B72300111BCB /* VoterTVC.h */,
 				602F181517A2B72300111BCB /* VoterTVC.m */,
+				602F181717A918F700111BCB /* UserEcho.h */,
+				602F181817A918F700111BCB /* UserEcho.m */,
 			);
 			name = UserEcho;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				602F180217A0FDDA00111BCB /* UEData.m in Sources */,
 				602F181317A2850C00111BCB /* UserMenuVC.m in Sources */,
 				602F181617A2B72300111BCB /* VoterTVC.m in Sources */,
+				602F181917A918F700111BCB /* UserEcho.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

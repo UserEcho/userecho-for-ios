@@ -7,6 +7,7 @@
 //
 
 #import "MainPageView.h"
+#import "UserEcho.h"
 
 @interface MainPageView ()
 
@@ -15,11 +16,12 @@
 @implementation MainPageView
 
 - (void)runUserEcho {
-    UIStoryboard *userechoStoryboard = [UIStoryboard storyboardWithName:@"UserEcho" bundle:nil];
-    UIViewController *initialUserechoVC = [userechoStoryboard instantiateInitialViewController];
-    initialUserechoVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentModalViewController:initialUserechoVC animated:YES];
-    
+
+    [UserEcho presentUserEchoCommunity:self config:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                                    @"d0322478cc300ffd1c97",@"key",
+                                                    @"24c2e5135727019f8b3026966fdb3e548a8bbf9c",@"secret",
+                                                    @"62775a3003433201796fc86b3cb1c98a160ae4c9",@"access_token",
+                                                    nil]];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

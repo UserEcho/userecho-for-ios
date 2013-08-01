@@ -12,7 +12,7 @@
 //the web location of the service
 #define UEAPIHost @"https://userecho.com"
 #define UEAPIPath @"api/"
-#define UEToken @"60a7a52377471538d0c87d84fe5c6a21677dcaf3"
+//#define UEToken @"60a7a52377471538d0c87d84fe5c6a21677dcaf3"
 
 @implementation API
 
@@ -56,7 +56,7 @@
 -(void)get:(NSString*)command onCompletion:(JSONResponseBlock)completionBlock
 {
     NSString* token=[UEData getInstance].access_token;
-    if(!token) token=UEToken;
+    //if(!token) token=UEToken;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@%@.json",UEAPIHost, UEAPIPath, command ]];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -84,7 +84,7 @@
 -(void)post:(NSString*)command params:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock
 {
     NSString* token=[UEData getInstance].access_token;
-    if(!token) token=UEToken;
+    //if(!token) token=UEToken;
     
     NSString* path = [NSString stringWithFormat:@"%@/%@%@.json",UEAPIHost, UEAPIPath, command ];
     
