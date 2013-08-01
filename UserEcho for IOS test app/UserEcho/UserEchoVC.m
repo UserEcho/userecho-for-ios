@@ -115,15 +115,26 @@ FPPopoverController *popover;
 
 
 - (void) getCurrentUser:(void (^)(void))completionBlock{
+ 
     [[API sharedInstance] get:@"users/current"
                  onCompletion:^(NSArray *json) {
-                     //got stream
-                     NSLog(@"Stream received");
-                     NSLog(@"%@", json);
-                     
-                     [UEData getInstance].user=[json objectAtIndex:0];
+                     //Convert to dict
+                     NSLog(@"Auth reply received");
+                     NSDictionary *reply=(NSDictionary*)json;
 
-                     completionBlock();
+                     if([[reply objectForKey:@"status"] isEqual: @"success"])
+                        {
+                        NSLog(@"Auth OK");
+                        [UEData getInstance].user=[reply objectForKey:@"user"];
+                        completionBlock();
+                        }
+                     else
+                     {
+                         NSLog(@"Auth NONE");
+                         [self logOut];
+                     }
+                     
+                     
                  }];
     
 }
@@ -426,8 +437,9 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
 //LogOut
 - (void)logOut{
     NSLog(@"Logout");
-    //[UICKeyChainStore setString:[auth accessToken] forKey:@"access_token"];
     [UICKeyChainStore removeAllItems];
+    [UEData getInstance].isAuthorised=[NSNumber numberWithInt:0];
+    [UEData getInstance].access_token=[UEData getInstance].app_access_token;
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSignIn, btnNewTopic, nil];
     [popover dismissPopoverAnimated:YES];
 }

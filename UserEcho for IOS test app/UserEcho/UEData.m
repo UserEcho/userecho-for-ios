@@ -11,6 +11,7 @@
 @implementation UEData
 
 @synthesize access_token;
+@synthesize app_access_token;
 @synthesize forum;
 @synthesize user;
 

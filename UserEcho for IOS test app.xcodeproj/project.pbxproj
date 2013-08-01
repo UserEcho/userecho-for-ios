@@ -21,6 +21,7 @@
 		600E6187178C151A00B7601B /* MainPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E6186178C151A00B7601B /* MainPageView.m */; };
 		600E6189178C1B5D00B7601B /* UserEcho.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600E6188178C1B5D00B7601B /* UserEcho.storyboard */; };
 		600E618D178C1C9900B7601B /* UserEchoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E618C178C1C9900B7601B /* UserEchoVC.m */; };
+		601FFF6717AA715A00652A8E /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 601FFF6617AA715A00652A8E /* CHANGELOG.md */; };
 		602F17CE179E697200111BCB /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17AA179E697100111BCB /* GTMHTTPFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		602F17EA179E6ADB00111BCB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 602F17E9179E6ADB00111BCB /* SystemConfiguration.framework */; };
 		602F17EC179E6AE200111BCB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 602F17EB179E6AE200111BCB /* Security.framework */; };
@@ -74,6 +75,7 @@
 		600E6188178C1B5D00B7601B /* UserEcho.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserEcho.storyboard; path = UserEcho/UserEcho.storyboard; sourceTree = "<group>"; };
 		600E618B178C1C9900B7601B /* UserEchoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEchoVC.h; path = UserEcho/UserEchoVC.h; sourceTree = "<group>"; };
 		600E618C178C1C9900B7601B /* UserEchoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEchoVC.m; path = UserEcho/UserEchoVC.m; sourceTree = "<group>"; };
+		601FFF6617AA715A00652A8E /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		602F179B179E63DB00111BCB /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
 		602F179C179E63DB00111BCB /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2Authentication.m; sourceTree = "<group>"; };
 		602F179D179E63DB00111BCB /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		600E6169178C0F5100B7601B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				601FFF6617AA715A00652A8E /* CHANGELOG.md */,
 				600E616A178C0F5100B7601B /* UserEcho for IOS test app-Info.plist */,
 				600E616B178C0F5100B7601B /* InfoPlist.strings */,
 				600E616E178C0F5100B7601B /* main.m */,
@@ -396,6 +399,7 @@
 				600E617C178C0F5100B7601B /* MainStoryboard.storyboard in Resources */,
 				600E6189178C1B5D00B7601B /* UserEcho.storyboard in Resources */,
 				6097E8BD1797E9CD0004CF02 /* UserEcho.css in Resources */,
+				601FFF6717AA715A00652A8E /* CHANGELOG.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

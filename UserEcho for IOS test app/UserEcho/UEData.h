@@ -10,6 +10,7 @@
 
 @interface UEData : NSObject {
     NSString *access_token;
+    NSString *app_access_token;
     NSString *forum;
     NSDictionary *user;
     NSNumber *isAuthorised;
@@ -19,6 +20,7 @@
     }
 
 @property(nonatomic,retain)NSString *access_token;
+@property(nonatomic,retain)NSString *app_access_token;
 @property(nonatomic,retain)NSString *forum;
 @property(nonatomic,retain)NSDictionary *user;
 @property(nonatomic,retain)NSNumber *isAuthorised;

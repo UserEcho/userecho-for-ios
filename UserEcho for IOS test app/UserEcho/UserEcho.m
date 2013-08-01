@@ -16,6 +16,7 @@
     //Configure token
     [UEData getInstance].key=[config valueForKey:@"key"];
     [UEData getInstance].secret=[config valueForKey:@"secret"];
+    [UEData getInstance].app_access_token=[config valueForKey:@"access_token"];
     [UEData getInstance].access_token=[config valueForKey:@"access_token"];
     NSLog(@"Token=%@",[UEData getInstance].access_token);
     
