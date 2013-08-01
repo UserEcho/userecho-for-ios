@@ -38,6 +38,7 @@
 		602F181317A2850C00111BCB /* UserMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181217A2850C00111BCB /* UserMenuVC.m */; };
 		602F181617A2B72300111BCB /* VoterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181517A2B72300111BCB /* VoterTVC.m */; };
 		602F181917A918F700111BCB /* UserEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181817A918F700111BCB /* UserEcho.m */; };
+		602F181C17AA3E3000111BCB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 602F181B17AA3E3000111BCB /* .gitignore */; };
 		6097E8A9178EB6450004CF02 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E897178EB6450004CF02 /* AFHTTPClient.m */; };
 		6097E8AA178EB6450004CF02 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E899178EB6450004CF02 /* AFHTTPRequestOperation.m */; };
 		6097E8AB178EB6450004CF02 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E89B178EB6450004CF02 /* AFImageRequestOperation.m */; };
@@ -106,6 +107,7 @@
 		602F181517A2B72300111BCB /* VoterTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoterTVC.m; sourceTree = "<group>"; };
 		602F181717A918F700111BCB /* UserEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEcho.h; sourceTree = "<group>"; };
 		602F181817A918F700111BCB /* UserEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEcho.m; sourceTree = "<group>"; };
+		602F181B17AA3E3000111BCB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		6097E896178EB6450004CF02 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6097E897178EB6450004CF02 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6097E898178EB6450004CF02 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -180,8 +182,6 @@
 		600E6168178C0F5100B7601B /* UserEcho for IOS test app */ = {
 			isa = PBXGroup;
 			children = (
-				602F179A179E60C200111BCB /* gtm-oauth2 */,
-				6097E895178EB6450004CF02 /* AFNetworking */,
 				600E618A178C1B6C00B7601B /* UserEcho */,
 				600E6171178C0F5100B7601B /* AppDelegate.h */,
 				600E6172178C0F5100B7601B /* AppDelegate.m */,
@@ -191,6 +191,7 @@
 				600E6169178C0F5100B7601B /* Supporting Files */,
 				600E6185178C151A00B7601B /* MainPageView.h */,
 				600E6186178C151A00B7601B /* MainPageView.m */,
+				602F181B17AA3E3000111BCB /* .gitignore */,
 			);
 			path = "UserEcho for IOS test app";
 			sourceTree = "<group>";
@@ -212,8 +213,7 @@
 		600E618A178C1B6C00B7601B /* UserEcho */ = {
 			isa = PBXGroup;
 			children = (
-				602F180317A2621100111BCB /* FPPopover */,
-				602F17FC17A0F85A00111BCB /* UICKeyChainStore */,
+				602F181A17AA34E800111BCB /* Vendor */,
 				6097E8BB1797E9930004CF02 /* Supporting Files */,
 				600E6188178C1B5D00B7601B /* UserEcho.storyboard */,
 				600E618B178C1C9900B7601B /* UserEchoVC.h */,
@@ -291,6 +291,17 @@
 				602F180517A2624800111BCB /* FPPopoverController.m */,
 			);
 			name = FPPopover;
+			sourceTree = "<group>";
+		};
+		602F181A17AA34E800111BCB /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				602F179A179E60C200111BCB /* gtm-oauth2 */,
+				6097E895178EB6450004CF02 /* AFNetworking */,
+				602F17FC17A0F85A00111BCB /* UICKeyChainStore */,
+				602F180317A2621100111BCB /* FPPopover */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 		6097E895178EB6450004CF02 /* AFNetworking */ = {
@@ -385,6 +396,7 @@
 				600E617C178C0F5100B7601B /* MainStoryboard.storyboard in Resources */,
 				600E6189178C1B5D00B7601B /* UserEcho.storyboard in Resources */,
 				6097E8BD1797E9CD0004CF02 /* UserEcho.css in Resources */,
+				602F181C17AA3E3000111BCB /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
