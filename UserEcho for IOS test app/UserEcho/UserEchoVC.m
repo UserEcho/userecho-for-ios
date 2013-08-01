@@ -50,6 +50,32 @@ FPPopoverController *popover;
     return self;
 }
 
+
+- (void)loadUser {
+    [self getCurrentUser:^{
+        
+        
+        //Load user avatar
+        NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[UEData getInstance].user objectForKey:@"avatar_url"]];
+        
+        NSURL* imageURL = [NSURL URLWithString:urlString];
+        
+        AFImageRequestOperation* imageOperation =
+        [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
+                                                          success:^(UIImage *image) {
+                                                              
+                                                              [btnUser setImage: image];
+                                                              
+                                                          }];
+        
+        NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+        [queue addOperation:imageOperation];
+        
+    }];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnUser, btnNewTopic, nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -65,32 +91,7 @@ FPPopoverController *popover;
     [self restoreAuth];
     
     if([UEData getInstance].isAuthorised==[NSNumber numberWithInt:1]){
-        [self getCurrentUser:^{
-            
-            
-            //Load user avatar
-            NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[UEData getInstance].user objectForKey:@"avatar_url"]];
-
-            NSURL* imageURL = [NSURL URLWithString:urlString];
-            
-            AFImageRequestOperation* imageOperation =
-            [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
-                                                              success:^(UIImage *image) {
-                                                                  
-                                                                  [btnUser setImage: image];
-                                                                  
-                                                              }];
-            
-            NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-            [queue addOperation:imageOperation];
-            
-            
-            
-            
-            
-            }];
-        
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnUser, btnNewTopic, nil];
+        [self loadUser];
     }
         else
         {
@@ -356,6 +357,7 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
         
         //Store to global var
         [UEData getInstance].access_token= [auth accessToken];
+        [self loadUser];
     }
 }
 
