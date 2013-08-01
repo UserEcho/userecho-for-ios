@@ -72,28 +72,28 @@
 		600E617E178C0F5100B7601B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		600E6185178C151A00B7601B /* MainPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageView.h; sourceTree = "<group>"; };
 		600E6186178C151A00B7601B /* MainPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageView.m; sourceTree = "<group>"; };
-		600E6188178C1B5D00B7601B /* UserEcho.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEcho.storyboard; sourceTree = "<group>"; };
-		600E618B178C1C9900B7601B /* UserEchoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEchoVC.h; sourceTree = "<group>"; };
-		600E618C178C1C9900B7601B /* UserEchoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEchoVC.m; sourceTree = "<group>"; };
-		602F179B179E63DB00111BCB /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
-		602F179C179E63DB00111BCB /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2Authentication.m; sourceTree = "<group>"; };
-		602F179D179E63DB00111BCB /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
-		602F179E179E63DB00111BCB /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2SignIn.m; sourceTree = "<group>"; };
-		602F17A0179E641D00111BCB /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
-		602F17A1179E641D00111BCB /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
-		602F17A2179E641D00111BCB /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
-		602F17A9179E697100111BCB /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcher.h; sourceTree = "<group>"; };
-		602F17AA179E697100111BCB /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcher.m; sourceTree = "<group>"; };
+		600E6188178C1B5D00B7601B /* UserEcho.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserEcho.storyboard; path = UserEcho/UserEcho.storyboard; sourceTree = "<group>"; };
+		600E618B178C1C9900B7601B /* UserEchoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEchoVC.h; path = UserEcho/UserEchoVC.h; sourceTree = "<group>"; };
+		600E618C178C1C9900B7601B /* UserEchoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEchoVC.m; path = UserEcho/UserEchoVC.m; sourceTree = "<group>"; };
+		602F179B179E63DB00111BCB /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2Authentication.h; path = "UserEcho/Vendors/gtm-oauth2/GTMOAuth2Authentication.h"; sourceTree = "<group>"; };
+		602F179C179E63DB00111BCB /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2Authentication.m; path = "UserEcho/Vendors/gtm-oauth2/GTMOAuth2Authentication.m"; sourceTree = "<group>"; };
+		602F179D179E63DB00111BCB /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2SignIn.h; path = "UserEcho/Vendors/gtm-oauth2/GTMOAuth2SignIn.h"; sourceTree = "<group>"; };
+		602F179E179E63DB00111BCB /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2SignIn.m; path = "UserEcho/Vendors/gtm-oauth2/GTMOAuth2SignIn.m"; sourceTree = "<group>"; };
+		602F17A0179E641D00111BCB /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2ViewControllerTouch.h; path = "UserEcho/Vendors/gtm-oauth2/GTMOAuth2ViewControllerTouch.h"; sourceTree = "<group>"; };
+		602F17A1179E641D00111BCB /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2ViewControllerTouch.m; path = "UserEcho/Vendors/gtm-oauth2/GTMOAuth2ViewControllerTouch.m"; sourceTree = "<group>"; };
+		602F17A2179E641D00111BCB /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = "UserEcho/Vendors/gtm-oauth2/GTMOAuth2ViewTouch.xib"; sourceTree = "<group>"; };
+		602F17A9179E697100111BCB /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcher.h; path = "../UserEcho/Vendors/gtm-oauth2/HTTPFetcher/GTMHTTPFetcher.h"; sourceTree = "<group>"; };
+		602F17AA179E697100111BCB /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPFetcher.m; path = "../UserEcho/Vendors/gtm-oauth2/HTTPFetcher/GTMHTTPFetcher.m"; sourceTree = "<group>"; };
 		602F17E9179E6ADB00111BCB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		602F17EB179E6AE200111BCB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		602F17F6179FCEA100111BCB /* CommentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsVC.h; sourceTree = "<group>"; };
-		602F17F7179FCEA100111BCB /* CommentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsVC.m; sourceTree = "<group>"; };
-		602F17F917A0308200111BCB /* TopicEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicEditVC.h; sourceTree = "<group>"; };
-		602F17FA17A0308200111BCB /* TopicEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicEditVC.m; sourceTree = "<group>"; };
+		602F17F6179FCEA100111BCB /* CommentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsVC.h; path = UserEcho/CommentsVC.h; sourceTree = "<group>"; };
+		602F17F7179FCEA100111BCB /* CommentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsVC.m; path = UserEcho/CommentsVC.m; sourceTree = "<group>"; };
+		602F17F917A0308200111BCB /* TopicEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicEditVC.h; path = UserEcho/TopicEditVC.h; sourceTree = "<group>"; };
+		602F17FA17A0308200111BCB /* TopicEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicEditVC.m; path = UserEcho/TopicEditVC.m; sourceTree = "<group>"; };
 		602F17FD17A0F87200111BCB /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UICKeyChainStore.h; path = ../../../../UICKeyChainStore/Lib/UICKeyChainStore.h; sourceTree = "<group>"; };
 		602F17FE17A0F87200111BCB /* UICKeyChainStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStore.m; path = ../../../../UICKeyChainStore/Lib/UICKeyChainStore.m; sourceTree = "<group>"; };
-		602F180017A0FDDA00111BCB /* UEData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UEData.h; sourceTree = "<group>"; };
-		602F180117A0FDDA00111BCB /* UEData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UEData.m; sourceTree = "<group>"; };
+		602F180017A0FDDA00111BCB /* UEData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UEData.h; path = UserEcho/UEData.h; sourceTree = "<group>"; };
+		602F180117A0FDDA00111BCB /* UEData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UEData.m; path = UserEcho/UEData.m; sourceTree = "<group>"; };
 		602F180417A2624800111BCB /* FPPopoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FPPopoverController.h; path = ../../../FPPopover/FPPopoverController.h; sourceTree = "<group>"; };
 		602F180517A2624800111BCB /* FPPopoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FPPopoverController.m; path = ../../../FPPopover/FPPopoverController.m; sourceTree = "<group>"; };
 		602F180617A2625A00111BCB /* FPPopoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FPPopoverView.h; path = ../../../FPPopover/FPPopoverView.h; sourceTree = "<group>"; };
@@ -101,12 +101,12 @@
 		602F180817A2626300111BCB /* FPTouchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FPTouchView.h; path = ../../../FPPopover/FPTouchView.h; sourceTree = "<group>"; };
 		602F180917A2626300111BCB /* FPTouchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FPTouchView.m; path = ../../../FPPopover/FPTouchView.m; sourceTree = "<group>"; };
 		602F180A17A2626C00111BCB /* ARCMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ARCMacros.h; path = ../../../FPPopover/ARCMacros.h; sourceTree = "<group>"; };
-		602F181117A2850C00111BCB /* UserMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMenuVC.h; sourceTree = "<group>"; };
-		602F181217A2850C00111BCB /* UserMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMenuVC.m; sourceTree = "<group>"; };
-		602F181417A2B72300111BCB /* VoterTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoterTVC.h; sourceTree = "<group>"; };
-		602F181517A2B72300111BCB /* VoterTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoterTVC.m; sourceTree = "<group>"; };
-		602F181717A918F700111BCB /* UserEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEcho.h; sourceTree = "<group>"; };
-		602F181817A918F700111BCB /* UserEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEcho.m; sourceTree = "<group>"; };
+		602F181117A2850C00111BCB /* UserMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserMenuVC.h; path = UserEcho/UserMenuVC.h; sourceTree = "<group>"; };
+		602F181217A2850C00111BCB /* UserMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserMenuVC.m; path = UserEcho/UserMenuVC.m; sourceTree = "<group>"; };
+		602F181417A2B72300111BCB /* VoterTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoterTVC.h; path = UserEcho/VoterTVC.h; sourceTree = "<group>"; };
+		602F181517A2B72300111BCB /* VoterTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoterTVC.m; path = UserEcho/VoterTVC.m; sourceTree = "<group>"; };
+		602F181717A918F700111BCB /* UserEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEcho.h; path = UserEcho/UserEcho.h; sourceTree = "<group>"; };
+		602F181817A918F700111BCB /* UserEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEcho.m; path = UserEcho/UserEcho.m; sourceTree = "<group>"; };
 		602F181B17AA3E3000111BCB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		6097E896178EB6450004CF02 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6097E897178EB6450004CF02 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 		6097E8A8178EB6450004CF02 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		6097E8B2178EB6B70004CF02 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = API.h; path = UserEcho/API.h; sourceTree = "<group>"; };
 		6097E8B3178EB6B70004CF02 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = API.m; path = UserEcho/API.m; sourceTree = "<group>"; };
-		6097E8B81797C6CA0004CF02 /* TopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicVC.h; sourceTree = "<group>"; };
-		6097E8B91797C6CB0004CF02 /* TopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicVC.m; sourceTree = "<group>"; };
+		6097E8B81797C6CA0004CF02 /* TopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicVC.h; path = UserEcho/TopicVC.h; sourceTree = "<group>"; };
+		6097E8B91797C6CB0004CF02 /* TopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicVC.m; path = UserEcho/TopicVC.m; sourceTree = "<group>"; };
 		6097E8BC1797E9CD0004CF02 /* UserEcho.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = UserEcho.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,7 +327,8 @@
 				6097E8A7178EB6450004CF02 /* UIImageView+AFNetworking.h */,
 				6097E8A8178EB6450004CF02 /* UIImageView+AFNetworking.m */,
 			);
-			path = AFNetworking;
+			name = AFNetworking;
+			path = UserEcho/Vendors/AFNetworking;
 			sourceTree = "<group>";
 		};
 		6097E8BB1797E9930004CF02 /* Supporting Files */ = {
