@@ -14,6 +14,10 @@
 @synthesize forum;
 @synthesize user;
 
+@synthesize key;
+@synthesize secret;
+@synthesize isAuthorised;
+
 static UEData *instance =nil;
 +(UEData *)getInstance
 {
