@@ -32,9 +32,10 @@ NSMutableDictionary *messageHeightDictionary;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self registerForKeyboardNotifications];
     [self refreshStream];
 
-    NSLog(@"Token=%@",[UEData getInstance].access_token);
+    //NSLog(@"Token=%@",[UEData getInstance].access_token);
 }
 
 - (void)didReceiveMemoryWarning
@@ -223,6 +224,50 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
             return 56;
         
     }
+}
+
+//Keyboard
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSLog(@"KEYB Show");
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, message.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, message.frame.origin.y+55-kbSize.height);
+        [scrollView setContentOffset:scrollPoint animated:YES];
+    }
+    
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    NSLog(@"KEYB Hidden");
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
 }
 
 @end

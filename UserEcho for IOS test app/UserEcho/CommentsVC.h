@@ -10,6 +10,7 @@
 
 @interface CommentsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
+    IBOutlet UIScrollView* scrollView;
     IBOutlet UITableView* commentsTable;
     IBOutlet UITextField* message;
 }

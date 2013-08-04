@@ -1,4 +1,6 @@
 ## 1.0.2 ##
+
+* Fix keyboard in comment view doesn't hide comment input field now.
 * Add html support in the comments view, comments autosizing.
 
 ## 1.0.1 ##
