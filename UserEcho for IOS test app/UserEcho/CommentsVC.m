@@ -17,6 +17,7 @@
 @implementation CommentsVC
 
 NSArray *commentsStream;
+NSMutableDictionary *messageHeightDictionary;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,6 +77,7 @@ NSArray *commentsStream;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Cell For Row called");
     
     static NSString *simpleTableIdentifier = @"CommentCell";
     
@@ -87,18 +89,50 @@ NSArray *commentsStream;
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
     [label setText:[[comment objectForKey:@"author"] objectForKey:@"name"]];
     
-    label = (UILabel *)[cell.contentView viewWithTag:11];
-    [label setText:[comment objectForKey:@"comment"]];
+    //Set comment
+    UIWebView* view = (UIWebView *)[cell.contentView viewWithTag:11];
     
-    //label = (UILabel *)[cell.contentView viewWithTag:12];
-    //[label setText:[topic objectForKey:@"date"]];
+    NSString *pathToCSS = [[NSBundle mainBundle] pathForResource:@"UserEcho" ofType:@"css"];
+    NSString *CSS = [NSString stringWithContentsOfFile:pathToCSS encoding:NSUTF8StringEncoding error:NULL];
+    //NSLog(@"CSS=%@",CSS);
+    NSString *html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[comment objectForKey:@"comment"]];
+    
+    [view loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
+    //[label setText:[comment objectForKey:@"comment"]];
+    
+    //Load user avatar
+    //UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
+    
+    //NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[comment objectForKey:@"author"] objectForKey:@"avatar_url"]];
+    //NSURL* imageURL = [NSURL URLWithString:urlString];
+    
     
     
     //Load user avatar
     UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
+    avatar.image=nil;
     
-    NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[comment objectForKey:@"author"] objectForKey:@"avatar_url"]];
+    NSString* urlString = nil;
+    NSString* avatarURL=[[comment objectForKey:@"author"] objectForKey:@"avatar_url"];
+    if([avatarURL hasPrefix:@"http"])
+    {
+        urlString=avatarURL;
+    }
+    else
+    {
+        urlString = [NSString stringWithFormat:@"http://userecho.com%@",avatarURL];
+    }
+    
+    
+    //NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
+    
+    
     NSURL* imageURL = [NSURL URLWithString:urlString];
+
+    
+    
+    
+    
     
     AFImageRequestOperation* imageOperation =
     [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
@@ -137,6 +171,58 @@ NSArray *commentsStream;
     //   [add your method here];
     //NSLog(@"RET");
     return YES;
+}
+
+//Description auto-height
+- (void)webViewDidFinishLoad:(UIWebView *)aWebView {
+    
+    aWebView.scrollView.scrollEnabled = NO;
+  
+    NSLog(@"WEB VIEW LOADED");
+    
+    CGRect frame = aWebView.frame;
+    frame.size.height = 1;
+    aWebView.frame = frame;
+    
+    CGSize fittingSize = [aWebView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    aWebView.frame = frame;
+    
+   // NSLog(@"TAG=%ld",(long)aWebView.tag);
+    
+    UITableViewCell *cell = (UITableViewCell *)[[aWebView superview] superview];
+    NSLog(@"Cell=%@",cell);
+    NSIndexPath *indexPath = [commentsTable indexPathForCell:cell];
+    NSLog(@"IPF=%@",indexPath);
+    
+    // Create a new dictionary if none exists.
+    if (messageHeightDictionary == nil)
+        messageHeightDictionary = [NSMutableDictionary new];
+    
+    // Store the height of the webview in the dictionary for this postId.
+    [messageHeightDictionary setObject:[NSString stringWithFormat:@"%f", aWebView.frame.size.height] forKey:indexPath];
+    
+    [commentsTable beginUpdates];
+    //[commentsTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [commentsTable endUpdates];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"IP=%@",indexPath);
+    
+    NSString* height=[messageHeightDictionary objectForKey:indexPath];
+    NSLog(@"Height=%@",height);
+    if(height)
+        {
+            return [height floatValue]+26;
+
+        }
+    else
+    {
+            return 56;
+        
+    }
 }
 
 @end

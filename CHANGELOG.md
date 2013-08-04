@@ -1,3 +1,6 @@
+## 1.0.2 ##
+* Add html support in the comments view, comments autosizing.
+
 ## 1.0.1 ##
 
 * Fix comments button on the topic screen now displayed below topic text and not overlaps it.
