@@ -34,6 +34,10 @@ FPPopoverController *popover;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [btnComments setTitle:NSLocalizedStringFromTable(@"Comments",@"UserEcho",nil) forState:UIControlStateNormal];
+    [btnComments sizeToFit];
+    
+    
     btnComments.tag=[self.topicId intValue];
     NSLog(@"TID=%@",self.topicId);
     
@@ -123,7 +127,9 @@ FPPopoverController *popover;
     
     CGSize bounds = topicScrollView.bounds.size;
     
-    btnComments.frame = CGRectMake( bounds.width/2-96/2, fittingSize.height+aWebView.frame.origin.y, 96, 44 );
+    frame=btnComments.frame;
+    
+    btnComments.frame = CGRectMake( bounds.width/2-frame.size.width/2, fittingSize.height+aWebView.frame.origin.y, frame.size.width, 44 );
     
     
     

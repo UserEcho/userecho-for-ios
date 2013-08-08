@@ -80,9 +80,17 @@ FPPopoverController *popover;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    //Assign captions for buttons
+    btnBack.title = NSLocalizedStringFromTable(@"Back",@"UserEcho",nil);
+    btnNewTopic .title = NSLocalizedStringFromTable(@"New topic",@"UserEcho",nil);
+    btnSignIn.title = NSLocalizedStringFromTable(@"Sign in",@"UserEcho",nil);
     
-    //temp
-    //[UICKeyChainStore removeAllItems];
+    sbSearch.placeholder = NSLocalizedStringFromTable(@"Search2 for an ideas",@"UserEcho",nil);
+    
+    [sbSearch setPlaceholder:NSLocalizedStringFromTable(@"Search for an ideas",@"UserEcho",nil)];
+    
+    
     
     self.navigationItem.title = @"UserEcho";
     self.navigationItem.leftBarButtonItem = btnBack;
@@ -540,8 +548,8 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Authorisation required"
-                                                        message:@"Sign in first to leave feedback."
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Authorisation required",nil)
+                                                        message:NSLocalizedString(@"Sign in first to leave feedback.",nil)
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

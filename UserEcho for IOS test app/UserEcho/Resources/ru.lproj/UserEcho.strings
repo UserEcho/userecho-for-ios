@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  UserEcho for IOS test app
+
+  Created by Sergey Stukov on 8/8/13.
+  Copyright (c) 2013 UserEcho. All rights reserved.
+*/
+
+"Authorisation required" = "Требуется авторизация";
+"New topic" = "Написать отзыв";
+"Back" = "Назад";
+"New topic" = "+Отзыв";
+"Sign in" = "Войти";
+"Search for an ideas" = "Поиск по сообществу";
+"Comments" = "Комментарии";
+"Send" = "Отправить";
+"Type your comment" = "Пишите комментарий тут";

@@ -13,6 +13,7 @@
     IBOutlet UIScrollView* scrollView;
     IBOutlet UITableView* commentsTable;
     IBOutlet UITextField* message;
+    IBOutlet UIButton* btnSend;
 }
 
 @property (strong, nonatomic) NSNumber* topicId;

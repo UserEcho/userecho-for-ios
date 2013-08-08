@@ -76,7 +76,7 @@
                                     <outlet property="delegate" destination="nip-hP-Qce" id="6ce-qM-BKZ"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search for an ideas" id="t2H-bq-1fd">
+                            <searchBar contentMode="redraw" id="t2H-bq-1fd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -93,6 +93,7 @@
                         <outlet property="btnNewTopic" destination="xWs-AJ-COZ" id="M7r-iS-0kW"/>
                         <outlet property="btnSignIn" destination="rca-dd-7Q5" id="7hd-EE-rK5"/>
                         <outlet property="btnUser" destination="j3B-Ek-iJl" id="QHL-bE-nOB"/>
+                        <outlet property="sbSearch" destination="t2H-bq-1fd" id="ZvL-1I-nix"/>
                         <outlet property="topicsTable" destination="Zat-Xs-ENI" id="AOD-kI-hYf"/>
                         <segue destination="qbi-Mc-4TB" kind="push" identifier="ShowTopic" id="ldP-6o-0jx"/>
                     </connections>
@@ -313,12 +314,12 @@
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" id="ani-4l-b5L">
                                 <rect key="frame" x="-1" y="0.0" width="322" height="416"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sU4-sH-Uqq">
-                                        <rect key="frame" x="112" y="97" width="96" height="44"/>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sU4-sH-Uqq">
+                                        <rect key="frame" x="87" y="104" width="148" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" title="Comments">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -478,6 +479,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GTO-J9-mZG"/>
                     <connections>
+                        <outlet property="btnSend" destination="XPc-t7-SIq" id="HQQ-9r-xGO"/>
                         <outlet property="commentsTable" destination="XDB-qH-nkm" id="KA1-1V-zEv"/>
                         <outlet property="message" destination="8RH-QD-e3U" id="3gU-8M-yp0"/>
                         <outlet property="scrollView" destination="DKB-IG-aaf" id="Opo-3u-8mj"/>
@@ -510,6 +512,7 @@
         <class className="CommentsVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsVC.h"/>
             <relationships>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="message" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
@@ -547,6 +550,7 @@
                 <relationship kind="outlet" name="btnNewTopic" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="btnSignIn" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="btnUser" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="sbSearch" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="topicsTable" candidateClass="UITableView"/>
             </relationships>
         </class>

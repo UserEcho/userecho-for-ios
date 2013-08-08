@@ -18,9 +18,9 @@
 - (void)runUserEcho {
 
     [UserEcho presentUserEchoCommunity:self config:[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                                    @"d0322478cc300ffd1c97",@"key",
-                                                    @"24c2e5135727019f8b3026966fdb3e548a8bbf9c",@"secret",
-                                                    @"62775a3003433201796fc86b3cb1c98a160ae4c9",@"access_token",
+                                                    @"cbda91c6fccd3a60870c",@"key",
+                                                    @"a1e77ec52da31c52d4591ef5984a37785a320aa1",@"secret",
+                                                    @"9705bb6a517d93d3c4caf114500b478a177fcfba",@"access_token",
                                                     nil]];
 }
 
