@@ -50,6 +50,9 @@ NSDictionary *topic;
                      //Update placeholders on screen
                      topicHeader.text=[topic objectForKey:@"header"];
                      
+                     NSLog(@"Ratin:%@",[topic objectForKey:@"vote_diff"]);
+                     rating.text=[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_diff"]];
+                     
                      //pass the string to the webview
                      
                      NSString *pathToCSS = [[NSBundle mainBundle] pathForResource:@"UserEcho" ofType:@"css"];
@@ -58,6 +61,25 @@ NSDictionary *topic;
                      NSString *html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"description"]];
                      
                      [topicDescription loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
+                     
+                     
+                     //Load user avatar
+                     NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
+                     
+                     NSURL* imageURL = [NSURL URLWithString:urlString];
+                     
+                     AFImageRequestOperation* imageOperation =
+                     [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
+                                                                       success:^(UIImage *image) {
+                                                                           
+                                                                           [authorAvatar setImage: image];
+                                                                           
+                                                                       }];
+                     
+                     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+                     [queue addOperation:imageOperation];
+                     
+                     
 
                      
                  }];

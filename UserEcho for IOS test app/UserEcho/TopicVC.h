@@ -11,6 +11,10 @@
 @interface TopicVC : UIViewController
 {
     IBOutlet UILabel* topicHeader;
+    
+    IBOutlet UIImageView* authorAvatar;
+    IBOutlet UILabel* rating;
+    
     IBOutlet UIWebView* topicDescription;
     IBOutlet UIScrollView* topicScrollView;
     IBOutlet UIButton* btnComments;
