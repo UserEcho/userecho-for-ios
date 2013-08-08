@@ -29,8 +29,9 @@
                                                     <color key="backgroundColor" red="0.14134681290000001" green="0.47506985229999998" blue="0.79875081780000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" text="Topic header" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JVa-dz-YXf">
-                                                    <rect key="frame" x="93" y="10" width="220" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="93" y="0.0" width="220" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -57,6 +58,14 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" text="STATUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NMY-p0-5gt">
+                                                    <rect key="frame" x="245" y="28" width="71" height="13"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.42112961305172347" blue="0.55018512389071583" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -497,6 +506,57 @@
             <point key="canvasLocation" x="297" y="42"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CommentsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="message" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="TopicEditVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicEditVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="btnSaveTopic" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="topicType" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TopicVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorAvatar" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="btnComments" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnVote" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="voterBackground" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="UserEchoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserEchoVC.h"/>
+            <relationships>
+                <relationship kind="action" name="backToMainApp"/>
+                <relationship kind="action" name="signIn"/>
+                <relationship kind="action" name="userClicked"/>
+                <relationship kind="outlet" name="btnBack" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnNewTopic" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnSignIn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnUser" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="topicsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UserMenuVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserMenuVC.h"/>
+        </class>
+        <class className="VoterTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoterTVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

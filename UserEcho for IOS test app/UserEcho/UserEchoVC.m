@@ -223,8 +223,21 @@ FPPopoverController *popover;
     
     //Topic header
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
-    //[label setText:[NSString stringWithFormat:@"R=%ld",(long)[indexPath row]]];
     [label setText:[topic objectForKey:@"header"]];
+    
+    //Status
+    label = (UILabel *)[cell.contentView viewWithTag:21];
+//    [label setAutoresizingMask: UIViewAutoresizingFlexibleLeftMargin];
+    [label setText:[[topic objectForKey:@"status_name"] uppercaseString]];
+    label.layer.cornerRadius = 5;
+    label.layer.masksToBounds = YES;
+    //label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [label sizeToFit];
+    
+    CGRect frame = label.frame;
+    frame.origin.x = self.view.frame.size.width-label.frame.size.width-5;
+    label.frame = frame;
+    
     
     //label = (UILabel *)[cell.contentView viewWithTag:11];
     //[label setText:[topic objectForKey:@"comment"]];
