@@ -505,7 +505,8 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     controller.popover = popover;
     
     UITableViewCell *cell = [topicsTable cellForRowAtIndexPath:indexPath];
-    controller.cell = cell;
+    UILabel *label = (UILabel *)[cell.contentView viewWithTag:12];
+    controller.placeholder = label;
     
     //the popover will be presented from the okButton view
     //UIView* btnView = [sender valueForKey:@"view"];

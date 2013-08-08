@@ -9,6 +9,8 @@
 #import "API.h"
 #import "TopicVC.h"
 #import "CommentsVC.h"
+#import "FPPopoverController.h"
+#import "VoterTVC.h"
 
 @interface TopicVC ()
 
@@ -17,6 +19,7 @@
 @implementation TopicVC
 
 NSDictionary *topic;
+FPPopoverController *popover;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,6 +55,10 @@ NSDictionary *topic;
                      
                      NSLog(@"Ratin:%@",[topic objectForKey:@"vote_diff"]);
                      rating.text=[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_diff"]];
+                     
+                     [btnVote addTarget: self action: @selector(Vote:withEvent:)
+                      forControlEvents: UIControlEventTouchUpInside];
+                     
                      
                      //pass the string to the webview
                      
@@ -150,6 +157,40 @@ NSDictionary *topic;
         CommentsVC.topicId = [NSNumber numberWithInt:button.tag];
         //NSLog(@"SEG showcomments called %@",TopicCommentsScreen.topicId2);
     }
+}
+
+
+//Vote
+- (void)Vote: (id) sender withEvent: (UIEvent *) event{
+    
+    NSLog(@"Vote");
+
+    //Present vote popover
+    VoterTVC *controller = [[UIStoryboard storyboardWithName:@"UserEcho" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"VoterMenu"];
+    
+    //controller.delegate = self;
+    
+    //NSDictionary* topic = [topicsStream objectAtIndex:indexPath.row];
+    //NSNumber* id=[self topicId];//[topic objectForKey:@"id"];
+    
+    controller.topicId = [self topicId];
+    
+    //our popover
+    popover = [[FPPopoverController alloc] initWithViewController:controller];
+    popover.contentSize = CGSizeMake(180,120);
+    
+    controller.popover = popover;
+    
+    //UITableViewCell *cell = [topicsTable cellForRowAtIndexPath:indexPath];
+    controller.placeholder = rating;
+    
+    //the popover will be presented from the okButton view
+    //UIView* btnView = [sender valueForKey:@"view"];
+    //On these cases is better to specify the arrow direction
+    [popover setArrowDirection:FPPopoverArrowDirectionLeft];
+    [popover presentPopoverFromView:sender];
+    
+    
 }
 
 

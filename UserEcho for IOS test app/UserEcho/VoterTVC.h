@@ -16,6 +16,8 @@
 @property(assign, nonatomic) NSNumber* topicId;
 @property(assign, nonatomic) FPPopoverController *popover;
 
-@property(assign, nonatomic) UITableViewCell *cell;
+//@property(assign, nonatomic) UITableViewCell *cell;
+@property(assign, nonatomic) UILabel *placeholder;
+
 
 @end

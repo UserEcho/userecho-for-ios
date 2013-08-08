@@ -18,6 +18,7 @@
     IBOutlet UIWebView* topicDescription;
     IBOutlet UIScrollView* topicScrollView;
     IBOutlet UIButton* btnComments;
+    IBOutlet UIButton* btnVote;
 }
     
 @property (assign, nonatomic) NSNumber* topicId;

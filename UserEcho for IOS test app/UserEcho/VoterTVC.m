@@ -142,8 +142,8 @@
                       
                       NSDictionary *topic = (NSDictionary *)json;
 
-                      UILabel *label = (UILabel *)[self.cell.contentView viewWithTag:12]; 
-                      [label setText:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"score"] objectForKey:@"vote_diff"]]];
+                      //UILabel *label = (UILabel *)[self.cell.contentView viewWithTag:12];
+                      [self.placeholder setText:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"score"] objectForKey:@"vote_diff"]]];
                       
                       
                       [self.popover dismissPopoverAnimated:YES];
