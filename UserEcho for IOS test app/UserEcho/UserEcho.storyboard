@@ -23,7 +23,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="JYu-RB-hPy">
+                                                <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleToFill" id="JYu-RB-hPy">
                                                     <rect key="frame" x="7" y="4" width="38" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.14134681290000001" green="0.47506985229999998" blue="0.79875081780000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -374,6 +374,7 @@
                         <outlet property="topicDescription" destination="xus-v6-yty" id="81I-e2-GMA"/>
                         <outlet property="topicHeader" destination="APB-qZ-uY4" id="6fs-AA-K6x"/>
                         <outlet property="topicScrollView" destination="ani-4l-b5L" id="Q5h-q9-ubU"/>
+                        <outlet property="voterBackground" destination="8Tf-ZQ-QxF" id="gSD-dA-J8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGO-Vi-cTD" userLabel="First Responder" sceneMemberID="firstResponder"/>

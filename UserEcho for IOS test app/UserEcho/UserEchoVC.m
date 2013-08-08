@@ -238,23 +238,12 @@ FPPopoverController *popover;
              forControlEvents: UIControlEventTouchUpInside];
     
     
-    //UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
+    UIImageView *voterBackground = (UIImageView *)[cell.contentView viewWithTag:20];
+    voterBackground.layer.cornerRadius = 5.0;
+    voterBackground.layer.masksToBounds = YES;
     
-    //avatar.image=[UIImage imageNamed:@"top_bar_background.png"];
-    
-    /*
-    NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[topic objectForKey:@"authoravatar"]];
-    NSURL* imageURL = [NSURL URLWithString:urlString];
-    
-    AFImageRequestOperation* imageOperation =
-    [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
-                                                      success:^(UIImage *image) {
-                                                          avatar.image=image;
-                                                      }];
-    
-    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-    [queue addOperation:imageOperation];
-    */
+    //voterBackground.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    //voterBackground.layer.borderWidth = 3.0;
     
     //Load user avatar
     UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:11];

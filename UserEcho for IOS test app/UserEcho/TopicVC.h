@@ -13,6 +13,7 @@
     IBOutlet UILabel* topicHeader;
     
     IBOutlet UIImageView* authorAvatar;
+    IBOutlet UIImageView* voterBackground;
     IBOutlet UILabel* rating;
     
     IBOutlet UIWebView* topicDescription;

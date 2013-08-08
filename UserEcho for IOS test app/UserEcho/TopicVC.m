@@ -36,6 +36,11 @@ FPPopoverController *popover;
 	// Do any additional setup after loading the view.
     btnComments.tag=[self.topicId intValue];
     NSLog(@"TID=%@",self.topicId);
+    
+    
+    voterBackground.layer.cornerRadius = 5.0;
+    voterBackground.layer.masksToBounds = YES;
+    
     [self getTopic];
 }
 
