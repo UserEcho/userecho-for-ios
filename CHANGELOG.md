@@ -1,3 +1,9 @@
+## 1.0.3 ##
+
+* Add leave feedback view improved now possible to select type of feedback.
+* Added statuses
+* Added Russian localisation
+
 ## 1.0.2 ##
 
 * Fix keyboard in comment view doesn't hide comment input field now.
