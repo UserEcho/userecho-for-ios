@@ -13,6 +13,7 @@
 @synthesize access_token;
 @synthesize app_access_token;
 @synthesize forum;
+@synthesize forum_allow_anonymous_feedback;
 @synthesize user;
 
 @synthesize key;

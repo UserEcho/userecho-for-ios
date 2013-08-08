@@ -153,6 +153,7 @@ FPPopoverController *popover;
                      
                      NSString *forum_id=[[matchedDicts objectAtIndex:0] objectForKey:@"id"];
                      [UEData getInstance].forum=forum_id;
+                     [UEData getInstance].forum_allow_anonymous_feedback=[[matchedDicts objectAtIndex:0] objectForKey:@"allow_anonymous_feedback"];
                      NSLog(@"%@", forum_id);
                      completionBlock();
                  }];
@@ -514,4 +515,37 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     
     
 }
+
+-(IBAction)btnNewTopic {
+    NSLog(@"AF=%@",[UEData getInstance].forum_allow_anonymous_feedback);
+    
+    NSNumber* permission=[UEData getInstance].forum_allow_anonymous_feedback;
+    
+    if([permission isEqualToNumber:[NSNumber numberWithInt:1]])
+        {
+            NSLog(@"xxx");
+        }
+    else
+    {
+          NSLog(@"restricted");
+    }
+    
+    if(([UEData getInstance].isAuthorised==[NSNumber numberWithInt:1] || [permission isEqualToNumber:[NSNumber numberWithInt:1]])){
+
+        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TopicEditVC"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Authorisation required"
+                                                        message:@"Sign in first to leave feedback."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    
+}
+
 @end

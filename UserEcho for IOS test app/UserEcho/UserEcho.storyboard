@@ -106,7 +106,7 @@
                 </barButtonItem>
                 <barButtonItem title="New topic" id="xWs-AJ-COZ">
                     <connections>
-                        <segue destination="OHL-3G-2w5" kind="push" id="nav-du-J1g"/>
+                        <action selector="btnNewTopic" destination="nip-hP-Qce" id="9Vs-Xc-Ft4"/>
                     </connections>
                 </barButtonItem>
             </objects>
@@ -115,7 +115,7 @@
         <!--Topic EditVC-->
         <scene sceneID="7nZ-f8-V6X">
             <objects>
-                <viewController id="OHL-3G-2w5" customClass="TopicEditVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopicEditVC" id="OHL-3G-2w5" customClass="TopicEditVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0jZ-Rg-Can">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -125,9 +125,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="OHL-3G-2w5" id="ieT-Mi-k6d"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="alP-Lp-u96">
-                                <rect key="frame" x="124" y="109" width="73" height="44"/>
+                                <rect key="frame" x="124" y="225" width="73" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Send">
@@ -141,13 +144,31 @@
                                     <action selector="btnSaveTopicTapped" destination="OHL-3G-2w5" eventType="touchUpInside" id="gzX-Kb-48q"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Place your feedback here" id="jUz-nR-Bk4">
+                                <rect key="frame" x="20" y="58" width="280" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.82214604589999996" green="0.82214604589999996" blue="0.82214604589999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose topic type" minimumFontSize="17" id="RS1-XP-g4d">
+                                <rect key="frame" x="20" y="187" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="OHL-3G-2w5" id="FZl-Qd-Y3G"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="H17-Ge-ot7"/>
                     <connections>
                         <outlet property="btnSaveTopic" destination="alP-Lp-u96" id="Abz-4o-sAX"/>
+                        <outlet property="topicDescription" destination="jUz-nR-Bk4" id="ehB-Hv-rr9"/>
                         <outlet property="topicHeader" destination="doo-T8-osy" id="5Mu-rt-P9i"/>
+                        <outlet property="topicType" destination="RS1-XP-g4d" id="FH7-29-C3Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VpY-sc-dI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -448,7 +469,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicEditVC.h"/>
             <relationships>
                 <relationship kind="outlet" name="btnSaveTopic" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="topicHeader" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="topicType" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="TopicVC" superclassName="UIViewController">
