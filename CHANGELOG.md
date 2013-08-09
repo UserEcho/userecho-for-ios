@@ -1,3 +1,9 @@
+## 1.0.4 ##
+
+* Fix set auth flag after successful sign in.
+* Fix Scroll of topic
+
+
 ## 1.0.3 ##
 
 * Add leave feedback view improved now possible to select type of feedback.

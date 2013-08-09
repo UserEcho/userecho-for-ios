@@ -380,15 +380,17 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
                                                otherButtonTitles:nil];
         [alert show];
     } else {
-        //Authorization was successful - get location information
-       // [self getLocationInfo:[auth accessToken]];
-        NSLog(@"Auth=%@",auth);
+        //Authorization was successful
+        //NSLog(@"Auth=%@",auth);
         
         //Save token to keychain for later use
         [UICKeyChainStore setString:[auth accessToken] forKey:@"access_token"];
         
         //Store to global var
         [UEData getInstance].access_token= [auth accessToken];
+        
+        //Set auth flag
+        [UEData getInstance].isAuthorised = [NSNumber numberWithInt:1];
         [self loadUser];
     }
 }
@@ -453,7 +455,7 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
         {
         [UEData getInstance].access_token = access_token;
         [UEData getInstance].isAuthorised = [NSNumber numberWithInt:1];
-        NSLog(@"Restored Token=%@",access_token);//[auth accessToken]);
+        //NSLog(@"Restored Token=%@",access_token);
         }
   
 }
