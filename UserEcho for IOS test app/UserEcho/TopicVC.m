@@ -11,6 +11,7 @@
 #import "CommentsVC.h"
 #import "FPPopoverController.h"
 #import "VoterTVC.h"
+#import "UECommon.h"
 
 @interface TopicVC ()
 
@@ -78,27 +79,13 @@ FPPopoverController *popover;
                      
                      [topicDescription loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
                      
-                     
                      //Load user avatar
-                     NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
-                     
-                     NSURL* imageURL = [NSURL URLWithString:urlString];
-                     
-                     AFImageRequestOperation* imageOperation =
-                     [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
-                                                                       success:^(UIImage *image) {
-                                                                           
-                                                                           [authorAvatar setImage: image];
-                                                                           
-                                                                       }];
-                     
-                     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-                     [queue addOperation:imageOperation];
-                     
-                     
-
-                     
-                 }];
+                     [UECommon loadAvatar:[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]
+                             onCompletion:^(UIImage *image) {
+                                 authorAvatar.image=image;
+                             }
+                      ];
+                     }];
 }
 
 

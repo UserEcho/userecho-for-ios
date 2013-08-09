@@ -9,6 +9,7 @@
 #import "CommentsVC.h"
 #import "API.h"
 #import "UEData.h"
+#import "UECommon.h"
 
 @interface CommentsVC ()
 
@@ -123,48 +124,13 @@ NSMutableDictionary *messageHeightDictionary;
     //[label setText:[comment objectForKey:@"comment"]];
     
     //Load user avatar
-    //UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
-    
-    //NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[comment objectForKey:@"author"] objectForKey:@"avatar_url"]];
-    //NSURL* imageURL = [NSURL URLWithString:urlString];
-    
-    
-    
-    //Load user avatar
-    UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
-    avatar.image=nil;
-    
-    NSString* urlString = nil;
-    NSString* avatarURL=[[comment objectForKey:@"author"] objectForKey:@"avatar_url"];
-    if([avatarURL hasPrefix:@"http"])
-    {
-        urlString=avatarURL;
-    }
-    else
-    {
-        urlString = [NSString stringWithFormat:@"http://userecho.com%@",avatarURL];
-    }
-    
-    
-    //NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
-    
-    
-    NSURL* imageURL = [NSURL URLWithString:urlString];
+    [UECommon loadAvatar:[[comment objectForKey:@"author"] objectForKey:@"avatar_url"]
+            onCompletion:^(UIImage *image) {
+                UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
+                avatar.image=image;
+            }];
 
-    
-    
-    
-    
-    
-    AFImageRequestOperation* imageOperation =
-    [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
-                                                      success:^(UIImage *image) {
-                                                          avatar.image=image;
-                                                      }];
-    
-    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-    [queue addOperation:imageOperation];
-    
     return cell;
 }
 

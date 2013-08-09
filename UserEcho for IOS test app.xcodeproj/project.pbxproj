@@ -50,6 +50,7 @@
 		6097E8BA1797C6CB0004CF02 /* TopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E8B91797C6CB0004CF02 /* TopicVC.m */; };
 		6097E8BD1797E9CD0004CF02 /* UserEcho.css in Resources */ = {isa = PBXBuildFile; fileRef = 6097E8BC1797E9CD0004CF02 /* UserEcho.css */; };
 		60A32DCD17B425AF0078A753 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60A32DCC17B425AF0078A753 /* README.md */; };
+		60A32DFF17B50F580078A753 /* UECommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A32DFE17B50F580078A753 /* UECommon.m */; };
 		60A9EA6D17B413F9007D8F05 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA6F17B413F9007D8F05 /* MainStoryboard.storyboard */; };
 		60A9EA7517B41A3C007D8F05 /* UserEcho.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA7417B41A3C007D8F05 /* UserEcho.storyboard */; };
 		60A9EA7617B41B9F007D8F05 /* UserEcho.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA5217B3DD26007D8F05 /* UserEcho.strings */; };
@@ -134,6 +135,8 @@
 		6097E8B91797C6CB0004CF02 /* TopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicVC.m; path = UserEcho/TopicVC.m; sourceTree = "<group>"; };
 		6097E8BC1797E9CD0004CF02 /* UserEcho.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = UserEcho.css; path = UserEcho/Resources/UserEcho.css; sourceTree = "<group>"; };
 		60A32DCC17B425AF0078A753 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		60A32DFD17B50F580078A753 /* UECommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UECommon.h; path = UserEcho/UECommon.h; sourceTree = "<group>"; };
+		60A32DFE17B50F580078A753 /* UECommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UECommon.m; path = UserEcho/UECommon.m; sourceTree = "<group>"; };
 		60A9EA5117B3DB93007D8F05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		60A9EA5317B3DD26007D8F05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/UserEcho.strings; sourceTree = "<group>"; };
 		60A9EA7117B41419007D8F05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				602F181517A2B72300111BCB /* VoterTVC.m */,
 				602F181717A918F700111BCB /* UserEcho.h */,
 				602F181817A918F700111BCB /* UserEcho.m */,
+				60A32DFD17B50F580078A753 /* UECommon.h */,
+				60A32DFE17B50F580078A753 /* UECommon.m */,
 			);
 			name = UserEcho;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				602F181317A2850C00111BCB /* UserMenuVC.m in Sources */,
 				602F181617A2B72300111BCB /* VoterTVC.m in Sources */,
 				602F181917A918F700111BCB /* UserEcho.m in Sources */,
+				60A32DFF17B50F580078A753 /* UECommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

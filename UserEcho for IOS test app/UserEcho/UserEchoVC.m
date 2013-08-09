@@ -14,6 +14,7 @@
 #import "FPPopoverController.h"
 #import "UserMenuVC.h"
 #import "VoterTVC.h"
+#import "UECommon.h"
 
 #import "GTMOAuth2SignIn.h"
 #import "GTMOAuth2ViewControllerTouch.h"
@@ -55,22 +56,11 @@ FPPopoverController *popover;
     [self getCurrentUser:^{
         
         
-        //Load user avatar
-        NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[UEData getInstance].user objectForKey:@"avatar_url"]];
         
-        NSURL* imageURL = [NSURL URLWithString:urlString];
-        
-        AFImageRequestOperation* imageOperation =
-        [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
-                                                          success:^(UIImage *image) {
-                                                              
-                                                              [btnUser setImage: image];
-                                                              
-                                                          }];
-        
-        NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-        [queue addOperation:imageOperation];
-        
+        [UECommon loadAvatar:[[UEData getInstance].user objectForKey:@"avatar_url"]
+                onCompletion:^(UIImage *image) {
+                    [btnUser setImage: image];
+                }];
     }];
     
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnUser, btnNewTopic, nil];
@@ -267,40 +257,15 @@ FPPopoverController *popover;
     //voterBackground.layer.borderWidth = 3.0;
     
     //Load user avatar
-    UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:11];
-    avatar.image=nil;
-    
-    NSString* urlString = nil;
-    NSString* avatarURL=[[topic objectForKey:@"author"] objectForKey:@"avatar_url"];
-    if([avatarURL hasPrefix:@"http"])
-    {
-        urlString=avatarURL;
-    }
-    else
-        {
-        urlString = [NSString stringWithFormat:@"http://userecho.com%@",avatarURL];
-        }
-        
-    
-    //NSString* urlString = [NSString stringWithFormat:@"http://userecho.com%@",[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]];
     
     
-    NSURL* imageURL = [NSURL URLWithString:urlString];
-    
-    AFImageRequestOperation* imageOperation =
-    [AFImageRequestOperation imageRequestOperationWithRequest: [NSURLRequest requestWithURL:imageURL]
-                                                      success:^(UIImage *image) {
-                                                      //NSLog(@"IP(LOAD)=%@", indexPath);
-                                                      UITableViewCell *cell2 = [tableView cellForRowAtIndexPath:indexPath];
-                                                      UIImageView *avatar2 = (UIImageView *)[cell2.contentView viewWithTag:11];
-                                                      avatar2.image=image;
-                                                          
-                                                      }];
-    
-    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
-    [queue addOperation:imageOperation];
+    [UECommon loadAvatar:[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]
+            onCompletion:^(UIImage *image) {
+                UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:11];
+                avatar.image=image;
+            }];
 
-    
     return cell;
 }
 
