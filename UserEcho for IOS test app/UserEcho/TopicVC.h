@@ -20,6 +20,16 @@
     IBOutlet UIScrollView* topicScrollView;
     IBOutlet UIButton* btnComments;
     IBOutlet UIButton* btnVote;
+    
+    //Official answer
+    IBOutlet UIView* replyPane;
+    
+    IBOutlet UIImageView* replyAvatar;
+    IBOutlet UIWebView* replyDescription;
+    IBOutlet UILabel* replyStatus;
+
+    
+    
 }
     
 @property (assign, nonatomic) NSNumber* topicId;

@@ -85,6 +85,41 @@ FPPopoverController *popover;
                                  authorAvatar.image=image;
                              }
                       ];
+                     
+                     
+                     //Reply
+                     NSNumber* status = [topic objectForKey:@"status"];
+                     
+                     CGRect frame=replyPane.frame;
+                     frame.size.height=0;
+                     replyPane.frame=frame;
+                     
+                     if([status intValue]>1) {
+                         replyStatus.text=[topic objectForKey:@"status_name"];
+                         [replyStatus sizeToFit];
+                         replyStatus.hidden = false;
+                         
+                         [UECommon loadAvatar:[[topic objectForKey:@"response"] objectForKey:@"avatar_url"]
+                                 onCompletion:^(UIImage *image) {
+                                     replyAvatar.image=image;
+                                 }
+                          ];
+                         
+                         replyAvatar.hidden=false;
+                         
+                         html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"admin_comment"]];
+                         
+                         [replyDescription loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
+                         replyDescription.hidden=false;
+                         
+                     
+                        }
+                     
+                     
+                     
+                     
+                     
+                     
                      }];
 }
 
@@ -98,12 +133,9 @@ FPPopoverController *popover;
 //Description auto-height
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     
+    //Resize webview
     aWebView.scrollView.scrollEnabled = NO;
-    //aWebView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
-
     
-    NSLog(@"WEB VIEW LOADED");
-
     CGRect frame = aWebView.frame;
     frame.size.height = 1;
     aWebView.frame = frame;
@@ -112,35 +144,37 @@ FPPopoverController *popover;
     frame.size = fittingSize;
     aWebView.frame = frame;
     
+    
+    if(aWebView==replyDescription)
+        {
+        NSLog(@"Reply");
+        frame=replyPane.frame;
+        frame.size.height=replyDescription.frame.size.height+64;
+        replyPane.frame=frame;
+        }
+    
+    if(aWebView==topicDescription)
+        {
+            NSLog(@"Topic");
+            frame=replyPane.frame;
+            frame.origin.y=topicDescription.frame.origin.y+topicDescription.frame.size.height;
+            replyPane.frame=frame;
+        }
+    
     CGSize bounds = topicScrollView.bounds.size;
+    
+    
+    
     
     frame=btnComments.frame;
     
-    btnComments.frame = CGRectMake( bounds.width/2-frame.size.width/2, fittingSize.height+aWebView.frame.origin.y, frame.size.width, 44 );
+    btnComments.frame = CGRectMake( bounds.width/2-frame.size.width/2, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height, frame.size.width, 44 );
+    
+    //Resize main view to fit content
+    topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height+44+10);
     
     
     
-   // NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
-    
-    //NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
-    
-   topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, fittingSize.height + aWebView.frame.origin.y+44+10);
-    
-   
-    
-  //  self.webViewHeightConstraint.constant = 2000;
-
-//    textViewHeightConstraint.constant = textView.contentSize.height;
-    
-  //  [topicScrollView layoutIfNeeded];
-    
-    
-   // [topicScrollView setTranslatesAutoresizingMaskIntoConstraints:YES];
-//    [topicScrollView setContentSize:(CGSizeMake(320, 1000))];
-  //  scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, sizeOfContent);
-//    topicScrollView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [topicScrollView setCons]self.webViewHeightConstraint.constant = [webHeight intValue];
-  
     NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
 }
 

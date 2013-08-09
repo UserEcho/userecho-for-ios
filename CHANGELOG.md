@@ -2,6 +2,7 @@
 
 * Fix set auth flag after successful sign in.
 * Fix Scroll of topic
+* Added official answer on topic view
 
 
 ## 1.0.3 ##

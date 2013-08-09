@@ -312,10 +312,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" id="ani-4l-b5L">
-                                <rect key="frame" x="-1" y="0.0" width="322" height="416"/>
+                                <rect key="frame" x="-2" y="0.0" width="322" height="416"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sU4-sH-Uqq">
-                                        <rect key="frame" x="87" y="104" width="148" height="29"/>
+                                        <rect key="frame" x="88" y="206" width="148" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" title="Comments">
@@ -370,6 +370,32 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </label>
+                                    <view contentMode="scaleToFill" id="ozG-YV-Ane">
+                                        <rect key="frame" x="10" y="89" width="304" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <webView hidden="YES" tag="103" contentMode="scaleToFill" id="Kdg-A9-XIt">
+                                                <rect key="frame" x="0.0" y="64" width="304" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="qbi-Mc-4TB" id="QzW-kr-jyN"/>
+                                                </connections>
+                                            </webView>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFit" id="4gs-rf-PQi">
+                                                <rect key="frame" x="0.0" y="11" width="32" height="36"/>
+                                            </imageView>
+                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" text="STATUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QWe-bL-FwZ">
+                                                <rect key="frame" x="40" y="22" width="71" height="13"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.42112961310000002" blue="0.55018512389999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -381,7 +407,11 @@
                         <outlet property="btnComments" destination="sU4-sH-Uqq" id="UD9-Dh-bud"/>
                         <outlet property="btnVote" destination="d2E-wX-NK8" id="S08-mb-GFQ"/>
                         <outlet property="rating" destination="Vqu-Q8-7mL" id="htD-Ti-Fqg"/>
-                        <outlet property="topicDescription" destination="xus-v6-yty" id="81I-e2-GMA"/>
+                        <outlet property="replyAvatar" destination="4gs-rf-PQi" id="RI8-e0-x4n"/>
+                        <outlet property="replyDescription" destination="Kdg-A9-XIt" id="5mZ-ug-36K"/>
+                        <outlet property="replyPane" destination="ozG-YV-Ane" id="YMa-XP-sdt"/>
+                        <outlet property="replyStatus" destination="QWe-bL-FwZ" id="Dpy-vP-hQa"/>
+                        <outlet property="topicDescription" destination="xus-v6-yty" id="xMm-43-wT6"/>
                         <outlet property="topicHeader" destination="APB-qZ-uY4" id="6fs-AA-K6x"/>
                         <outlet property="topicScrollView" destination="ani-4l-b5L" id="Q5h-q9-ubU"/>
                         <outlet property="voterBackground" destination="8Tf-ZQ-QxF" id="gSD-dA-J8I"/>
@@ -508,59 +538,6 @@
             <point key="canvasLocation" x="297" y="42"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CommentsVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="message" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="TopicEditVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicEditVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="btnSaveTopic" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="topicDescription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="topicHeader" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="topicType" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="TopicVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorAvatar" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="btnComments" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnVote" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="topicDescription" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="topicScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="voterBackground" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="UserEchoVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserEchoVC.h"/>
-            <relationships>
-                <relationship kind="action" name="backToMainApp"/>
-                <relationship kind="action" name="signIn"/>
-                <relationship kind="action" name="userClicked"/>
-                <relationship kind="outlet" name="btnBack" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnNewTopic" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnSignIn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnUser" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="sbSearch" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="topicsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UserMenuVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserMenuVC.h"/>
-        </class>
-        <class className="VoterTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoterTVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
