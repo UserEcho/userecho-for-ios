@@ -219,26 +219,61 @@ FPPopoverController *popover;
     
     // Configure Cells
     
-    //Topic header
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
-    [label setText:[topic objectForKey:@"header"]];
-    
+    NSLog(@"STATUS=%@",[topic objectForKey:@"status"]);
+
     //Status
-    label = (UILabel *)[cell.contentView viewWithTag:21];
-//    [label setAutoresizingMask: UIViewAutoresizingFlexibleLeftMargin];
+    UILabel *label = (UILabel *)[cell.contentView viewWithTag:21];
+    
+    if([[topic objectForKey:@"status"] intValue]>1)
+        {
+
     [label setText:[[topic objectForKey:@"status_name"] uppercaseString]];
-    label.layer.cornerRadius = 5;
+    label.layer.cornerRadius = 2;
     label.layer.masksToBounds = YES;
-    //label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [label sizeToFit];
     
     CGRect frame = label.frame;
-    frame.origin.x = self.view.frame.size.width-label.frame.size.width-5;
+    frame.size.height+=10;
+    frame.size.width+=10;
+    
+    frame.origin.x = self.view.frame.size.width-frame.size.width-4;
+    
+    label.frame = frame;
+        }
+    else
+    {
+        CGRect frame = label.frame;
+        frame.size = CGSizeZero;
+        frame.origin.x = 320;
+        label.frame = frame;
+    }
+    
+    
+    //Topic header
+    int status_x=label.frame.origin.x;
+    
+    label = (UILabel *)[cell.contentView viewWithTag:10];
+
+    CGRect frame = label.frame;
+    frame.size.width = status_x-frame.origin.x-5;
     label.frame = frame;
     
+    NSLog(@"POSIT=%d %f",status_x,frame.origin.x);
     
-    //label = (UILabel *)[cell.contentView viewWithTag:11];
-    //[label setText:[topic objectForKey:@"comment"]];
+    [label setText:[topic objectForKey:@"header"]];
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    
+    
+    int header_bottom=label.frame.origin.y+label.frame.size.height;
+    
+    //User name + date + ...
+    label = (UILabel *)[cell.contentView viewWithTag:150];
+    frame = label.frame;
+    frame.origin.y = header_bottom-5;
+    label.frame = frame;
+    
     
     label = (UILabel *)[cell.contentView viewWithTag:12];
     [label setText:[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_count"]]];
@@ -268,6 +303,35 @@ FPPopoverController *popover;
 
     return cell;
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary* topic = [topicsStream objectAtIndex:indexPath.row];
+    
+    CGSize status_size = [[[topic objectForKey:@"status_name"] uppercaseString] sizeWithFont:[UIFont systemFontOfSize:9]];
+    
+    if([[topic objectForKey:@"status"] intValue]<2)
+    {
+        status_size.width=0;
+    }
+    
+    
+    //94 - Header origin x
+    //18 - Header padding + margin
+    //320 - screen width
+    
+    CGSize size = [[topic objectForKey:@"header"] sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(320.0-94-status_size.width-18, 480.0) lineBreakMode:NSLineBreakByWordWrapping];
+    
+    
+    //NSLog(@"LS=%ld %f",(long)indexPath.row,status_size.width+10);
+  
+    if(size.height+20<44)
+        return 44;
+    
+    return size.height+20;
+}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -1,19 +1,20 @@
 ## 1.0.5 ##
 
-* Improved usablity of leave new feedback view
+* Improved usablity of leave new feedback view.
+* Visual appearance of topic list view improved.
 
 ## 1.0.4 ##
 
 * Fix set auth flag after successful sign in.
-* Fix Scroll of topic
-* Added official answer on topic view
+* Fix Scroll of topic.
+* Added official answer on topic view.
 
 
 ## 1.0.3 ##
 
 * Add leave feedback view improved now possible to select type of feedback.
-* Added statuses
-* Added Russian localisation
+* Added statuses.
+* Added Russian localisation.
 
 ## 1.0.2 ##
 

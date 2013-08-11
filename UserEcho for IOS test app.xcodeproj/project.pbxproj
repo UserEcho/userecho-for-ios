@@ -54,6 +54,7 @@
 		60A9EA6D17B413F9007D8F05 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA6F17B413F9007D8F05 /* MainStoryboard.storyboard */; };
 		60A9EA7517B41A3C007D8F05 /* UserEcho.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA7417B41A3C007D8F05 /* UserEcho.storyboard */; };
 		60A9EA7617B41B9F007D8F05 /* UserEcho.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA5217B3DD26007D8F05 /* UserEcho.strings */; };
+		60E5886817B81DA200B9E1E0 /* voter_neutral.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E5886717B81DA200B9E1E0 /* voter_neutral.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		60A9EA7117B41419007D8F05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		60A9EA7217B414FF007D8F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		60A9EA7417B41A3C007D8F05 /* UserEcho.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserEcho.storyboard; path = UserEcho/UserEcho.storyboard; sourceTree = "<group>"; };
+		60E5886717B81DA200B9E1E0 /* voter_neutral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = voter_neutral.png; path = UserEcho/Resources/voter_neutral.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +350,7 @@
 		6097E8BB1797E9930004CF02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				60E5886717B81DA200B9E1E0 /* voter_neutral.png */,
 				60A9EA6217B3FC68007D8F05 /* ru */,
 				6097E8BC1797E9CD0004CF02 /* UserEcho.css */,
 			);
@@ -425,6 +428,7 @@
 				60A9EA7517B41A3C007D8F05 /* UserEcho.storyboard in Resources */,
 				60A9EA7617B41B9F007D8F05 /* UserEcho.strings in Resources */,
 				60A32DCD17B425AF0078A753 /* README.md in Resources */,
+				60E5886817B81DA200B9E1E0 /* voter_neutral.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
