@@ -299,6 +299,7 @@ FPPopoverController *popover;
                 UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                 UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:11];
                 avatar.image=image;
+                avatar.layer.cornerRadius = 4.0;
             }];
 
     return cell;
