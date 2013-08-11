@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopicEditVC : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface TopicEditVC : UITableViewController <UITextFieldDelegate, UIActionSheetDelegate>
 {
     IBOutlet UITextField* topicHeader;
     IBOutlet UITextView* topicDescription;
-    IBOutlet UITextField* topicType;
-    IBOutlet UIButton* btnSaveTopic;
+    
+    IBOutlet UILabel* topicDescriptionPlaceholder;
+    
+    IBOutlet UILabel* topicType;
+    //IBOutlet UIButton* btnSaveTopic;
+    
+    IBOutlet UITableView* topicEditTV;
     
 }
 

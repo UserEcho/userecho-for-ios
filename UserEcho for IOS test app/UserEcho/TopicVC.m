@@ -66,6 +66,24 @@ FPPopoverController *popover;
                      NSLog(@"Ratin:%@",[topic objectForKey:@"vote_diff"]);
                      rating.text=[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_diff"]];
                      
+                     int uvote=[[topic objectForKey:@"cur_user_vote"] intValue];
+                     switch (uvote) {
+                         case -1:
+                             voterBackground.backgroundColor=[UIColor redColor];
+                             break;
+                        
+                         case 1:
+                             voterBackground.backgroundColor=[UIColor greenColor];
+                             break;
+                             
+                         default:
+                             voterBackground.backgroundColor=[UIColor blueColor];
+                             break;
+                     }
+                     
+                     
+                     
+                     
                      [btnVote addTarget: self action: @selector(Vote:withEvent:)
                       forControlEvents: UIControlEventTouchUpInside];
                      

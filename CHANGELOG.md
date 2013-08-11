@@ -1,3 +1,7 @@
+## 1.0.5 ##
+
+* Improved usablity of leave new feedback view
+
 ## 1.0.4 ##
 
 * Fix set auth flag after successful sign in.

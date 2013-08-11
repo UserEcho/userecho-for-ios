@@ -9,6 +9,7 @@
 #import "TopicEditVC.h"
 #import "API.h"
 #import "UEData.h"
+#import "TopicVC.h"
 
 @interface TopicEditVC ()
 
@@ -16,7 +17,7 @@
 
 @implementation TopicEditVC
 
-UIPickerView* typePicker;
+//UIPickerView* typePicker;
 NSArray *topicTypesStream;
 NSNumber *topicStatusId;
 
@@ -27,6 +28,51 @@ NSNumber *topicStatusId;
         // Custom initialization
     }
     return self;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"IP=%@",indexPath);
+    //[self.view.window addSubview: typePicker];
+    
+    //Choose status clicked
+    if(indexPath.row==2)
+        {
+            //Dismiss keyboard
+            [self.view endEditing:YES];
+        
+            
+            //show the app menu
+            UIActionSheet *selector = [[UIActionSheet alloc] initWithTitle:@"Choose feedback type"
+                                         delegate:self
+                                cancelButtonTitle:nil
+                           destructiveButtonTitle:nil
+                                                      otherButtonTitles:nil];
+             //showInView:self.view];
+            
+            //Prepare array of types
+            for (id object in topicTypesStream) {
+                // do something with object
+                [selector addButtonWithTitle:[object objectForKey:@"name"]];
+            }
+            
+            [selector showInView:self.view];
+            
+    
+        
+        }
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"i=%ld",(long)buttonIndex);
+
+    NSString *returnStr = [[topicTypesStream objectAtIndex:buttonIndex] objectForKey:@"name"];
+    NSLog(@"Chosed=%@",returnStr);
+    
+    topicStatusId = [[topicTypesStream objectAtIndex:buttonIndex] objectForKey:@"id"];
+    topicType.text = returnStr;
+
 }
 
 
@@ -42,8 +88,11 @@ NSNumber *topicStatusId;
                      
                      topicTypesStream = [dict objectForKey:@"types"];
                      
-                     //NSLog(@"Loaded:%u",[commentsStream count]);
-                     
+                     //Init selector
+                     topicType.text=[[topicTypesStream objectAtIndex:0] objectForKey:@"name"];
+                     topicStatusId=[[topicTypesStream objectAtIndex:0] objectForKey:@"id"];
+
+
                  }];
 
 }
@@ -51,23 +100,37 @@ NSNumber *topicStatusId;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    self.navigationItem.title = @"Submit a feedback";
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 80)];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    btn.frame = CGRectMake(10,10, 300, 40);
+    [btn setTitle:@"Submit" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(btnSaveTopicTapped) forControlEvents:UIControlEventTouchUpInside];
+    [headerView addSubview:btn];
+    
+    topicEditTV.tableFooterView = headerView;
+    
+    
+    
+    // Do any additional setup after loading the view.
     
     [self loadTopicTypes];
     
     
-    topicType.delegate = self;
+    //topicType.delegate = self;
     
     //Setup topic picker
-    typePicker = [[UIPickerView alloc]init];
-    typePicker.delegate=self;
-    typePicker.dataSource=self;
+//    typePicker = [[UIPickerView alloc]init];
+  //  typePicker.delegate=self;
+    //typePicker.dataSource=self;
     
-    topicType.inputView = typePicker;
+    //topicType.inputView = typePicker;
     //topicTypesStream = [[NSArray alloc] initWithObjects:@"Idea",@"Bug",@"Praise",@"Question",nil];
     topicTypesStream = @[@{@"name":@"Idea"},@{@"name":@"Bug"},@{@"name":@"Praise"},@{@"name":@"Question"}];
 
-
+    /*
     //Hide textview when tap outside
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
@@ -86,6 +149,7 @@ NSNumber *topicStatusId;
     
     [self.view addSubview:view];
     [self.view sendSubviewToBack:view];
+     */
     
 }
 
@@ -103,6 +167,12 @@ NSNumber *topicStatusId;
     // Dispose of any resources that can be recreated.
 }
 
+
+
+
+
+
+/*
 //Picker configuration
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
@@ -149,11 +219,42 @@ return 0;
 {
     return 1;
 }
+*/
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if([topicDescription.text length]==0)
+        {
+            topicDescriptionPlaceholder.hidden = NO;
+        }
+    else
+    {
+        topicDescriptionPlaceholder.hidden = YES;
+    
+    }
+    
+}
 
 
 - (IBAction)btnSaveTopicTapped
 {
-    NSLog(@"Saving");
+    //NSLog(@"Saving %@",[topicDescription.text length]);
+    
+    //Simple check that required data exists
+    if([topicHeader.text length]==0)
+        {
+            UITableViewCell* cell=[topicEditTV cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [cell setBackgroundColor:[UIColor colorWithRed:(float)0xff/0xff green:(float)0xd3/0xff blue:(float)0xd3/0xff alpha:1.0]];
+            return;
+        }
+    
+    if([topicDescription.text length]==0)
+    {
+        UITableViewCell* cell=[topicEditTV cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+        [cell setBackgroundColor:[UIColor colorWithRed:(float)0xff/0xff green:(float)0xd3/0xff blue:(float)0xd3/0xff alpha:1.0]];
+        return;
+    }
+    
     
     [[API sharedInstance] post:[NSString stringWithFormat:@"forums/%@/feedback",  [UEData getInstance].forum]
      
@@ -168,11 +269,38 @@ return 0;
                      //got stream
                      NSLog(@"Topic posted");
                      //NSLog(@"%@", json);
+                     
+                     
+
+                                            
+                      
+                     
+                     //Display view with new topic
+                     NSNumber* id=[[json objectAtIndex:0] objectForKey:@"id"];
+                     [self performSegueWithIdentifier:@"ShowTopic" sender:id];
+                     
+                     
+                     //Remove current view from nav
+                     NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray: self.navigationController.viewControllers];
+                     [allViewControllers removeObjectIdenticalTo: self];
+                     self.navigationController.viewControllers = allViewControllers;
+
+                     
                     
                  }];
 
 
 }
+
+//Pass topicID
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"PREP SEG");
+    if ([@"ShowTopic" compare: segue.identifier]==NSOrderedSame) {
+        TopicVC* TopicVC = segue.destinationViewController;
+        TopicVC.topicId = sender;
+    }
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
