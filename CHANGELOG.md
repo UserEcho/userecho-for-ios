@@ -1,8 +1,8 @@
 ## 1.0.6 ##
 
 * Comment field cleanup and keyboard dismiss after send comment.
-
-
+* Added simple progress indicator on the topic list loading.
+* Fixed exception when user perform fast scrolling inside comments list.
 
 ## 1.0.5 ##
 

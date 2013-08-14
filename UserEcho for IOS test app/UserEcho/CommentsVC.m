@@ -10,6 +10,7 @@
 #import "API.h"
 #import "UEData.h"
 #import "UECommon.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CommentsVC ()
 
@@ -32,7 +33,10 @@ NSMutableDictionary *messageHeightDictionary;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    self.navigationItem.title=@"Comments";
+    
+    // Do any additional setup after loading the view.
     [btnSend setTitle:NSLocalizedStringFromTable(@"Send",@"UserEcho",nil) forState:UIControlStateNormal];
     
     CGRect frame=btnSend.frame;
@@ -109,8 +113,40 @@ NSMutableDictionary *messageHeightDictionary;
     NSDictionary* comment = [commentsStream objectAtIndex:indexPath.row];
     
     // Configure Cells
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
-    [label setText:[[comment objectForKey:@"author"] objectForKey:@"name"]];
+    UILabel *username = (UILabel *)[cell.contentView viewWithTag:10];
+    
+    [username setText:[[comment objectForKey:@"author"] objectForKey:@"name"]];
+    username.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:13];
+    [username sizeToFit];
+    
+    
+    // Configure Cells
+    UILabel *label = (UILabel *)[cell.contentView viewWithTag:20];
+    label.text=[NSString stringWithFormat:@"%@",[[comment objectForKey:@"author"] objectForKey:@"title"]];
+    [label sizeToFit];
+    
+    CGRect frame = label.frame;
+    frame.origin.x=username.frame.origin.x+username.frame.size.width+5;
+    label.frame=frame;
+    
+
+    
+    
+    // Configure Cells
+    label = (UILabel *)[cell.contentView viewWithTag:12];
+    
+    NSDateFormatter *parser = [[NSDateFormatter alloc] init];
+    [parser setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    NSDate *date_str=[parser dateFromString:[comment objectForKey:@"submit_date"]];
+    
+    NSLog(@"DATE=%@",date_str);
+    
+    NSDateFormatter * formatter = [[NSDateFormatter  alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setDoesRelativeDateFormatting:YES];
+    
+    label.text = [formatter stringFromDate:date_str];
+    
     
     //Set comment
     UIWebView* view = (UIWebView *)[cell.contentView viewWithTag:11];
@@ -128,7 +164,8 @@ NSMutableDictionary *messageHeightDictionary;
             onCompletion:^(UIImage *image) {
                 UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                 UIImageView *avatar = (UIImageView *)[cell.contentView viewWithTag:13];
-                avatar.image=image;
+               avatar.image=image;
+                avatar.layer.cornerRadius=4.0;
             }];
 
     return cell;
@@ -213,12 +250,13 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Height=%@",height);
     if(height)
         {
-            return [height floatValue]+26;
+            if([height floatValue]<21) height=@"21";
+        return [height floatValue]+25;
 
         }
     else
     {
-            return 56;
+            return 46;
         
     }
 }
@@ -251,8 +289,9 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, message.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, message.frame.origin.y+55-kbSize.height);
+    NSLog(@"ORIGIN=%f",message.superview.frame.origin.y);
+    if (!CGRectContainsPoint(aRect, message.superview.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, message.superview.frame.origin.y+60-kbSize.height);
         [scrollView setContentOffset:scrollPoint animated:YES];
     }
     
