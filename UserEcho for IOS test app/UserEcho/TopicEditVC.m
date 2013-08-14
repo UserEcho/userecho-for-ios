@@ -57,6 +57,9 @@ NSNumber *topicStatusId;
                 [selector addButtonWithTitle:[object objectForKey:@"name"]];
             }
             
+            selector.cancelButtonIndex=[selector addButtonWithTitle:@"Cancel"];
+            
+            
             [selector showInView:self.view];
             
     
@@ -66,6 +69,9 @@ NSNumber *topicStatusId;
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSLog(@"i=%ld",(long)buttonIndex);
+    
+    if (buttonIndex == actionSheet.cancelButtonIndex)
+        return;
 
     NSString *returnStr = [[topicTypesStream objectAtIndex:buttonIndex] objectForKey:@"name"];
     NSLog(@"Chosed=%@",returnStr);
