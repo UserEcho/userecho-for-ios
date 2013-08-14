@@ -137,7 +137,9 @@ NSMutableDictionary *messageHeightDictionary;
 -(IBAction)btnSendTapped
 {
     NSLog(@"Send MSG %@",message.text);
-    // NSLog(@"Topic load item=%@",self.topicId);
+    //NSLog(@"Topic load item=%@",self.topicId);
+    [message resignFirstResponder];
+
     
     [[API sharedInstance] post:[NSString stringWithFormat:@"feedback/%@/comments",  self.topicId]
      
@@ -151,6 +153,9 @@ NSMutableDictionary *messageHeightDictionary;
                       [self refreshStream];
                       
                   }];
+    
+    //Cleanup field
+    message.text=nil;
     
 }
 

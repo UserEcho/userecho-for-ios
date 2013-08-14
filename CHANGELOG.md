@@ -1,3 +1,9 @@
+## 1.0.6 ##
+
+* Comment field cleanup and keyboard dismiss after send comment.
+
+
+
 ## 1.0.5 ##
 
 * Improved usablity of leave new feedback view.
