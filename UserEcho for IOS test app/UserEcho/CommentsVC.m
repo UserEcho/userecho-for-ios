@@ -188,11 +188,16 @@ NSMutableDictionary *messageHeightDictionary;
     NSIndexPath *indexPath = [commentsTable indexPathForCell:cell];
     NSLog(@"IPF=%@",indexPath);
     
+    //Fast scroll exception fix
+    if(indexPath==nil)
+        return;
+    
     // Create a new dictionary if none exists.
     if (messageHeightDictionary == nil)
         messageHeightDictionary = [NSMutableDictionary new];
     
     // Store the height of the webview in the dictionary for this postId.
+    
     [messageHeightDictionary setObject:[NSString stringWithFormat:@"%f", aWebView.frame.size.height] forKey:indexPath];
     
     [commentsTable beginUpdates];
