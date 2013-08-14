@@ -27,6 +27,7 @@
 
 NSArray *topicsStream;
 FPPopoverController *popover;
+UIActivityIndicatorView *indicator;
 
 - (void)backToMainApp {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -85,6 +86,19 @@ FPPopoverController *popover;
     self.navigationItem.title = @"UserEcho";
     self.navigationItem.leftBarButtonItem = btnBack;
     
+    
+    //Activity indicator
+    indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    indicator.center = self.view.center;
+    [self.view addSubview:indicator];
+    [indicator bringSubviewToFront:self.view];
+    //[UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
+    
+    
+    [indicator startAnimating];
+    
+    
     //Restore authorization
     [self restoreAuth];
     
@@ -99,11 +113,7 @@ FPPopoverController *popover;
     
     //Get default forum if forum not set
     if(![UEData getInstance].forum) {
-     //   [self getDefaultForum @"xxx" completion:^{
-           // [self displayBalance];  // For example...
-      //  }];
-//        [self getDefaultForum:<#^(void)completionBlock#>]
-        [self getDefaultForum:^{
+            [self getDefaultForum:^{
             NSLog(@"Def forum received");
             [self refreshStream];
         }];
@@ -166,10 +176,12 @@ FPPopoverController *popover;
 
 //Get stream of topics
 -(void)refreshStream {
+    [indicator startAnimating];
     //NSLog(@"Topic load item=%@",self.topicId);
     //just call the "stream" command from the web API
     [[API sharedInstance] get:[NSString stringWithFormat:@"forums/%@/feedback",[UEData getInstance].forum]
                                    onCompletion:^(NSArray *json) {
+                                   [indicator stopAnimating];
                                    //got stream
                                    NSLog(@"Stream received");
                                    //NSLog(@"%@", json);
