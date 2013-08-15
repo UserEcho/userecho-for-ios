@@ -5,6 +5,7 @@
 * Fixed exception when user perform fast scrolling inside comments list.
 * Comments view polished.
 * Added statuses colorisation.
+* Topic list presentation improved
 
 ## 1.0.5 ##
 

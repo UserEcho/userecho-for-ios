@@ -49,6 +49,8 @@
 		6097E8B4178EB6B70004CF02 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E8B3178EB6B70004CF02 /* API.m */; };
 		6097E8BA1797C6CB0004CF02 /* TopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E8B91797C6CB0004CF02 /* TopicVC.m */; };
 		6097E8BD1797E9CD0004CF02 /* UserEcho.css in Resources */ = {isa = PBXBuildFile; fileRef = 6097E8BC1797E9CD0004CF02 /* UserEcho.css */; };
+		609B3C7B17BCB94400E19878 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B3C7A17BCB94400E19878 /* NSString+FontAwesome.m */; };
+		609B3C7E17BCBA9300E19878 /* fontawesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609B3C7D17BCBA9300E19878 /* fontawesome.ttf */; };
 		60A32DCD17B425AF0078A753 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60A32DCC17B425AF0078A753 /* README.md */; };
 		60A32DFF17B50F580078A753 /* UECommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A32DFE17B50F580078A753 /* UECommon.m */; };
 		60A9EA6D17B413F9007D8F05 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA6F17B413F9007D8F05 /* MainStoryboard.storyboard */; };
@@ -135,6 +137,9 @@
 		6097E8B81797C6CA0004CF02 /* TopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicVC.h; path = UserEcho/TopicVC.h; sourceTree = "<group>"; };
 		6097E8B91797C6CB0004CF02 /* TopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicVC.m; path = UserEcho/TopicVC.m; sourceTree = "<group>"; };
 		6097E8BC1797E9CD0004CF02 /* UserEcho.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = UserEcho.css; path = UserEcho/Resources/UserEcho.css; sourceTree = "<group>"; };
+		609B3C7917BCB94400E19878 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+FontAwesome.h"; path = "ios-fontawesome/NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		609B3C7A17BCB94400E19878 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+FontAwesome.m"; path = "ios-fontawesome/NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		609B3C7D17BCBA9300E19878 /* fontawesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fontawesome.ttf; path = UserEcho/Resources/fontawesome.ttf; sourceTree = "<group>"; };
 		60A32DCC17B425AF0078A753 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		60A32DFD17B50F580078A753 /* UECommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UECommon.h; path = UserEcho/UECommon.h; sourceTree = "<group>"; };
 		60A32DFE17B50F580078A753 /* UECommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UECommon.m; path = UserEcho/UECommon.m; sourceTree = "<group>"; };
@@ -312,6 +317,7 @@
 		602F181A17AA34E800111BCB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				609B3C7C17BCB94900E19878 /* ios-fontawesome */,
 				602F179A179E60C200111BCB /* gtm-oauth2 */,
 				6097E895178EB6450004CF02 /* AFNetworking */,
 				602F17FC17A0F85A00111BCB /* UICKeyChainStore */,
@@ -350,11 +356,21 @@
 		6097E8BB1797E9930004CF02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				609B3C7D17BCBA9300E19878 /* fontawesome.ttf */,
 				60E5886717B81DA200B9E1E0 /* voter_neutral.png */,
 				60A9EA6217B3FC68007D8F05 /* ru */,
 				6097E8BC1797E9CD0004CF02 /* UserEcho.css */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		609B3C7C17BCB94900E19878 /* ios-fontawesome */ = {
+			isa = PBXGroup;
+			children = (
+				609B3C7917BCB94400E19878 /* NSString+FontAwesome.h */,
+				609B3C7A17BCB94400E19878 /* NSString+FontAwesome.m */,
+			);
+			name = "ios-fontawesome";
 			sourceTree = "<group>";
 		};
 		60A9EA6217B3FC68007D8F05 /* ru */ = {
@@ -429,6 +445,7 @@
 				60A9EA7617B41B9F007D8F05 /* UserEcho.strings in Resources */,
 				60A32DCD17B425AF0078A753 /* README.md in Resources */,
 				60E5886817B81DA200B9E1E0 /* voter_neutral.png in Resources */,
+				609B3C7E17BCBA9300E19878 /* fontawesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +488,7 @@
 				602F181617A2B72300111BCB /* VoterTVC.m in Sources */,
 				602F181917A918F700111BCB /* UserEcho.m in Sources */,
 				60A32DFF17B50F580078A753 /* UECommon.m in Sources */,
+				609B3C7B17BCB94400E19878 /* NSString+FontAwesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,8 @@
 #import "GTMOAuth2SignIn.h"
 #import "GTMOAuth2ViewControllerTouch.h"
 
+#import "NSString+FontAwesome.h"
+
 @interface UserEchoVC ()
 
 @end
@@ -184,7 +186,7 @@ UIActivityIndicatorView *indicator;
                                    [indicator stopAnimating];
                                    //got stream
                                    NSLog(@"Stream received");
-                                   //NSLog(@"%@", json);
+                                   NSLog(@"%@", json);
 
                                    topicsStream = json;// allValues];//[json objectForKey:@"result"];
                                    NSLog(@"Loaded:%u",[topicsStream count]);
@@ -270,12 +272,14 @@ UIActivityIndicatorView *indicator;
     int status_x=label.frame.origin.x;
     
     label = (UILabel *)[cell.contentView viewWithTag:10];
+    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+    label.textColor = [UECommon colorWithHexString:@"333333"];
 
     CGRect frame = label.frame;
     frame.size.width = status_x-frame.origin.x-5;
     label.frame = frame;
     
-    NSLog(@"POSIT=%d %f",status_x,frame.origin.x);
+    //NSLog(@"POSIT=%d %f",status_x,frame.origin.x);
     
     [label setText:[topic objectForKey:@"header"]];
     label.lineBreakMode = NSLineBreakByWordWrapping;
@@ -293,15 +297,52 @@ UIActivityIndicatorView *indicator;
     view.frame = frame;
     
     UILabel* author = (UILabel *)[cell.contentView viewWithTag:151];
+    author.font = [UIFont fontWithName:@"Helvetica-Bold" size:11];
+    author.textColor = [UECommon colorWithHexString:@"0088cc"];
     author.text = [[topic objectForKey:@"author"] objectForKey:@"name"];
     [author sizeToFit];
     
     UILabel* date = (UILabel *)[cell.contentView viewWithTag:152];
-    date.text = [UECommon ueDate:[topic objectForKey:@"updated"]];
+    date.font = [UIFont fontWithName:@"Helvetica-Bold" size:11];
+    date.textColor = [UECommon colorWithHexString:@"808080"];
+    date.text = [NSString stringWithFormat:@" - %@",[UECommon ueDate:[topic objectForKey:@"updated"]]];
+    
+    if([(NSNumber*)[topic objectForKey:@"comment_count"] intValue]>0)
+        date.text = [NSString stringWithFormat:@"%@ - ",date.text];
+    
     [date sizeToFit];
     frame = date.frame;
     frame.origin.x = author.frame.origin.x+author.frame.size.width;
     date.frame = frame;
+    
+    if([(NSNumber*)[topic objectForKey:@"comment_count"] intValue]>0)
+    {
+    UILabel* ico = (UILabel *)[cell.contentView viewWithTag:153];
+    ico.font = [UIFont fontWithName:kFontAwesomeFamilyName size:11];
+    ico.textColor = [UECommon colorWithHexString:@"808080"];
+    ico.text = [NSString fontAwesomeIconStringForIconIdentifier:@"icon-comment"];
+    [ico sizeToFit];
+    frame = ico.frame;
+    frame.origin.x = date.frame.origin.x+date.frame.size.width;
+    ico.frame = frame;
+
+    
+    UILabel* comments = (UILabel *)[cell.contentView viewWithTag:154];
+    comments.font = [UIFont fontWithName:@"Helvetica" size:11];
+    comments.textColor = [UECommon colorWithHexString:@"808080"];
+    comments.text = @"124";//[(NSNumber*)[topic objectForKey:@"comment_count"] stringValue];
+    [comments sizeToFit];
+    frame = comments.frame;
+    frame.origin.x = ico.frame.origin.x+ico.frame.size.width;
+    comments.frame = frame;
+    }
+    else
+    {
+    UILabel* ico = (UILabel *)[cell.contentView viewWithTag:153];
+        ico.hidden=YES;
+    UILabel* comments = (UILabel *)[cell.contentView viewWithTag:154];
+        comments.hidden=YES;
+    }
     
     
     
@@ -353,15 +394,15 @@ UIActivityIndicatorView *indicator;
     //18 - Header padding + margin
     //320 - screen width
     
-    CGSize size = [[topic objectForKey:@"header"] sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:CGSizeMake(320.0-94-status_size.width-18, 480.0) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize size = [[topic objectForKey:@"header"] sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:12] constrainedToSize:CGSizeMake(320.0-54-status_size.width-18, 480.0) lineBreakMode:NSLineBreakByWordWrapping];
     
     
     //NSLog(@"LS=%ld %f",(long)indexPath.row,status_size.width+10);
   
-    if(size.height+20<44)
-        return 50;
+    if(size.height+20<53)
+        return 53;
     
-    return size.height+24;
+    return size.height+28;
 }
 
 
