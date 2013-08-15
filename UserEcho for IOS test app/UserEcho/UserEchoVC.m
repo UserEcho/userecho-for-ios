@@ -236,10 +236,11 @@ UIActivityIndicatorView *indicator;
     //Status
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:21];
     
-    if([[topic objectForKey:@"status"] intValue]>1)
+    
+    if([[[topic objectForKey:@"status"] objectForKey:@"id"] intValue]>1)
         {
 
-    [label setText:[[topic objectForKey:@"status_name"] uppercaseString]];
+    [label setText:[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString]];
     label.layer.cornerRadius = 2;
     label.layer.masksToBounds = YES;
     [label sizeToFit];
@@ -251,6 +252,10 @@ UIActivityIndicatorView *indicator;
     frame.origin.x = self.view.frame.size.width-frame.size.width-4;
     
     label.frame = frame;
+            
+            //Set color
+            UIColor* color = [UECommon colorWithHexString:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"status"] objectForKey:@"color"]]];
+            [label setBackgroundColor:color];
         }
     else
     {
@@ -279,12 +284,25 @@ UIActivityIndicatorView *indicator;
     
     
     int header_bottom=label.frame.origin.y+label.frame.size.height;
+    if(header_bottom<25) header_bottom=25;
     
     //User name + date + ...
-    label = (UILabel *)[cell.contentView viewWithTag:150];
-    frame = label.frame;
-    frame.origin.y = header_bottom-5;
-    label.frame = frame;
+    UIView* view = (UIView *)[cell.contentView viewWithTag:150];
+    frame = view.frame;
+    frame.origin.y = header_bottom;
+    view.frame = frame;
+    
+    UILabel* author = (UILabel *)[cell.contentView viewWithTag:151];
+    author.text = [[topic objectForKey:@"author"] objectForKey:@"name"];
+    [author sizeToFit];
+    
+    UILabel* date = (UILabel *)[cell.contentView viewWithTag:152];
+    date.text = [UECommon ueDate:[topic objectForKey:@"updated"]];
+    [date sizeToFit];
+    frame = date.frame;
+    frame.origin.x = author.frame.origin.x+author.frame.size.width;
+    date.frame = frame;
+    
     
     
     label = (UILabel *)[cell.contentView viewWithTag:12];
@@ -305,7 +323,7 @@ UIActivityIndicatorView *indicator;
     
     //Load user avatar
     
-    
+    /*
     [UECommon loadAvatar:[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]
             onCompletion:^(UIImage *image) {
                 UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -314,6 +332,7 @@ UIActivityIndicatorView *indicator;
                 avatar.layer.cornerRadius = 4.0;
             }];
 
+    */
     return cell;
 }
 
@@ -322,9 +341,9 @@ UIActivityIndicatorView *indicator;
 {
     NSDictionary* topic = [topicsStream objectAtIndex:indexPath.row];
     
-    CGSize status_size = [[[topic objectForKey:@"status_name"] uppercaseString] sizeWithFont:[UIFont systemFontOfSize:9]];
+    CGSize status_size = [[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString] sizeWithFont:[UIFont systemFontOfSize:9]];
     
-    if([[topic objectForKey:@"status"] intValue]<2)
+    if([[[topic objectForKey:@"status"] objectForKey:@"id"] intValue]<2)
     {
         status_size.width=0;
     }
@@ -340,9 +359,9 @@ UIActivityIndicatorView *indicator;
     //NSLog(@"LS=%ld %f",(long)indexPath.row,status_size.width+10);
   
     if(size.height+20<44)
-        return 44;
+        return 50;
     
-    return size.height+20;
+    return size.height+24;
 }
 
 

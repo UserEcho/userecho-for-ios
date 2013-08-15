@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 UserEcho. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 
 @interface UECommon : NSObject
 
@@ -14,5 +14,7 @@
 typedef void (^imageLoadResponse)(UIImage *image);
 
 +(void)loadAvatar:(NSString*)url onCompletion:(imageLoadResponse)completionBlock;
++(UIColor*)colorWithHexString:(NSString*)hex;
++(NSString*)ueDate:(NSString*)date;
 
 @end

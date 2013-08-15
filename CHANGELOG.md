@@ -3,6 +3,8 @@
 * Comment field cleanup and keyboard dismiss after send comment.
 * Added simple progress indicator on the topic list loading.
 * Fixed exception when user perform fast scrolling inside comments list.
+* Comments view polished.
+* Added statuses colorisation.
 
 ## 1.0.5 ##
 
