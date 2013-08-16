@@ -13,4 +13,13 @@ body img {
 max-width:100%;
 }
 
+blockquote {
+padding: 0 0 0 15px;
+margin: 0 0 20px;
+padding-left: 10px;
+padding-right: 5px;
+border-left: 3px solid #ddd;
+margin-bottom: 1.5em;
+}
+
 </style>
