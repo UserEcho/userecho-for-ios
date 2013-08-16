@@ -3,7 +3,7 @@ UserEcho-for-ios
 
 UserEcho for iOS allows you to embed UserEcho community directly in your iPhone application.
 
-![](https://www.userecho.com/s/assets/img/ios/userecho-for-ios-1.png)
+![](https://www.userecho.com/s/assets/img/ios/userecho-for-ios-screenshots.png)
 
 * Full support for iOS 6.0+
 * The library will detect and display in the language the device is set to provided that language is supported by the SDK.
