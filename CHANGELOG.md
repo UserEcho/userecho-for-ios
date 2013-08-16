@@ -1,3 +1,7 @@
+## 1.0.7 ##
+
+
+
 ## 1.0.6 ##
 
 * Comment field cleanup and keyboard dismiss after send comment.
@@ -5,7 +9,7 @@
 * Fixed exception when user perform fast scrolling inside comments list.
 * Comments view polished.
 * Added statuses colorisation.
-* Topic list presentation improved
+* Topic list presentation improved.
 
 ## 1.0.5 ##
 

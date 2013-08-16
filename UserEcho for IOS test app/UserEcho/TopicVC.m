@@ -35,8 +35,8 @@ FPPopoverController *popover;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [btnComments setTitle:NSLocalizedStringFromTable(@"Comments",@"UserEcho",nil) forState:UIControlStateNormal];
-    [btnComments sizeToFit];
+    
+    //[btnComments sizeToFit];
     
     
     btnComments.tag=[self.topicId intValue];
@@ -62,6 +62,36 @@ FPPopoverController *popover;
                      
                      //Update placeholders on screen
                      topicHeader.text=[topic objectForKey:@"header"];
+                     
+                     
+                     topicHeader.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+                     topicHeader.textColor = [UECommon colorWithHexString:@"333333"];
+                     
+                     //CGRect frame = topicHeader.frame;
+                     //frame.size.width = status_x-frame.origin.x-5;
+                     //label.frame = frame;
+                     
+                     //NSLog(@"POSIT=%d %f",status_x,frame.origin.x);
+                     
+                     
+                     [btnComments setTitle:[NSString stringWithFormat:@"(%@) %@",[topic objectForKey:@"comment_count"],NSLocalizedStringFromTable(@"Comments",@"UserEcho",nil)]];
+                     
+                     
+                     
+                     [topicHeader setText:[topic objectForKey:@"header"]];
+                     topicHeader.lineBreakMode = NSLineBreakByWordWrapping;
+                     topicHeader.numberOfLines = 0;
+                     [topicHeader sizeToFit];
+                     
+                     //Resize topic top view
+                     int topview_height=topicHeader.frame.size.height+14;
+                     if(topview_height<50) topview_height=50;
+                     
+                     UIView* topview=topicHeader.superview;
+                     CGRect frame = topview.frame;
+                     frame.size.height=topview_height;
+                     topview.frame=frame;
+
                      
                      NSLog(@"Ratin:%@",[topic objectForKey:@"vote_diff"]);
                      rating.text=[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_diff"]];
@@ -90,6 +120,12 @@ FPPopoverController *popover;
                      
                      //pass the string to the webview
                      
+                     frame = topicDescription.frame;
+                     frame.origin.y=topview.frame.size.height+10;
+                     topicDescription.frame=frame;
+                     
+                     
+                     
                      NSString *pathToCSS = [[NSBundle mainBundle] pathForResource:@"UserEcho" ofType:@"css"];
                      NSString *CSS = [NSString stringWithContentsOfFile:pathToCSS encoding:NSUTF8StringEncoding error:NULL];
                      //NSLog(@"CSS=%@",CSS);
@@ -101,25 +137,61 @@ FPPopoverController *popover;
                      [UECommon loadAvatar:[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]
                              onCompletion:^(UIImage *image) {
                                  authorAvatar.image=image;
+                                 authorAvatar.layer.cornerRadius = 5.0;
                              }
                       ];
                      
                      
                      //Reply
-                     NSNumber* status = [topic objectForKey:@"status"];
+                     NSNumber* status = [[topic objectForKey:@"status"] objectForKey:@"id"];
                      
-                     CGRect frame=replyPane.frame;
+                     frame=replyPane.frame;
                      frame.size.height=0;
                      replyPane.frame=frame;
                      
                      if([status intValue]>1) {
-                         replyStatus.text=[topic objectForKey:@"status_name"];
-                         [replyStatus sizeToFit];
+                         //replyStatus.text=[topic objectForKey:@"status_name"];
                          replyStatus.hidden = false;
+                         
+                         
+                         
+                         [replyStatus setText:[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString]];
+                         
+                         replyStatus.layer.cornerRadius = 2;
+                         replyStatus.layer.masksToBounds = YES;
+                         [replyStatus sizeToFit];
+                         
+                         CGRect frame = replyStatus.frame;
+                         frame.size.height+=10;
+                         frame.size.width+=10;
+                         
+                         frame.origin.x = self.view.frame.size.width-frame.size.width-15;
+                         
+                         replyStatus.frame = frame;
+                         
+                         //Set color
+                         UIColor* color = [UECommon colorWithHexString:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"status"] objectForKey:@"color"]]];
+                         [replyStatus setBackgroundColor:color];
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
                          
                          [UECommon loadAvatar:[[topic objectForKey:@"response"] objectForKey:@"avatar_url"]
                                  onCompletion:^(UIImage *image) {
                                      replyAvatar.image=image;
+                                     replyAvatar.layer.cornerRadius = 5.0;
                                  }
                           ];
                          
@@ -128,6 +200,10 @@ FPPopoverController *popover;
                          html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"admin_comment"]];
                          
                          [replyDescription loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
+                         
+                         replyDescription.opaque = NO;
+                         replyDescription.backgroundColor = [UIColor clearColor];
+                         
                          replyDescription.hidden=false;
                          
                      
@@ -167,7 +243,7 @@ FPPopoverController *popover;
         {
         NSLog(@"Reply");
         frame=replyPane.frame;
-        frame.size.height=replyDescription.frame.size.height+64;
+        frame.size.height=replyDescription.frame.size.height+50;
         replyPane.frame=frame;
         }
     
@@ -175,7 +251,7 @@ FPPopoverController *popover;
         {
             NSLog(@"Topic");
             frame=replyPane.frame;
-            frame.origin.y=topicDescription.frame.origin.y+topicDescription.frame.size.height;
+            frame.origin.y=topicDescription.frame.origin.y+topicDescription.frame.size.height+10;
             replyPane.frame=frame;
         }
     
@@ -184,9 +260,9 @@ FPPopoverController *popover;
     
     
     
-    frame=btnComments.frame;
+    //frame=btnComments.frame;
     
-    btnComments.frame = CGRectMake( bounds.width/2-frame.size.width/2, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height, frame.size.width, 44 );
+    //btnComments.frame = CGRectMake( bounds.width/2-frame.size.width/2, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height, frame.size.width, 44 );
     
     //Resize main view to fit content
     topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height+44+10);
@@ -201,8 +277,8 @@ FPPopoverController *popover;
     if ([segue.identifier isEqualToString:@"ShowComments"]) {
         
         CommentsVC *CommentsVC = segue.destinationViewController;
-        UIButton *button=sender;
-        //NSLog(@"SEG showcomments called %ld",(long)button.tag);
+        UIBarButtonItem *button=sender;
+        NSLog(@"SEG showcomments called %ld",(long)button.tag);
         
         CommentsVC.topicId = [NSNumber numberWithInt:button.tag];
         //NSLog(@"SEG showcomments called %@",TopicCommentsScreen.topicId2);

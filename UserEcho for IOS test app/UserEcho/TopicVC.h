@@ -18,7 +18,9 @@
     
     IBOutlet UIWebView* topicDescription;
     IBOutlet UIScrollView* topicScrollView;
-    IBOutlet UIButton* btnComments;
+    //IBOutlet UIButton* btnComments;
+    IBOutlet UIBarButtonItem* btnComments;
+    
     IBOutlet UIButton* btnVote;
     
     //Official answer
