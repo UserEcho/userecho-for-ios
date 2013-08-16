@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zat-Xs-ENI">
-                                <rect key="frame" x="0.0" y="44" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TopicCell" rowHeight="54" id="2Oe-Co-g29">
@@ -121,6 +121,15 @@
                                     <outlet property="delegate" destination="nip-hP-Qce" id="61d-1x-R9O"/>
                                 </connections>
                             </searchBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="opR-BB-SPA">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items/>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="poweredbyue.png" id="c4L-n4-cj3">
+                                <rect key="frame" x="94" y="380" width="132" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -709,8 +718,79 @@
     </scenes>
     <resources>
         <image name="menutab.png" width="320" height="45"/>
+        <image name="poweredbyue.png" width="132" height="27"/>
         <image name="voter_neutral.png" width="45" height="38"/>
     </resources>
+    <classes>
+        <class className="CommentsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="message" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="JASidePanelController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
+        </class>
+        <class className="LeftMenuTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeftMenuTVC.h"/>
+        </class>
+        <class className="TDBadgedCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TDBadgedCell.h"/>
+        </class>
+        <class className="TopicEditVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicEditVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="topicDescriptionPlaceholder" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicEditTV" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="topicType" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TopicVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorAvatar" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="btnComments" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnVote" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="replyAvatar" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="replyDescription" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="replyPane" candidateClass="UIView"/>
+                <relationship kind="outlet" name="replyStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="voterBackground" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="UESidePanelController" superclassName="JASidePanelController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UESidePanelController.h"/>
+        </class>
+        <class className="UserEchoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserEchoVC.h"/>
+            <relationships>
+                <relationship kind="action" name="backToMainApp"/>
+                <relationship kind="action" name="signIn"/>
+                <relationship kind="action" name="userClicked"/>
+                <relationship kind="outlet" name="btnBack" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnNewTopic" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnSignIn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnUser" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="sbSearch" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="topicsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UserMenuVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserMenuVC.h"/>
+        </class>
+        <class className="VoterTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoterTVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

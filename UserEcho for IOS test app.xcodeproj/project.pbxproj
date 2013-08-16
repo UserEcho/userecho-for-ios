@@ -64,6 +64,7 @@
 		60F5919E17BE477B009C3BE6 /* LeftMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5919D17BE477B009C3BE6 /* LeftMenuTVC.m */; };
 		60F591A217BE4CA9009C3BE6 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F591A117BE4CA9009C3BE6 /* TDBadgedCell.m */; };
 		60F591A417BE6B2D009C3BE6 /* menutab.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F591A317BE6B2D009C3BE6 /* menutab.png */; };
+		60F591A617BE8B8D009C3BE6 /* poweredbyue.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F591A517BE8B8D009C3BE6 /* poweredbyue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,7 @@
 		60F591A017BE4CA9009C3BE6 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
 		60F591A117BE4CA9009C3BE6 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
 		60F591A317BE6B2D009C3BE6 /* menutab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menutab.png; path = UserEcho/Resources/menutab.png; sourceTree = "<group>"; };
+		60F591A517BE8B8D009C3BE6 /* poweredbyue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poweredbyue.png; path = UserEcho/Resources/poweredbyue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 		6097E8BB1797E9930004CF02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				60F591A517BE8B8D009C3BE6 /* poweredbyue.png */,
 				60F591A317BE6B2D009C3BE6 /* menutab.png */,
 				609B3C7D17BCBA9300E19878 /* fontawesome.ttf */,
 				60E5886717B81DA200B9E1E0 /* voter_neutral.png */,
@@ -495,6 +498,7 @@
 				60E5886817B81DA200B9E1E0 /* voter_neutral.png in Resources */,
 				609B3C7E17BCBA9300E19878 /* fontawesome.ttf in Resources */,
 				60F591A417BE6B2D009C3BE6 /* menutab.png in Resources */,
+				60F591A617BE8B8D009C3BE6 /* poweredbyue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

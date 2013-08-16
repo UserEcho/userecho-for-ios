@@ -1,7 +1,7 @@
 ## 1.0.7 ##
 
 * Added Sliding menu with forum switching functionality.
-
+* Added powered by bar
 
 ## 1.0.6 ##
 
