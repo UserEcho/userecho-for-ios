@@ -67,11 +67,27 @@ UIActivityIndicatorView *indicator;
         
         [UECommon loadAvatar:[[UEData getInstance].user objectForKey:@"avatar_url"]
                 onCompletion:^(UIImage *image) {
-                    [btnUser setImage: image];
+                    //[btnUser setImage: image];
+                    
+                    
+                    
+                    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+                    [button setImage:image forState:UIControlStateNormal];
+                    [button addTarget:self action:@selector(userClicked) forControlEvents:UIControlEventTouchUpInside];
+                    [button setFrame:CGRectMake(0, 0, 32, 32)];
+                    button.layer.cornerRadius=5;
+  //                  yourButton.layer.cornerRadius = 10; // this value vary as per your desire
+                    button.clipsToBounds = YES;
+                    
+                    
+                    [btnUser initWithCustomView:button];
+                    //btnUser.layer.cornerRadius = 2;
+                    
+                    
                 }];
     }];
     
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnUser, btnNewTopic, nil];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnUser, btnNewTopic,btnSearch, nil];
 }
 
 -(void)msgResponder:(NSNotification *)notification {
@@ -96,9 +112,45 @@ UIActivityIndicatorView *indicator;
 	// Do any additional setup after loading the view.
 
     //Assign captions for buttons
-    btnBack.title = NSLocalizedStringFromTable(@"Back",@"UserEcho",nil);
-    btnNewTopic .title = NSLocalizedStringFromTable(@"New topic",@"UserEcho",nil);
-    btnSignIn.title = NSLocalizedStringFromTable(@"Sign in",@"UserEcho",nil);
+    //btnBack.title = NSLocalizedStringFromTable(@"Back",@"UserEcho",nil);
+    //btnNewTopic.title = NSLocalizedStringFromTable(@"New topic",@"UserEcho",nil);
+    //btnSignIn.title = NSLocalizedStringFromTable(@"Sign in",@"UserEcho",nil);
+    
+    CGRect frame=topicsTable.frame;
+    NSLog(@"TOpics table frame=%f",frame.origin.y);
+    frame.origin.y=1;
+    //frame.origin.x=20;
+    frame.size.height=frame.size.height+44;
+    topicsTable.frame=frame;
+    
+    
+        
+    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"glyphicons_124_message_plus.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(btnNewTopic) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 32, 36)];
+
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 4, 0);
+    [btnNewTopic initWithCustomView:button];
+    
+    button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"glyphicons_158_show_lines.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(backToMainApp) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 32, 32)];
+    [btnBack initWithCustomView:button];
+    
+    button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"glyphicons_386_log_in.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(signInToCustomService) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 32, 32)];
+    [btnSignIn initWithCustomView:button];
+    
+    
+    button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"glyphicons_027_search.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(searchClicked) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 32, 32)];
+    [btnSearch initWithCustomView:button];
     
     sbSearch.placeholder = NSLocalizedStringFromTable(@"Search2 for an ideas",@"UserEcho",nil);
     
@@ -106,7 +158,7 @@ UIActivityIndicatorView *indicator;
     
     
     
-    self.navigationItem.title = @"UserEcho";
+    //self.navigationItem.title = @"UserEcho";
     self.navigationItem.leftBarButtonItem = btnBack;
     
     
@@ -130,7 +182,7 @@ UIActivityIndicatorView *indicator;
     }
         else
         {
-            self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSignIn, btnNewTopic, nil];
+            self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSignIn, btnNewTopic, btnSearch,nil];
 
         }
     
@@ -547,6 +599,11 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
                  }];
 }
 
+
+
+
+
+
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"SB Search clicked");
@@ -562,6 +619,19 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
+    
+    
+    
+    searchBar.hidden=YES;
+
+    CGRect frame=topicsTable.frame;
+    NSLog(@"TOpics table frame=%f",frame.origin.y);
+    frame.origin.y=1;
+    //frame.origin.x=20;
+    frame.size.height=frame.size.height+44;
+    topicsTable.frame=frame;
+    
+    
     [self refreshStream];
 }
 
@@ -584,6 +654,18 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
         }
   
 }
+
+- (IBAction)searchClicked{
+    NSLog(@"Search button clicked");
+    sbSearch.hidden=NO;
+    CGRect frame=topicsTable.frame;
+    frame.origin.x=10;
+    frame.origin.y=44;
+    frame.size.height=frame.size.height-44;
+    topicsTable.frame=frame;
+//    [topicsTable setFrame:CGRectMake(0, 0, 320, 188)];
+}
+
 
 //UserMenu
 - (IBAction)userClicked{

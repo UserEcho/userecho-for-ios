@@ -16,6 +16,7 @@ IBOutlet UIBarButtonItem* btnBack;
 IBOutlet UIBarButtonItem* btnSignIn;
 IBOutlet UIBarButtonItem* btnNewTopic;
 IBOutlet UIBarButtonItem* btnUser;
+IBOutlet UIBarButtonItem* btnSearch;
     
     IBOutlet UISearchBar* sbSearch;
 

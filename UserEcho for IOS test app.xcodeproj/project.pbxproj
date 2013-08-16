@@ -37,6 +37,9 @@
 		602F181317A2850C00111BCB /* UserMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181217A2850C00111BCB /* UserMenuVC.m */; };
 		602F181617A2B72300111BCB /* VoterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181517A2B72300111BCB /* VoterTVC.m */; };
 		602F181917A918F700111BCB /* UserEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181817A918F700111BCB /* UserEcho.m */; };
+		607D2E5117BE98B600299432 /* glyphicons_158_show_lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */; };
+		607D2E5317BE9B2600299432 /* glyphicons_386_log_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */; };
+		607D2E5517BEA43900299432 /* glyphicons_027_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5417BEA43900299432 /* glyphicons_027_search.png */; };
 		6097E8A9178EB6450004CF02 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E897178EB6450004CF02 /* AFHTTPClient.m */; };
 		6097E8AA178EB6450004CF02 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E899178EB6450004CF02 /* AFHTTPRequestOperation.m */; };
 		6097E8AB178EB6450004CF02 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097E89B178EB6450004CF02 /* AFImageRequestOperation.m */; };
@@ -65,6 +68,7 @@
 		60F591A217BE4CA9009C3BE6 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F591A117BE4CA9009C3BE6 /* TDBadgedCell.m */; };
 		60F591A417BE6B2D009C3BE6 /* menutab.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F591A317BE6B2D009C3BE6 /* menutab.png */; };
 		60F591A617BE8B8D009C3BE6 /* poweredbyue.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F591A517BE8B8D009C3BE6 /* poweredbyue.png */; };
+		60F591A817BE8F21009C3BE6 /* glyphicons_124_message_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F591A717BE8F21009C3BE6 /* glyphicons_124_message_plus.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +125,9 @@
 		602F181717A918F700111BCB /* UserEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEcho.h; path = UserEcho/UserEcho.h; sourceTree = "<group>"; };
 		602F181817A918F700111BCB /* UserEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEcho.m; path = UserEcho/UserEcho.m; sourceTree = "<group>"; };
 		602F181B17AA3E3000111BCB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_158_show_lines.png; path = UserEcho/Resources/glyphicons_158_show_lines.png; sourceTree = "<group>"; };
+		607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_386_log_in.png; path = UserEcho/Resources/glyphicons_386_log_in.png; sourceTree = "<group>"; };
+		607D2E5417BEA43900299432 /* glyphicons_027_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_027_search.png; path = UserEcho/Resources/glyphicons_027_search.png; sourceTree = "<group>"; };
 		6097E896178EB6450004CF02 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6097E897178EB6450004CF02 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6097E898178EB6450004CF02 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -170,6 +177,7 @@
 		60F591A117BE4CA9009C3BE6 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
 		60F591A317BE6B2D009C3BE6 /* menutab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menutab.png; path = UserEcho/Resources/menutab.png; sourceTree = "<group>"; };
 		60F591A517BE8B8D009C3BE6 /* poweredbyue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poweredbyue.png; path = UserEcho/Resources/poweredbyue.png; sourceTree = "<group>"; };
+		60F591A717BE8F21009C3BE6 /* glyphicons_124_message_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_124_message_plus.png; path = UserEcho/Resources/glyphicons_124_message_plus.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +393,10 @@
 		6097E8BB1797E9930004CF02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				607D2E5417BEA43900299432 /* glyphicons_027_search.png */,
+				607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */,
+				607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */,
+				60F591A717BE8F21009C3BE6 /* glyphicons_124_message_plus.png */,
 				60F591A517BE8B8D009C3BE6 /* poweredbyue.png */,
 				60F591A317BE6B2D009C3BE6 /* menutab.png */,
 				609B3C7D17BCBA9300E19878 /* fontawesome.ttf */,
@@ -499,6 +511,10 @@
 				609B3C7E17BCBA9300E19878 /* fontawesome.ttf in Resources */,
 				60F591A417BE6B2D009C3BE6 /* menutab.png in Resources */,
 				60F591A617BE8B8D009C3BE6 /* poweredbyue.png in Resources */,
+				60F591A817BE8F21009C3BE6 /* glyphicons_124_message_plus.png in Resources */,
+				607D2E5117BE98B600299432 /* glyphicons_158_show_lines.png in Resources */,
+				607D2E5317BE9B2600299432 /* glyphicons_386_log_in.png in Resources */,
+				607D2E5517BEA43900299432 /* glyphicons_027_search.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
