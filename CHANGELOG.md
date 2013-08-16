@@ -1,7 +1,9 @@
 ## 1.0.7 ##
 
 * Added Sliding menu with forum switching functionality.
-* Added powered by bar
+* Added powered by bar.
+* Top menu items now displayed as icons.
+* Search bar is hidden by default.
 
 ## 1.0.6 ##
 
