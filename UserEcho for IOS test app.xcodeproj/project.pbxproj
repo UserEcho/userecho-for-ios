@@ -57,6 +57,13 @@
 		60A9EA7517B41A3C007D8F05 /* UserEcho.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA7417B41A3C007D8F05 /* UserEcho.storyboard */; };
 		60A9EA7617B41B9F007D8F05 /* UserEcho.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60A9EA5217B3DD26007D8F05 /* UserEcho.strings */; };
 		60E5886817B81DA200B9E1E0 /* voter_neutral.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E5886717B81DA200B9E1E0 /* voter_neutral.png */; };
+		60F5919217BE39C4009C3BE6 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5919117BE39C4009C3BE6 /* JASidePanelController.m */; };
+		60F5919617BE3A34009C3BE6 /* UESidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5919517BE3A34009C3BE6 /* UESidePanelController.m */; };
+		60F5919817BE3B3D009C3BE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F5919717BE3B3D009C3BE6 /* QuartzCore.framework */; };
+		60F5919B17BE3CFB009C3BE6 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5919A17BE3CFB009C3BE6 /* UIViewController+JASidePanel.m */; };
+		60F5919E17BE477B009C3BE6 /* LeftMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5919D17BE477B009C3BE6 /* LeftMenuTVC.m */; };
+		60F591A217BE4CA9009C3BE6 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F591A117BE4CA9009C3BE6 /* TDBadgedCell.m */; };
+		60F591A417BE6B2D009C3BE6 /* menutab.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F591A317BE6B2D009C3BE6 /* menutab.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +156,18 @@
 		60A9EA7217B414FF007D8F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		60A9EA7417B41A3C007D8F05 /* UserEcho.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserEcho.storyboard; path = UserEcho/UserEcho.storyboard; sourceTree = "<group>"; };
 		60E5886717B81DA200B9E1E0 /* voter_neutral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = voter_neutral.png; path = UserEcho/Resources/voter_neutral.png; sourceTree = "<group>"; };
+		60F5919017BE39C4009C3BE6 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JASidePanelController.h; path = JASidePanels/JASidePanelController.h; sourceTree = "<group>"; };
+		60F5919117BE39C4009C3BE6 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JASidePanelController.m; path = JASidePanels/JASidePanelController.m; sourceTree = "<group>"; };
+		60F5919417BE3A34009C3BE6 /* UESidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UESidePanelController.h; path = UserEcho/UESidePanelController.h; sourceTree = "<group>"; };
+		60F5919517BE3A34009C3BE6 /* UESidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UESidePanelController.m; path = UserEcho/UESidePanelController.m; sourceTree = "<group>"; };
+		60F5919717BE3B3D009C3BE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		60F5919917BE3CFB009C3BE6 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JASidePanel.h"; path = "JASidePanels/UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
+		60F5919A17BE3CFB009C3BE6 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JASidePanel.m"; path = "JASidePanels/UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
+		60F5919C17BE477B009C3BE6 /* LeftMenuTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuTVC.h; path = UserEcho/LeftMenuTVC.h; sourceTree = "<group>"; };
+		60F5919D17BE477B009C3BE6 /* LeftMenuTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuTVC.m; path = UserEcho/LeftMenuTVC.m; sourceTree = "<group>"; };
+		60F591A017BE4CA9009C3BE6 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
+		60F591A117BE4CA9009C3BE6 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
+		60F591A317BE6B2D009C3BE6 /* menutab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menutab.png; path = UserEcho/Resources/menutab.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F5919817BE3B3D009C3BE6 /* QuartzCore.framework in Frameworks */,
 				602F17EC179E6AE200111BCB /* Security.framework in Frameworks */,
 				602F17EA179E6ADB00111BCB /* SystemConfiguration.framework in Frameworks */,
 				600E6163178C0F5100B7601B /* UIKit.framework in Frameworks */,
@@ -170,6 +190,7 @@
 		600E6156178C0F5100B7601B = {
 			isa = PBXGroup;
 			children = (
+				60F5919717BE3B3D009C3BE6 /* QuartzCore.framework */,
 				600E6168178C0F5100B7601B /* UserEcho for IOS test app */,
 				600E6161178C0F5100B7601B /* Frameworks */,
 				600E6160178C0F5100B7601B /* Products */,
@@ -255,6 +276,10 @@
 				602F181817A918F700111BCB /* UserEcho.m */,
 				60A32DFD17B50F580078A753 /* UECommon.h */,
 				60A32DFE17B50F580078A753 /* UECommon.m */,
+				60F5919417BE3A34009C3BE6 /* UESidePanelController.h */,
+				60F5919517BE3A34009C3BE6 /* UESidePanelController.m */,
+				60F5919C17BE477B009C3BE6 /* LeftMenuTVC.h */,
+				60F5919D17BE477B009C3BE6 /* LeftMenuTVC.m */,
 			);
 			name = UserEcho;
 			sourceTree = "<group>";
@@ -317,6 +342,8 @@
 		602F181A17AA34E800111BCB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				60F5919F17BE4CA9009C3BE6 /* TDBadgedCell */,
+				60F5919317BE39C9009C3BE6 /* JASidePanel */,
 				609B3C7C17BCB94900E19878 /* ios-fontawesome */,
 				602F179A179E60C200111BCB /* gtm-oauth2 */,
 				6097E895178EB6450004CF02 /* AFNetworking */,
@@ -356,6 +383,7 @@
 		6097E8BB1797E9930004CF02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				60F591A317BE6B2D009C3BE6 /* menutab.png */,
 				609B3C7D17BCBA9300E19878 /* fontawesome.ttf */,
 				60E5886717B81DA200B9E1E0 /* voter_neutral.png */,
 				60A9EA6217B3FC68007D8F05 /* ru */,
@@ -379,6 +407,26 @@
 				60A9EA5217B3DD26007D8F05 /* UserEcho.strings */,
 			);
 			name = ru;
+			sourceTree = "<group>";
+		};
+		60F5919317BE39C9009C3BE6 /* JASidePanel */ = {
+			isa = PBXGroup;
+			children = (
+				60F5919917BE3CFB009C3BE6 /* UIViewController+JASidePanel.h */,
+				60F5919A17BE3CFB009C3BE6 /* UIViewController+JASidePanel.m */,
+				60F5919017BE39C4009C3BE6 /* JASidePanelController.h */,
+				60F5919117BE39C4009C3BE6 /* JASidePanelController.m */,
+			);
+			name = JASidePanel;
+			sourceTree = "<group>";
+		};
+		60F5919F17BE4CA9009C3BE6 /* TDBadgedCell */ = {
+			isa = PBXGroup;
+			children = (
+				60F591A017BE4CA9009C3BE6 /* TDBadgedCell.h */,
+				60F591A117BE4CA9009C3BE6 /* TDBadgedCell.m */,
+			);
+			path = TDBadgedCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +494,7 @@
 				60A32DCD17B425AF0078A753 /* README.md in Resources */,
 				60E5886817B81DA200B9E1E0 /* voter_neutral.png in Resources */,
 				609B3C7E17BCBA9300E19878 /* fontawesome.ttf in Resources */,
+				60F591A417BE6B2D009C3BE6 /* menutab.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +538,11 @@
 				602F181917A918F700111BCB /* UserEcho.m in Sources */,
 				60A32DFF17B50F580078A753 /* UECommon.m in Sources */,
 				609B3C7B17BCB94400E19878 /* NSString+FontAwesome.m in Sources */,
+				60F5919217BE39C4009C3BE6 /* JASidePanelController.m in Sources */,
+				60F5919617BE3A34009C3BE6 /* UESidePanelController.m in Sources */,
+				60F5919B17BE3CFB009C3BE6 /* UIViewController+JASidePanel.m in Sources */,
+				60F5919E17BE477B009C3BE6 /* LeftMenuTVC.m in Sources */,
+				60F591A217BE4CA9009C3BE6 /* TDBadgedCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

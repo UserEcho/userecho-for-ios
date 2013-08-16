@@ -16,6 +16,9 @@
 #import "VoterTVC.h"
 #import "UECommon.h"
 
+#import "JASidePanelController.h"
+#import "UIViewController+JASidePanel.h"
+
 #import "GTMOAuth2SignIn.h"
 #import "GTMOAuth2ViewControllerTouch.h"
 
@@ -32,7 +35,9 @@ FPPopoverController *popover;
 UIActivityIndicatorView *indicator;
 
 - (void)backToMainApp {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.sidePanelController showLeftPanelAnimated:YES];
+    
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)signIn {
@@ -69,9 +74,25 @@ UIActivityIndicatorView *indicator;
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnUser, btnNewTopic, nil];
 }
 
+-(void)msgResponder:(NSNotification *)notification {
+    NSLog(@"name:%@ object:%@", notification.name, notification.object);
+    
+    if([notification.object isEqual: @"Refresh"])
+    {
+        [self refreshStream];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"--------Loading---------");
+    
+    
+    // method listen to meesssage with specfic name and calls selector when it get hit
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(msgResponder:) name:@"centerPanel" object:nil];
+     
 	// Do any additional setup after loading the view.
 
     //Assign captions for buttons
@@ -157,6 +178,8 @@ UIActivityIndicatorView *indicator;
                      //got stream
                      NSLog(@"Stream received");
                      NSLog(@"%@", json);
+                     
+                     [UEData getInstance].forums=json;
                      
                      NSPredicate *p = [NSPredicate predicateWithFormat:@"default = %u", 1];
                      NSArray *matchedDicts = [json filteredArrayUsingPredicate:p];
