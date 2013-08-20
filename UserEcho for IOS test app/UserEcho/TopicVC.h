@@ -17,6 +17,10 @@
     IBOutlet UILabel* rating;
     
     IBOutlet UIWebView* topicDescription;
+    IBOutlet NSLayoutConstraint* topicDescriptionHeight;
+    
+    
+    
     IBOutlet UIScrollView* topicScrollView;
     //IBOutlet UIButton* btnComments;
     IBOutlet UIBarButtonItem* btnComments;
@@ -28,7 +32,10 @@
     
     IBOutlet UIImageView* replyAvatar;
     IBOutlet UIWebView* replyDescription;
+    IBOutlet NSLayoutConstraint* replyDescriptionHeight;
+
     IBOutlet UILabel* replyStatus;
+    IBOutlet UIView* replyStatusBox;
 
     
     

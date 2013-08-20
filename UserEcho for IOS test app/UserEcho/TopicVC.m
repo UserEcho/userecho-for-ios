@@ -22,6 +22,8 @@
 NSDictionary *topic;
 FPPopoverController *popover;
 
+NSString *topicDescriptionHTML;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,6 +39,10 @@ FPPopoverController *popover;
 	// Do any additional setup after loading the view.
     
     //[btnComments sizeToFit];
+    
+    [[UIDevice currentDevice]beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hasOrientationChanged:) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
+
     
     
     btnComments.tag=[self.topicId intValue];
@@ -79,23 +85,25 @@ FPPopoverController *popover;
                      
                      
                      [topicHeader setText:[topic objectForKey:@"header"]];
-                     topicHeader.lineBreakMode = NSLineBreakByWordWrapping;
-                     topicHeader.numberOfLines = 0;
-                     [topicHeader sizeToFit];
+                     //topicHeader.lineBreakMode = NSLineBreakByWordWrapping;
+                     //topicHeader.numberOfLines = 0;
+                     //[topicHeader sizeToFit];
                      
                      //Resize topic top view
-                     int topview_height=topicHeader.frame.size.height+14;
-                     if(topview_height<50) topview_height=50;
+                     //int topview_height=topicHeader.frame.size.height+14;
+                     //if(topview_height<50) topview_height=50;
                      
-                     UIView* topview=topicHeader.superview;
-                     CGRect frame = topview.frame;
-                     frame.size.height=topview_height;
-                     topview.frame=frame;
+                     //UIView* topview=topicHeader.superview;
+                     //CGRect frame = topview.frame;
+                     //frame.size.height=topview_height;
+                     //topview.frame=frame;
 
                      
-                     NSLog(@"Ratin:%@",[topic objectForKey:@"vote_diff"]);
+                     NSLog(@"Rating:%@",[topic objectForKey:@"vote_diff"]);
                      rating.text=[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_diff"]];
                      
+                     
+                     /*
                      int uvote=[[topic objectForKey:@"cur_user_vote"] intValue];
                      switch (uvote) {
                          case -1:
@@ -110,7 +118,7 @@ FPPopoverController *popover;
                              voterBackground.backgroundColor=[UIColor blueColor];
                              break;
                      }
-                     
+                     */
                      
                      
                      
@@ -120,18 +128,19 @@ FPPopoverController *popover;
                      
                      //pass the string to the webview
                      
-                     frame = topicDescription.frame;
-                     frame.origin.y=topview.frame.size.height+10;
-                     topicDescription.frame=frame;
+                     //frame = topicDescription.frame;
+                     //frame.origin.y=topview.frame.size.height+10;
+                     //topicDescription.frame=frame;
                      
                      
                      
                      NSString *pathToCSS = [[NSBundle mainBundle] pathForResource:@"UserEcho" ofType:@"css"];
                      NSString *CSS = [NSString stringWithContentsOfFile:pathToCSS encoding:NSUTF8StringEncoding error:NULL];
                      //NSLog(@"CSS=%@",CSS);
-                     NSString *html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"description"]];
                      
-                     [topicDescription loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
+                     topicDescriptionHTML = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"description"]];
+                     
+                     [topicDescription loadHTMLString:topicDescriptionHTML baseURL:[NSURL URLWithString:@"http://userecho.com"]];
                      
                      //Load user avatar
                      [UECommon loadAvatar:[[topic objectForKey:@"author"] objectForKey:@"avatar_url"]
@@ -145,9 +154,9 @@ FPPopoverController *popover;
                      //Reply
                      NSNumber* status = [[topic objectForKey:@"status"] objectForKey:@"id"];
                      
-                     frame=replyPane.frame;
-                     frame.size.height=0;
-                     replyPane.frame=frame;
+                     //frame=replyPane.frame;
+                     //frame.size.height=0;
+                     //replyPane.frame=frame;
                      
                      if([status intValue]>1) {
                          //replyStatus.text=[topic objectForKey:@"status_name"];
@@ -157,21 +166,21 @@ FPPopoverController *popover;
                          
                          [replyStatus setText:[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString]];
                          
-                         replyStatus.layer.cornerRadius = 2;
-                         replyStatus.layer.masksToBounds = YES;
-                         [replyStatus sizeToFit];
+                         replyStatusBox.layer.cornerRadius = 2;
+                         replyStatusBox.layer.masksToBounds = YES;
+                         //[replyStatus sizeToFit];
                          
-                         CGRect frame = replyStatus.frame;
-                         frame.size.height+=10;
-                         frame.size.width+=10;
+                         //CGRect frame = replyStatus.frame;
+                         //frame.size.height+=10;
+                         //frame.size.width+=10;
                          
-                         frame.origin.x = self.view.frame.size.width-frame.size.width-15;
+                         //frame.origin.x = self.view.frame.size.width-frame.size.width-15;
                          
-                         replyStatus.frame = frame;
+                         //replyStatus.frame = frame;
                          
                          //Set color
                          UIColor* color = [UECommon colorWithHexString:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"status"] objectForKey:@"color"]]];
-                         [replyStatus setBackgroundColor:color];
+                         [replyStatusBox setBackgroundColor:color];
                          
                          
                          
@@ -197,7 +206,7 @@ FPPopoverController *popover;
                          
                          replyAvatar.hidden=false;
                          
-                         html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"admin_comment"]];
+                         NSString *html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"admin_comment"]];
                          
                          [replyDescription loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
                          
@@ -227,49 +236,27 @@ FPPopoverController *popover;
 //Description auto-height
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     
-    //Resize webview
-    aWebView.scrollView.scrollEnabled = NO;
-    
-    CGRect frame = aWebView.frame;
-    frame.size.height = 1;
-    aWebView.frame = frame;
-    
-    CGSize fittingSize = [aWebView sizeThatFits:CGSizeZero];
-    frame.size = fittingSize;
-    aWebView.frame = frame;
-    
-    
     if(aWebView==replyDescription)
         {
         NSLog(@"Reply");
-        frame=replyPane.frame;
-        frame.size.height=replyDescription.frame.size.height+50;
-        replyPane.frame=frame;
+        replyDescriptionHeight.constant=aWebView.scrollView.contentSize.height;
         }
     
     if(aWebView==topicDescription)
         {
-            NSLog(@"Topic");
-            frame=replyPane.frame;
-            frame.origin.y=topicDescription.frame.origin.y+topicDescription.frame.size.height+10;
-            replyPane.frame=frame;
+            NSLog(@"Topic H=%f",aWebView.scrollView.contentSize.height);
+          //  [topicDescription sizeToFit];
+            topicDescriptionHeight.constant=aWebView.scrollView.contentSize.height;
+            
         }
     
-    CGSize bounds = topicScrollView.bounds.size;
-    
-    
-    
-    
-    //frame=btnComments.frame;
-    
-    //btnComments.frame = CGRectMake( bounds.width/2-frame.size.width/2, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height, frame.size.width, 44 );
-    
+    //CGSize bounds = topicScrollView.bounds.size;
     //Resize main view to fit content
-    topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height+44+10);
+   // topicScrollView.contentSize = CGSizeMake(topicScrollView.frame.size.width, topicDescription.frame.size.height + topicDescription.frame.origin.y+replyPane.frame.size.height+44+10);
     
     
     
-    NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
+    //NSLog(@"SV size: %f, %f", topicScrollView.frame.size.width, topicScrollView.frame.size.height);
 }
 
 
@@ -316,6 +303,28 @@ FPPopoverController *popover;
     [popover setArrowDirection:FPPopoverArrowDirectionLeft];
     [popover presentPopoverFromView:sender];
     
+    
+}
+
+- (void)hasOrientationChanged:(NSNotification *)notification {
+    /*
+    UIDeviceOrientation currentOrientation;
+    currentOrientation = [[UIDevice currentDevice] orientation];
+    if(currentOrientation == UIDeviceOrientationLandscapeLeft){
+        NSLog(@"left");
+    }
+    
+    if(currentOrientation == UIDeviceOrientationLandscapeRight){
+        NSLog(@"right");
+    }
+    */
+//    [topicDescription reload];
+    //[topicDescription sizeToFit];
+    //topicDescriptionHeight.constant=topicDescription.scrollView.contentSize.height;
+    NSLog(@"Orient changed");
+//    [topicDescription loadHTMLString:@"" baseURL:[NSURL URLWithString:@"http://userecho.com"]];
+  //  [topicDescription sizeToFit];
+    //[topicDescription loadHTMLString:topicDescriptionHTML baseURL:[NSURL URLWithString:@"http://userecho.com"]];
     
 }
 

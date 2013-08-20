@@ -10,10 +10,12 @@
 
 @interface CommentsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
-    IBOutlet UIScrollView* scrollView;
+//    IBOutlet UIScrollView* scrollView;
     IBOutlet UITableView* commentsTable;
     IBOutlet UITextField* message;
     IBOutlet UIButton* btnSend;
+    
+    IBOutlet NSLayoutConstraint* bottomMargin;
 }
 
 @property (strong, nonatomic) NSNumber* topicId;

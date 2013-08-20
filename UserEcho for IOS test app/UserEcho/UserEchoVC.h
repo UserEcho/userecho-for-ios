@@ -18,11 +18,18 @@ IBOutlet UIBarButtonItem* btnNewTopic;
 IBOutlet UIBarButtonItem* btnUser;
 IBOutlet UIBarButtonItem* btnSearch;
     
-    IBOutlet UISearchBar* sbSearch;
+
+IBOutlet UISearchBar* sbSearch;
+IBOutlet NSLayoutConstraint* sbSearchHeight;
+    
+    
+IBOutlet UILabel* topicHeader;
 
     
 //IBOutlet UINavigationController* ueNavController;
 }
+
+@property (nonatomic, retain) IBOutlet UILabel *topicHeader;
 
 -(IBAction)backToMainApp;
 -(IBAction)signIn;

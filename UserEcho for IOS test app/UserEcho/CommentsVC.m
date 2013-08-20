@@ -39,17 +39,17 @@ NSMutableDictionary *messageHeightDictionary;
     // Do any additional setup after loading the view.
     [btnSend setTitle:NSLocalizedStringFromTable(@"Send",@"UserEcho",nil) forState:UIControlStateNormal];
     
-    CGRect frame=btnSend.frame;
-    [btnSend sizeToFit];
+    //CGRect frame=btnSend.frame;
+    //[btnSend sizeToFit];
     
-    CGRect mframe=message.frame;
-    mframe.size.width=mframe.size.width+frame.size.width-btnSend.frame.size.width;
-    [message setFrame:mframe];
+    //CGRect mframe=message.frame;
+    //mframe.size.width=mframe.size.width+frame.size.width-btnSend.frame.size.width;
+    //[message setFrame:mframe];
 
-    frame.origin.x=frame.origin.x+frame.size.width-btnSend.frame.size.width;
-    frame.size.width=btnSend.frame.size.width;
+    //frame.origin.x=frame.origin.x+frame.size.width-btnSend.frame.size.width;
+    //frame.size.width=btnSend.frame.size.width;
 
-    [btnSend setFrame:frame];
+    //[btnSend setFrame:frame];
     
     
     
@@ -117,17 +117,17 @@ NSMutableDictionary *messageHeightDictionary;
     
     [username setText:[[comment objectForKey:@"author"] objectForKey:@"name"]];
     username.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:13];
-    [username sizeToFit];
+    //[username sizeToFit];
     
     
     // Configure Cells
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:20];
-    label.text=[NSString stringWithFormat:@"%@",[[comment objectForKey:@"author"] objectForKey:@"title"]];
-    [label sizeToFit];
+    //label.text=[NSString stringWithFormat:@"%@",[[comment objectForKey:@"author"] objectForKey:@"title"]];
+    //[label sizeToFit];
     
-    CGRect frame = label.frame;
-    frame.origin.x=username.frame.origin.x+username.frame.size.width+5;
-    label.frame=frame;
+    //CGRect frame = label.frame;
+    //frame.origin.x=username.frame.origin.x+username.frame.size.width+5;
+    //label.frame=frame;
     
 
     
@@ -210,13 +210,13 @@ NSMutableDictionary *messageHeightDictionary;
   
     NSLog(@"WEB VIEW LOADED");
     
-    CGRect frame = aWebView.frame;
-    frame.size.height = 1;
-    aWebView.frame = frame;
+    //CGRect frame = aWebView.frame;
+    //frame.size.height = 1;
+    //aWebView.frame = frame;
     
-    CGSize fittingSize = [aWebView sizeThatFits:CGSizeZero];
-    frame.size = fittingSize;
-    aWebView.frame = frame;
+    //CGSize fittingSize = [aWebView sizeThatFits:CGSizeZero];
+    //frame.size = fittingSize;
+    //aWebView.frame = frame;
     
    // NSLog(@"TAG=%ld",(long)aWebView.tag);
     
@@ -235,7 +235,11 @@ NSMutableDictionary *messageHeightDictionary;
     
     // Store the height of the webview in the dictionary for this postId.
     
-    [messageHeightDictionary setObject:[NSString stringWithFormat:@"%f", aWebView.frame.size.height] forKey:indexPath];
+//    [messageHeightDictionary setObject:[NSString stringWithFormat:@"%f", aWebView.frame.size.height] forKey:indexPath];
+    [messageHeightDictionary setObject:[NSString stringWithFormat:@"%f", aWebView.scrollView.contentSize.height] forKey:indexPath];
+    
+    //aWebView.scrollView.contentSize.height;
+    
     
     [commentsTable beginUpdates];
     //[commentsTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
@@ -276,17 +280,26 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    NSLog(@"KEYB Show");
+    
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    scrollView.contentInset = contentInsets;
-    scrollView.scrollIndicatorInsets = contentInsets;
+    NSLog(@"KEYB Show KH=%f",kbSize.height);
+    
+    //Support for orientation
+    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+    CGFloat height = isPortrait ? kbSize.height : kbSize.width;
+    NSLog(@"The keyboard height is: %f", height);
+    
+    bottomMargin.constant = height;
+    
+    //UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    //scrollView.contentInset = contentInsets;
+    //scrollView.scrollIndicatorInsets = contentInsets;
     
     // If active text field is hidden by keyboard, scroll it so it's visible
     // Your application might not need or want this behavior.
-    
+    /*
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
     NSLog(@"ORIGIN=%f",message.superview.frame.origin.y);
@@ -294,6 +307,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         CGPoint scrollPoint = CGPointMake(0.0, message.superview.frame.origin.y+60-kbSize.height);
         [scrollView setContentOffset:scrollPoint animated:YES];
     }
+     */
     
 }
 
@@ -301,9 +315,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     NSLog(@"KEYB Hidden");
+    bottomMargin.constant = 0;
+    /*
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
+     */
 }
 
 

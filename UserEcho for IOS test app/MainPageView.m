@@ -20,7 +20,8 @@
     [UserEcho presentUserEchoCommunity:self config:[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                                     @"cbda91c6fccd3a60870c",@"key",
                                                     @"a1e77ec52da31c52d4591ef5984a37785a320aa1",@"secret",
-                                                    @"9705bb6a517d93d3c4caf114500b478a177fcfba",@"access_token",
+                                                    //@"9705bb6a517d93d3c4caf114500b478a177fcfba",@"access_token",
+                                                    @"1e5f3f02cd7a76ecced665c4f2470df94965313e",@"access_token",
                                                     nil]];
 }
 

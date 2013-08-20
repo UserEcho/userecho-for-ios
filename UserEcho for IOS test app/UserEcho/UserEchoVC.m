@@ -30,6 +30,10 @@
 
 @implementation UserEchoVC
 
+
+@synthesize topicHeader;
+
+
 NSArray *topicsStream;
 FPPopoverController *popover;
 UIActivityIndicatorView *indicator;
@@ -108,20 +112,27 @@ UIActivityIndicatorView *indicator;
     
     // method listen to meesssage with specfic name and calls selector when it get hit
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(msgResponder:) name:@"centerPanel" object:nil];
-     
-	// Do any additional setup after loading the view.
+    
+    
+    //Hide search
+    sbSearchHeight.constant=0;
+    sbSearch.hidden=YES;
+    
+	
+    
+    // Do any additional setup after loading the view.
 
     //Assign captions for buttons
     //btnBack.title = NSLocalizedStringFromTable(@"Back",@"UserEcho",nil);
     //btnNewTopic.title = NSLocalizedStringFromTable(@"New topic",@"UserEcho",nil);
     //btnSignIn.title = NSLocalizedStringFromTable(@"Sign in",@"UserEcho",nil);
     
-    CGRect frame=topicsTable.frame;
-    NSLog(@"TOpics table frame=%f",frame.origin.y);
-    frame.origin.y=1;
+    //CGRect frame=topicsTable.frame;
+    //NSLog(@"TOpics table frame=%f",frame.origin.y);
+    //frame.origin.y=1;
     //frame.origin.x=20;
-    frame.size.height=frame.size.height+44;
-    topicsTable.frame=frame;
+    //frame.size.height=frame.size.height+44;
+    //topicsTable.frame=frame;
     
     
         
@@ -311,17 +322,24 @@ UIActivityIndicatorView *indicator;
     NSLog(@"STATUS=%@",[topic objectForKey:@"status"]);
 
     //Status
+    UIView *status = (UIView*)[cell.contentView viewWithTag:200];
+    status.layer.cornerRadius = 2;
+    status.layer.masksToBounds = YES;
+    
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:21];
     
     
     if([[[topic objectForKey:@"status"] objectForKey:@"id"] intValue]>1)
         {
+            [label setText:[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString]];
 
-    [label setText:[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString]];
-    label.layer.cornerRadius = 2;
-    label.layer.masksToBounds = YES;
-    [label sizeToFit];
+  //          label.layer.cornerRadius = 2;
+//            label.layer.masksToBounds = YES;
+            
+           // [label setTi]
+            //[label sizeToFit];
     
+/*
     CGRect frame = label.frame;
     frame.size.height+=10;
     frame.size.width+=10;
@@ -329,53 +347,57 @@ UIActivityIndicatorView *indicator;
     frame.origin.x = self.view.frame.size.width-frame.size.width-4;
     
     label.frame = frame;
-            
+  */
             //Set color
             UIColor* color = [UECommon colorWithHexString:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"status"] objectForKey:@"color"]]];
-            [label setBackgroundColor:color];
+            [status setBackgroundColor:color];
         }
     else
     {
+
+        [label setText:@""];
+    
+        
+        
+    /*
         CGRect frame = label.frame;
         frame.size = CGSizeZero;
         frame.origin.x = 320;
         label.frame = frame;
+     */
     }
     
     
     //Topic header
-    int status_x=label.frame.origin.x;
+    //int status_x=label.frame.origin.x;
     
     label = (UILabel *)[cell.contentView viewWithTag:10];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
     label.textColor = [UECommon colorWithHexString:@"333333"];
-
-    CGRect frame = label.frame;
-    frame.size.width = status_x-frame.origin.x-5;
-    label.frame = frame;
-    
-    //NSLog(@"POSIT=%d %f",status_x,frame.origin.x);
-    
     [label setText:[topic objectForKey:@"header"]];
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    label.numberOfLines = 0;
-    [label sizeToFit];
+    
+    //self.topicHeader.text=@"XXX";
     
     
-    int header_bottom=label.frame.origin.y+label.frame.size.height;
-    if(header_bottom<25) header_bottom=25;
+    //label.lineBreakMode = NSLineBreakByWordWrapping;
+    //label.numberOfLines = 0;
+    //[label sizeToFit];
+    
+    
+    //int header_bottom=label.frame.origin.y+label.frame.size.height;
+    //if(header_bottom<25) header_bottom=25;
     
     //User name + date + ...
     UIView* view = (UIView *)[cell.contentView viewWithTag:150];
-    frame = view.frame;
-    frame.origin.y = header_bottom;
-    view.frame = frame;
+    //frame = view.frame;
+    //frame.origin.y = header_bottom;
+    //view.frame = frame;
     
     UILabel* author = (UILabel *)[cell.contentView viewWithTag:151];
-    author.font = [UIFont fontWithName:@"Helvetica-Bold" size:11];
-    author.textColor = [UECommon colorWithHexString:@"0088cc"];
+    //author.font = [UIFont fontWithName:@"Helvetica-Bold" size:11];
+    //author.textColor = [UECommon colorWithHexString:@"0088cc"];
     author.text = [[topic objectForKey:@"author"] objectForKey:@"name"];
-    [author sizeToFit];
+    //[author sizeToFit];
     
     UILabel* date = (UILabel *)[cell.contentView viewWithTag:152];
     date.font = [UIFont fontWithName:@"Helvetica-Bold" size:11];
@@ -385,10 +407,10 @@ UIActivityIndicatorView *indicator;
     if([(NSNumber*)[topic objectForKey:@"comment_count"] intValue]>0)
         date.text = [NSString stringWithFormat:@"%@ - ",date.text];
     
-    [date sizeToFit];
-    frame = date.frame;
-    frame.origin.x = author.frame.origin.x+author.frame.size.width;
-    date.frame = frame;
+    //[date sizeToFit];
+    //frame = date.frame;
+    //frame.origin.x = author.frame.origin.x+author.frame.size.width;
+    //date.frame = frame;
     
     if([(NSNumber*)[topic objectForKey:@"comment_count"] intValue]>0)
     {
@@ -396,20 +418,20 @@ UIActivityIndicatorView *indicator;
     ico.font = [UIFont fontWithName:kFontAwesomeFamilyName size:11];
     ico.textColor = [UECommon colorWithHexString:@"808080"];
     ico.text = [NSString fontAwesomeIconStringForIconIdentifier:@"icon-comment"];
-    [ico sizeToFit];
-    frame = ico.frame;
-    frame.origin.x = date.frame.origin.x+date.frame.size.width;
-    ico.frame = frame;
+    //[ico sizeToFit];
+    //frame = ico.frame;
+    //frame.origin.x = date.frame.origin.x+date.frame.size.width;
+    //ico.frame = frame;
 
     
     UILabel* comments = (UILabel *)[cell.contentView viewWithTag:154];
     comments.font = [UIFont fontWithName:@"Helvetica" size:11];
     comments.textColor = [UECommon colorWithHexString:@"808080"];
     comments.text = @"124";//[(NSNumber*)[topic objectForKey:@"comment_count"] stringValue];
-    [comments sizeToFit];
-    frame = comments.frame;
-    frame.origin.x = ico.frame.origin.x+ico.frame.size.width;
-    comments.frame = frame;
+    //[comments sizeToFit];
+    //frame = comments.frame;
+    //frame.origin.x = ico.frame.origin.x+ico.frame.size.width;
+    //comments.frame = frame;
     }
     else
     {
@@ -477,7 +499,7 @@ UIActivityIndicatorView *indicator;
     if(size.height+20<53)
         return 53;
     
-    return size.height+28;
+    return size.height+58;
 }
 
 
@@ -620,17 +642,17 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
     
-    
-    
     searchBar.hidden=YES;
-
+    sbSearchHeight.constant=0;
+    
+    /*
     CGRect frame=topicsTable.frame;
     NSLog(@"TOpics table frame=%f",frame.origin.y);
     frame.origin.y=1;
     //frame.origin.x=20;
     frame.size.height=frame.size.height+44;
     topicsTable.frame=frame;
-    
+    */
     
     [self refreshStream];
 }
@@ -656,14 +678,17 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
 }
 
 - (IBAction)searchClicked{
-    NSLog(@"Search button clicked");
+    //NSLog(@"Search button clicked");
+    sbSearchHeight.constant=44;
     sbSearch.hidden=NO;
+  
+  /*
     CGRect frame=topicsTable.frame;
     frame.origin.x=10;
     frame.origin.y=44;
     frame.size.height=frame.size.height-44;
-    topicsTable.frame=frame;
-//    [topicsTable setFrame:CGRectMake(0, 0, 320, 188)];
+    topicsTable.frame=frame;*/
+//  [topicsTable setFrame:CGRectMake(0, 0, 320, 188)];
 }
 
 
