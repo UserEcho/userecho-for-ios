@@ -263,9 +263,10 @@
 		600E618A178C1B6C00B7601B /* UserEcho */ = {
 			isa = PBXGroup;
 			children = (
+				60A9EA7417B41A3C007D8F05 /* UserEcho.storyboard */,
 				602F181A17AA34E800111BCB /* Vendor */,
 				6097E8BB1797E9930004CF02 /* Supporting Files */,
-				60A9EA7417B41A3C007D8F05 /* UserEcho.storyboard */,
+				60A9EA6217B3FC68007D8F05 /* ru */,
 				600E618B178C1C9900B7601B /* UserEchoVC.h */,
 				600E618C178C1C9900B7601B /* UserEchoVC.m */,
 				6097E8B3178EB6B70004CF02 /* API.m */,
@@ -401,7 +402,6 @@
 				60F591A317BE6B2D009C3BE6 /* menutab.png */,
 				609B3C7D17BCBA9300E19878 /* fontawesome.ttf */,
 				60E5886717B81DA200B9E1E0 /* voter_neutral.png */,
-				60A9EA6217B3FC68007D8F05 /* ru */,
 				6097E8BC1797E9CD0004CF02 /* UserEcho.css */,
 			);
 			name = "Supporting Files";
