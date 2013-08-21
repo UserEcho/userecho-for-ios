@@ -39,6 +39,7 @@
 		602F181917A918F700111BCB /* UserEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181817A918F700111BCB /* UserEcho.m */; };
 		603DABAD17C4BBCE00570EB3 /* UILabelUE.m in Sources */ = {isa = PBXBuildFile; fileRef = 603DABAC17C4BBCE00570EB3 /* UILabelUE.m */; };
 		603DABB017C4C59900570EB3 /* UETopicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603DABAF17C4C59800570EB3 /* UETopicListCell.m */; };
+		603DABB317C4CFF000570EB3 /* UECommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603DABB217C4CFF000570EB3 /* UECommentListCell.m */; };
 		607D2E5117BE98B600299432 /* glyphicons_158_show_lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */; };
 		607D2E5317BE9B2600299432 /* glyphicons_386_log_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */; };
 		607D2E5517BEA43900299432 /* glyphicons_027_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5417BEA43900299432 /* glyphicons_027_search.png */; };
@@ -131,6 +132,8 @@
 		603DABAC17C4BBCE00570EB3 /* UILabelUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILabelUE.m; path = UserEcho/UILabelUE.m; sourceTree = "<group>"; };
 		603DABAE17C4C59800570EB3 /* UETopicListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UETopicListCell.h; path = UserEcho/UETopicListCell.h; sourceTree = "<group>"; };
 		603DABAF17C4C59800570EB3 /* UETopicListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UETopicListCell.m; path = UserEcho/UETopicListCell.m; sourceTree = "<group>"; };
+		603DABB117C4CFEF00570EB3 /* UECommentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UECommentListCell.h; path = UserEcho/UECommentListCell.h; sourceTree = "<group>"; };
+		603DABB217C4CFF000570EB3 /* UECommentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UECommentListCell.m; path = UserEcho/UECommentListCell.m; sourceTree = "<group>"; };
 		607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_158_show_lines.png; path = UserEcho/Resources/glyphicons_158_show_lines.png; sourceTree = "<group>"; };
 		607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_386_log_in.png; path = UserEcho/Resources/glyphicons_386_log_in.png; sourceTree = "<group>"; };
 		607D2E5417BEA43900299432 /* glyphicons_027_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_027_search.png; path = UserEcho/Resources/glyphicons_027_search.png; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				603DABAC17C4BBCE00570EB3 /* UILabelUE.m */,
 				603DABAE17C4C59800570EB3 /* UETopicListCell.h */,
 				603DABAF17C4C59800570EB3 /* UETopicListCell.m */,
+				603DABB117C4CFEF00570EB3 /* UECommentListCell.h */,
+				603DABB217C4CFF000570EB3 /* UECommentListCell.m */,
 			);
 			name = UserEcho;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				60F591A217BE4CA9009C3BE6 /* TDBadgedCell.m in Sources */,
 				603DABAD17C4BBCE00570EB3 /* UILabelUE.m in Sources */,
 				603DABB017C4C59900570EB3 /* UETopicListCell.m in Sources */,
+				603DABB317C4CFF000570EB3 /* UECommentListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

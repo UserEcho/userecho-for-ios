@@ -11,6 +11,7 @@
 #import "UEData.h"
 #import "UECommon.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UECommentListCell.h"
 
 @interface CommentsVC ()
 
@@ -210,20 +211,10 @@ NSMutableDictionary *messageHeightDictionary;
   
     NSLog(@"WEB VIEW LOADED");
     
-    //CGRect frame = aWebView.frame;
-    //frame.size.height = 1;
-    //aWebView.frame = frame;
-    
-    //CGSize fittingSize = [aWebView sizeThatFits:CGSizeZero];
-    //frame.size = fittingSize;
-    //aWebView.frame = frame;
-    
-   // NSLog(@"TAG=%ld",(long)aWebView.tag);
-    
-    UITableViewCell *cell = (UITableViewCell *)[[aWebView superview] superview];
-    NSLog(@"Cell=%@",cell);
+    UECommentListCell *cell = (UECommentListCell *)[[aWebView superview] superview];
+    //NSLog(@"Cell=%@",cell);
     NSIndexPath *indexPath = [commentsTable indexPathForCell:cell];
-    NSLog(@"IPF=%@",indexPath);
+    //NSLog(@"IPF=%@",indexPath);
     
     //Fast scroll exception fix
     if(indexPath==nil)
@@ -234,15 +225,12 @@ NSMutableDictionary *messageHeightDictionary;
         messageHeightDictionary = [NSMutableDictionary new];
     
     // Store the height of the webview in the dictionary for this postId.
-    
-//    [messageHeightDictionary setObject:[NSString stringWithFormat:@"%f", aWebView.frame.size.height] forKey:indexPath];
+    NSLog(@"CH[%ld]=%f",(long)indexPath.row,aWebView.scrollView.contentSize.height);
+    cell.commentHeight.constant=aWebView.scrollView.contentSize.height;
     [messageHeightDictionary setObject:[NSString stringWithFormat:@"%f", aWebView.scrollView.contentSize.height] forKey:indexPath];
     
-    //aWebView.scrollView.contentSize.height;
-    
-    
     [commentsTable beginUpdates];
-    //[commentsTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [commentsTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [commentsTable endUpdates];
 }
 
@@ -254,13 +242,14 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Height=%@",height);
     if(height)
         {
-            if([height floatValue]<21) height=@"21";
+            if([height floatValue]<50) height=@"25";
+            
         return [height floatValue]+25;
 
         }
     else
     {
-            return 46;
+            return 50;
         
     }
 }
@@ -293,22 +282,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     bottomMargin.constant = height;
     
-    //UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    //scrollView.contentInset = contentInsets;
-    //scrollView.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
-    /*
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    NSLog(@"ORIGIN=%f",message.superview.frame.origin.y);
-    if (!CGRectContainsPoint(aRect, message.superview.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, message.superview.frame.origin.y+60-kbSize.height);
-        [scrollView setContentOffset:scrollPoint animated:YES];
-    }
-     */
-    
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
@@ -316,11 +289,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 {
     NSLog(@"KEYB Hidden");
     bottomMargin.constant = 0;
-    /*
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    scrollView.contentInset = contentInsets;
-    scrollView.scrollIndicatorInsets = contentInsets;
-     */
 }
 
 
