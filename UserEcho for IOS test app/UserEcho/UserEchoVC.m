@@ -318,6 +318,9 @@ UIActivityIndicatorView *indicator;
     
     if([[[topic objectForKey:@"status"] objectForKey:@"id"] intValue]>1)
         {
+            cell.statusMarginLeft.constant=8;
+            cell.statusMarginRight.constant=8;
+
             [label setText:[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString]];
 
             //Set color

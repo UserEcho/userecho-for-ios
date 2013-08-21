@@ -73,64 +73,19 @@ NSString *topicDescriptionHTML;
                      topicHeader.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
                      topicHeader.textColor = [UECommon colorWithHexString:@"333333"];
                      
-                     //CGRect frame = topicHeader.frame;
-                     //frame.size.width = status_x-frame.origin.x-5;
-                     //label.frame = frame;
-                     
-                     //NSLog(@"POSIT=%d %f",status_x,frame.origin.x);
-                     
-                     
                      [btnComments setTitle:[NSString stringWithFormat:@"(%@) %@",[topic objectForKey:@"comment_count"],NSLocalizedStringFromTable(@"Comments",@"UserEcho",nil)]];
                      
                      
                      
                      [topicHeader setText:[topic objectForKey:@"header"]];
-                     //topicHeader.lineBreakMode = NSLineBreakByWordWrapping;
-                     //topicHeader.numberOfLines = 0;
-                     //[topicHeader sizeToFit];
-                     
-                     //Resize topic top view
-                     //int topview_height=topicHeader.frame.size.height+14;
-                     //if(topview_height<50) topview_height=50;
-                     
-                     //UIView* topview=topicHeader.superview;
-                     //CGRect frame = topview.frame;
-                     //frame.size.height=topview_height;
-                     //topview.frame=frame;
-
                      
                      NSLog(@"Rating:%@",[topic objectForKey:@"vote_diff"]);
                      rating.text=[NSString stringWithFormat:@"%@",[topic objectForKey:@"vote_diff"]];
                      
                      
-                     /*
-                     int uvote=[[topic objectForKey:@"cur_user_vote"] intValue];
-                     switch (uvote) {
-                         case -1:
-                             voterBackground.backgroundColor=[UIColor redColor];
-                             break;
-                        
-                         case 1:
-                             voterBackground.backgroundColor=[UIColor greenColor];
-                             break;
-                             
-                         default:
-                             voterBackground.backgroundColor=[UIColor blueColor];
-                             break;
-                     }
-                     */
-                     
-                     
                      
                      [btnVote addTarget: self action: @selector(Vote:withEvent:)
                       forControlEvents: UIControlEventTouchUpInside];
-                     
-                     
-                     //pass the string to the webview
-                     
-                     //frame = topicDescription.frame;
-                     //frame.origin.y=topview.frame.size.height+10;
-                     //topicDescription.frame=frame;
                      
                      
                      
@@ -154,10 +109,6 @@ NSString *topicDescriptionHTML;
                      //Reply
                      NSNumber* status = [[topic objectForKey:@"status"] objectForKey:@"id"];
                      
-                     //frame=replyPane.frame;
-                     //frame.size.height=0;
-                     //replyPane.frame=frame;
-                     
                      if([status intValue]>1) {
                          //replyStatus.text=[topic objectForKey:@"status_name"];
                          replyStatus.hidden = false;
@@ -168,33 +119,10 @@ NSString *topicDescriptionHTML;
                          
                          replyStatusBox.layer.cornerRadius = 2;
                          replyStatusBox.layer.masksToBounds = YES;
-                         //[replyStatus sizeToFit];
-                         
-                         //CGRect frame = replyStatus.frame;
-                         //frame.size.height+=10;
-                         //frame.size.width+=10;
-                         
-                         //frame.origin.x = self.view.frame.size.width-frame.size.width-15;
-                         
-                         //replyStatus.frame = frame;
                          
                          //Set color
                          UIColor* color = [UECommon colorWithHexString:[NSString stringWithFormat:@"%@",[[topic objectForKey:@"status"] objectForKey:@"color"]]];
                          [replyStatusBox setBackgroundColor:color];
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
                          
                          
                          [UECommon loadAvatar:[[topic objectForKey:@"response"] objectForKey:@"avatar_url"]
@@ -218,6 +146,10 @@ NSString *topicDescriptionHTML;
                      
                         }
                      
+                        else
+                        {
+                            replyPane.hidden = YES;
+                        }
                      
                      
                      
