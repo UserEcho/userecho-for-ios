@@ -23,6 +23,7 @@
 #import "GTMOAuth2ViewControllerTouch.h"
 
 #import "NSString+FontAwesome.h"
+#import "UETopicListCell.h"
 
 @interface UserEchoVC ()
 
@@ -295,7 +296,8 @@ UIActivityIndicatorView *indicator;
     
     static NSString *simpleTableIdentifier = @"TopicCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UETopicListCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     //NSLog(@"Cell=%@", cell);
     
     //cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
@@ -324,8 +326,10 @@ UIActivityIndicatorView *indicator;
         }
     else
     {
-
         [label setText:@""];
+        cell.statusMarginLeft.constant=0;
+        cell.statusMarginRight.constant=0;
+        
     }
     
     
