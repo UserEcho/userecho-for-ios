@@ -1,7 +1,7 @@
 UserEcho-for-ios
 ================
 
-UserEcho for iOS allows you to embed UserEcho community directly in your iPhone application.
+UserEcho for iOS allows you to embed UserEcho community directly in your iPhone or iPad application.
 
 ![](https://www.userecho.com/s/assets/img/ios/userecho-for-ios-screenshots.png)
 
