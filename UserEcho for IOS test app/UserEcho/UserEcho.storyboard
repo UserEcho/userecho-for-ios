@@ -22,8 +22,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="37" horizontalCompressionResistancePriority="867" verticalCompressionResistancePriority="175" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="189" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-dz-YXf" userLabel="Topic header">
-                                                    <color key="backgroundColor" red="0.074509806930000005" green="0.74117648599999997" blue="0.82352948189999997" alpha="1" colorSpace="deviceRGB"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="37" horizontalCompressionResistancePriority="867" verticalCompressionResistancePriority="175" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-dz-YXf" userLabel="Topic header" customClass="UILabelUE">
                                                     <attributedString key="attributedText">
                                                         <fragment content="Topic header text can be more that 1 line long, even 2 lines long. Even 3 lnes long. Siper.">
                                                             <attributes>
@@ -73,8 +72,8 @@
                                                 </view>
                                                 <view tag="200" contentMode="scaleToFill" horizontalHuggingPriority="19" horizontalCompressionResistancePriority="891" translatesAutoresizingMaskIntoConstraints="NO" id="NPq-dy-hgr" userLabel="Status box">
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-rs-gCE" userLabel="Status">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="STATUS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-rs-gCE" userLabel="Status">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
@@ -83,8 +82,8 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" type="user" id="419-Op-mRm"/>
                                                         <constraint firstAttribute="trailing" secondItem="sYc-rs-gCE" secondAttribute="trailing" constant="10" type="user" id="F41-4A-0K8"/>
+                                                        <constraint firstAttribute="centerY" secondItem="sYc-rs-gCE" secondAttribute="centerY" type="user" id="G0X-rZ-dep"/>
                                                         <constraint firstItem="sYc-rs-gCE" firstAttribute="leading" secondItem="NPq-dy-hgr" secondAttribute="leading" constant="10" type="user" id="R7g-RR-jCv"/>
-                                                        <constraint firstItem="sYc-rs-gCE" firstAttribute="top" secondItem="NPq-dy-hgr" secondAttribute="top" constant="2" id="vbW-ir-sCf"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RR-A3-tIc" userLabel="Voter box">
@@ -130,16 +129,16 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="1Ov-z5-s2d" firstAttribute="top" secondItem="JVa-dz-YXf" secondAttribute="bottom" type="user" id="3Ox-Tw-eD7"/>
+                                            <constraint firstItem="JVa-dz-YXf" firstAttribute="top" secondItem="2Oe-Co-g29" secondAttribute="top" constant="8" type="user" id="4fI-Vn-RuK"/>
                                             <constraint firstAttribute="trailing" secondItem="1Ov-z5-s2d" secondAttribute="trailing" constant="8" type="user" id="7iZ-a8-Hik"/>
-                                            <constraint firstItem="5RR-A3-tIc" firstAttribute="top" secondItem="2Oe-Co-g29" secondAttribute="top" constant="8" type="user" id="CAo-X7-8Oi"/>
                                             <constraint firstItem="NPq-dy-hgr" firstAttribute="top" secondItem="2Oe-Co-g29" secondAttribute="top" constant="15" type="user" id="Dst-t9-4u4"/>
                                             <constraint firstItem="NPq-dy-hgr" firstAttribute="leading" secondItem="JVa-dz-YXf" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="Dxd-WZ-B2g"/>
-                                            <constraint firstItem="JVa-dz-YXf" firstAttribute="top" secondItem="2Oe-Co-g29" secondAttribute="top" constant="8" type="user" id="G8h-H3-AKs"/>
+                                            <constraint firstItem="1Ov-z5-s2d" firstAttribute="top" secondItem="JVa-dz-YXf" secondAttribute="bottom" type="user" id="Jo9-mv-i1r"/>
                                             <constraint firstAttribute="trailing" secondItem="NPq-dy-hgr" secondAttribute="trailing" constant="8" type="user" id="PtE-9F-Ep5"/>
                                             <constraint firstItem="JVa-dz-YXf" firstAttribute="leading" secondItem="2Oe-Co-g29" secondAttribute="leading" constant="60" type="user" id="U7Q-05-Ymk"/>
                                             <constraint firstItem="5RR-A3-tIc" firstAttribute="leading" secondItem="2Oe-Co-g29" secondAttribute="leading" constant="8" type="user" id="VDN-oR-hfX"/>
                                             <constraint firstItem="1Ov-z5-s2d" firstAttribute="leading" secondItem="JVa-dz-YXf" secondAttribute="leading" type="default" id="mfL-f8-SXz"/>
+                                            <constraint firstItem="JVa-dz-YXf" firstAttribute="top" secondItem="5RR-A3-tIc" secondAttribute="top" type="default" id="udy-eM-jtj"/>
                                         </constraints>
                                     </tableViewCell>
                                 </prototypes>
@@ -899,85 +898,6 @@
         <image name="poweredbyue.png" width="132" height="27"/>
         <image name="voter_neutral.png" width="45" height="38"/>
     </resources>
-    <classes>
-        <class className="CommentsVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bottomMargin" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="message" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="JASidePanelController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
-        </class>
-        <class className="LeftMenuTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeftMenuTVC.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TDBadgedCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TDBadgedCell.h"/>
-        </class>
-        <class className="TopicEditVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicEditVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="topicDescription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="topicDescriptionPlaceholder" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="topicEditTV" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="topicHeader" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="topicType" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TopicVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorAvatar" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="btnComments" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnVote" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rating" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="replyAvatar" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="replyDescription" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="replyDescriptionHeight" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="replyPane" candidateClass="UIView"/>
-                <relationship kind="outlet" name="replyStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="replyStatusBox" candidateClass="UIView"/>
-                <relationship kind="outlet" name="topicDescription" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="topicDescriptionHeight" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="topicScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="voterBackground" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="UESidePanelController" superclassName="JASidePanelController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UESidePanelController.h"/>
-        </class>
-        <class className="UserEchoVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserEchoVC.h"/>
-            <relationships>
-                <relationship kind="action" name="backToMainApp"/>
-                <relationship kind="action" name="signIn"/>
-                <relationship kind="action" name="userClicked"/>
-                <relationship kind="outlet" name="btnBack" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnNewTopic" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnSearch" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnSignIn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnUser" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="sbSearch" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="sbSearchHeight" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="topicsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UserMenuVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserMenuVC.h"/>
-        </class>
-        <class className="VoterTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoterTVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

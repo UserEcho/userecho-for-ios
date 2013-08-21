@@ -37,6 +37,7 @@
 		602F181317A2850C00111BCB /* UserMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181217A2850C00111BCB /* UserMenuVC.m */; };
 		602F181617A2B72300111BCB /* VoterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181517A2B72300111BCB /* VoterTVC.m */; };
 		602F181917A918F700111BCB /* UserEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F181817A918F700111BCB /* UserEcho.m */; };
+		603DABAD17C4BBCE00570EB3 /* UILabelUE.m in Sources */ = {isa = PBXBuildFile; fileRef = 603DABAC17C4BBCE00570EB3 /* UILabelUE.m */; };
 		607D2E5117BE98B600299432 /* glyphicons_158_show_lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */; };
 		607D2E5317BE9B2600299432 /* glyphicons_386_log_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */; };
 		607D2E5517BEA43900299432 /* glyphicons_027_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5417BEA43900299432 /* glyphicons_027_search.png */; };
@@ -125,6 +126,8 @@
 		602F181717A918F700111BCB /* UserEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEcho.h; path = UserEcho/UserEcho.h; sourceTree = "<group>"; };
 		602F181817A918F700111BCB /* UserEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEcho.m; path = UserEcho/UserEcho.m; sourceTree = "<group>"; };
 		602F181B17AA3E3000111BCB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		603DABAB17C4BBCD00570EB3 /* UILabelUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILabelUE.h; path = UserEcho/UILabelUE.h; sourceTree = "<group>"; };
+		603DABAC17C4BBCE00570EB3 /* UILabelUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILabelUE.m; path = UserEcho/UILabelUE.m; sourceTree = "<group>"; };
 		607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_158_show_lines.png; path = UserEcho/Resources/glyphicons_158_show_lines.png; sourceTree = "<group>"; };
 		607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_386_log_in.png; path = UserEcho/Resources/glyphicons_386_log_in.png; sourceTree = "<group>"; };
 		607D2E5417BEA43900299432 /* glyphicons_027_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_027_search.png; path = UserEcho/Resources/glyphicons_027_search.png; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 				60F5919517BE3A34009C3BE6 /* UESidePanelController.m */,
 				60F5919C17BE477B009C3BE6 /* LeftMenuTVC.h */,
 				60F5919D17BE477B009C3BE6 /* LeftMenuTVC.m */,
+				603DABAB17C4BBCD00570EB3 /* UILabelUE.h */,
+				603DABAC17C4BBCE00570EB3 /* UILabelUE.m */,
 			);
 			name = UserEcho;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				60F5919B17BE3CFB009C3BE6 /* UIViewController+JASidePanel.m in Sources */,
 				60F5919E17BE477B009C3BE6 /* LeftMenuTVC.m in Sources */,
 				60F591A217BE4CA9009C3BE6 /* TDBadgedCell.m in Sources */,
+				603DABAD17C4BBCE00570EB3 /* UILabelUE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

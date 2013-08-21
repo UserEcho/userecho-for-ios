@@ -332,15 +332,8 @@ UIActivityIndicatorView *indicator;
     //Topic header
     label = (UILabel *)[cell.contentView viewWithTag:10];
     label.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
-    //label.font = [UIFont systemFontOfSize:14];
     label.textColor = [UECommon colorWithHexString:@"333333"];
-    //[label setNumberOfLines:0];
-    //label.adjustsFontSizeToFitWidth = YES;
-//    label.translatesAutoresizingMaskIntoConstraints;
     [label setText:[topic objectForKey:@"header"]];
-    //[label sizeToFit];
-    
-//    label.preferredMaxLayoutWidth = 1000;//label.bounds.size.width;
     
     UILabel* author = (UILabel *)[cell.contentView viewWithTag:151];
     author.text = [[topic objectForKey:@"author"] objectForKey:@"name"];
@@ -396,7 +389,7 @@ UIActivityIndicatorView *indicator;
 {
     NSDictionary* topic = [topicsStream objectAtIndex:indexPath.row];
     
-    CGSize status_size = [[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString] sizeWithFont:[UIFont systemFontOfSize:11]];
+    CGSize status_size = [[[[topic objectForKey:@"status"] objectForKey:@"name"] uppercaseString] sizeWithFont:[UIFont systemFontOfSize:10]];
     
     if([[[topic objectForKey:@"status"] objectForKey:@"id"] intValue]<2)
     {
@@ -410,10 +403,10 @@ UIActivityIndicatorView *indicator;
     
     CGSize size = [[topic objectForKey:@"header"] sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:12] constrainedToSize:CGSizeMake(topicsTable.frame.size.width-60-status_size.width-16-16, 480.0) lineBreakMode:NSLineBreakByWordWrapping];
     
-    if(size.height+20<53)
+    if(size.height+30<53)
         return 53;
     
-    return size.height+45;
+    return size.height+30;
 }
 
 

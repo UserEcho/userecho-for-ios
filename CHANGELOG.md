@@ -2,6 +2,7 @@
 
 * Updated to IOS6 auto-layout support, now we support iPhone, iPhone retina in both portrait and landscape orientations.
 * Added iPad support.
+* Fixed issue with topic header sizing on the topic list for all orientations and modes.
 
 ## 1.0.7 ##
 
