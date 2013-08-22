@@ -134,9 +134,19 @@ NSString *topicDescriptionHTML;
                          
                          replyAvatar.hidden=false;
                          
+                         
+                         if([[topic objectForKey:@"admin_comment"] isEqual: @""])
+                            {
+                                replyDescriptionHeight.constant=0;
+                            }
+                            else
+                            {
                          NSString *html = [NSString stringWithFormat:@"<head>%@</head><body>%@</body>",CSS,[topic objectForKey:@"admin_comment"]];
                          
+                         
+                         
                          [replyDescription loadHTMLString:html baseURL:[NSURL URLWithString:@"http://userecho.com"]];
+                            }
                          
                          replyDescription.opaque = NO;
                          replyDescription.backgroundColor = [UIColor clearColor];
