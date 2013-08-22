@@ -109,9 +109,14 @@ NSMutableDictionary *messageHeightDictionary;
     
     static NSString *simpleTableIdentifier = @"CommentCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UECommentListCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+
+    
     
     NSDictionary* comment = [commentsStream objectAtIndex:indexPath.row];
+    
+    cell.authorTitle.text=[[comment objectForKey:@"author"] objectForKey:@"title"];
     
     // Configure Cells
     UILabel *username = (UILabel *)[cell.contentView viewWithTag:10];

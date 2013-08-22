@@ -355,22 +355,20 @@ UIActivityIndicatorView *indicator;
     
     if([(NSNumber*)[topic objectForKey:@"comment_count"] intValue]>0)
     {
-    UILabel* ico = (UILabel *)[cell.contentView viewWithTag:153];
+    UILabel* ico = cell.detailsCommentsIcon;
     ico.font = [UIFont fontWithName:kFontAwesomeFamilyName size:11];
     ico.textColor = [UECommon colorWithHexString:@"808080"];
     ico.text = [NSString fontAwesomeIconStringForIconIdentifier:@"icon-comment"];
     
-    UILabel* comments = (UILabel *)[cell.contentView viewWithTag:154];
+    UILabel* comments = cell.detailsCommentsCount;
     comments.font = [UIFont fontWithName:@"Helvetica" size:11];
     comments.textColor = [UECommon colorWithHexString:@"808080"];
-    comments.text = @"124";//[(NSNumber*)[topic objectForKey:@"comment_count"] stringValue];
+    comments.text = [(NSNumber*)[topic objectForKey:@"comment_count"] stringValue];
     }
     else
     {
-    UILabel* ico = (UILabel *)[cell.contentView viewWithTag:153];
-        ico.hidden=YES;
-    UILabel* comments = (UILabel *)[cell.contentView viewWithTag:154];
-        comments.hidden=YES;
+    cell.detailsCommentsIcon.hidden=YES;
+    cell.detailsCommentsCount.hidden=YES;
     }
     
     

@@ -10,9 +10,12 @@
 
 @interface UECommentListCell : UITableViewCell
 {
+IBOutlet UILabel* authorTitle;
+
 IBOutlet NSLayoutConstraint* commentHeight;
 }
 
+@property(nonatomic,retain)UILabel *authorTitle;
 @property(nonatomic,retain)NSLayoutConstraint *commentHeight;
 
 @end

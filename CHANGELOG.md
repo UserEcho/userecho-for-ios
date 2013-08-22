@@ -1,5 +1,7 @@
 ## 1.0.9 ##
 
+* Updated to support new version of UserEcho API
+
 
 
 ## 1.0.8 ##

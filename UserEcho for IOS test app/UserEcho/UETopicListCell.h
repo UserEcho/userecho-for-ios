@@ -12,11 +12,17 @@
 {
 IBOutlet UILabel* topicHeader;
     
+IBOutlet UILabel* detailsCommentsIcon;
+IBOutlet UILabel* detailsCommentsCount;
+    
 IBOutlet NSLayoutConstraint* statusMarginLeft;
 IBOutlet NSLayoutConstraint* statusMarginRight;
 }
 
 @property(nonatomic,retain)NSLayoutConstraint *statusMarginLeft;
 @property(nonatomic,retain)NSLayoutConstraint *statusMarginRight;
+
+@property(nonatomic,retain)UILabel* detailsCommentsIcon;
+@property(nonatomic,retain)UILabel* detailsCommentsCount;
 
 @end

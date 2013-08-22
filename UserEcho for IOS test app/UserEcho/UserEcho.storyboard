@@ -60,14 +60,14 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="Ek4-N1-CvH" firstAttribute="top" secondItem="1Ov-z5-s2d" secondAttribute="top" type="default" id="5m7-V3-Weu"/>
-                                                        <constraint firstItem="e6B-DQ-IVY" firstAttribute="leading" secondItem="WUJ-DO-BTK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="IHS-iL-60E"/>
+                                                        <constraint firstItem="WUJ-DO-BTK" firstAttribute="leading" secondItem="5DR-89-SP1" secondAttribute="trailing" type="user" id="GyV-aF-E86"/>
                                                         <constraint firstItem="WUJ-DO-BTK" firstAttribute="top" secondItem="1Ov-z5-s2d" secondAttribute="top" type="default" id="OAQ-05-o6c"/>
-                                                        <constraint firstItem="5DR-89-SP1" firstAttribute="leading" secondItem="Ek4-N1-CvH" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="OWd-o8-zJX"/>
                                                         <constraint firstItem="Ek4-N1-CvH" firstAttribute="leading" secondItem="1Ov-z5-s2d" secondAttribute="leading" type="user" id="QFo-w5-UUq"/>
                                                         <constraint firstItem="5DR-89-SP1" firstAttribute="top" secondItem="1Ov-z5-s2d" secondAttribute="top" type="default" id="d5q-Ja-KEf"/>
-                                                        <constraint firstItem="Ek4-N1-CvH" firstAttribute="bottom" secondItem="1Ov-z5-s2d" secondAttribute="bottom" type="default" id="nON-D2-iYW"/>
+                                                        <constraint firstItem="5DR-89-SP1" firstAttribute="leading" secondItem="Ek4-N1-CvH" secondAttribute="trailing" type="user" id="g4I-wm-2g7"/>
+                                                        <constraint firstItem="e6B-DQ-IVY" firstAttribute="bottom" secondItem="1Ov-z5-s2d" secondAttribute="bottom" type="default" id="gv1-Jq-SEk"/>
                                                         <constraint firstItem="e6B-DQ-IVY" firstAttribute="top" secondItem="1Ov-z5-s2d" secondAttribute="top" type="default" id="nks-8b-zPI"/>
-                                                        <constraint firstItem="WUJ-DO-BTK" firstAttribute="leading" secondItem="5DR-89-SP1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="z2S-WC-EUZ"/>
+                                                        <constraint firstItem="e6B-DQ-IVY" firstAttribute="leading" secondItem="WUJ-DO-BTK" secondAttribute="trailing" type="user" id="z4A-q6-ZhC"/>
                                                     </constraints>
                                                 </view>
                                                 <view tag="200" contentMode="scaleToFill" horizontalHuggingPriority="19" horizontalCompressionResistancePriority="891" translatesAutoresizingMaskIntoConstraints="NO" id="NPq-dy-hgr" userLabel="Status box">
@@ -141,6 +141,8 @@
                                             <constraint firstItem="JVa-dz-YXf" firstAttribute="top" secondItem="5RR-A3-tIc" secondAttribute="top" type="default" id="udy-eM-jtj"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="detailsCommentsCount" destination="e6B-DQ-IVY" id="Sg8-i0-lgM"/>
+                                            <outlet property="detailsCommentsIcon" destination="WUJ-DO-BTK" id="Pn5-fH-VyI"/>
                                             <outlet property="statusMarginLeft" destination="R7g-RR-jCv" id="j3Z-hc-qTJ"/>
                                             <outlet property="statusMarginRight" destination="F41-4A-0K8" id="xtM-9G-RA4"/>
                                         </connections>
@@ -793,6 +795,7 @@
                                             <constraint firstItem="yuV-EV-CU8" firstAttribute="top" secondItem="ocd-XQ-NPs" secondAttribute="top" constant="8" type="user" id="wfv-4L-Y5T"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="authorTitle" destination="ytF-WA-c46" id="Zmm-cc-1s0"/>
                                             <outlet property="commentHeight" destination="nAe-qP-avO" id="g3B-Ve-rOF"/>
                                         </connections>
                                     </tableViewCell>
@@ -904,6 +907,105 @@
         <image name="poweredbyue.png" width="132" height="27"/>
         <image name="voter_neutral.png" width="45" height="38"/>
     </resources>
+    <classes>
+        <class className="CommentsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bottomMargin" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="message" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="JASidePanelController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
+        </class>
+        <class className="LeftMenuTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeftMenuTVC.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TDBadgedCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TDBadgedCell.h"/>
+        </class>
+        <class className="TopicEditVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicEditVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="topicDescriptionPlaceholder" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicEditTV" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="topicType" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TopicVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopicVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorAvatar" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="btnComments" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnVote" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="replyAvatar" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="replyDescription" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="replyDescriptionHeight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="replyPane" candidateClass="UIView"/>
+                <relationship kind="outlet" name="replyStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="replyStatusBox" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topicDescription" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="topicDescriptionHeight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="voterBackground" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="UECommentListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECommentListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="commentHeight" candidateClass="NSLayoutConstraint"/>
+            </relationships>
+        </class>
+        <class className="UESidePanelController" superclassName="JASidePanelController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UESidePanelController.h"/>
+        </class>
+        <class className="UETopicListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UETopicListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailsCommentsCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailsCommentsIcon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusMarginLeft" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="statusMarginRight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="UILabelUE" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UILabelUE.h"/>
+        </class>
+        <class className="UserEchoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserEchoVC.h"/>
+            <relationships>
+                <relationship kind="action" name="backToMainApp"/>
+                <relationship kind="action" name="signIn"/>
+                <relationship kind="action" name="userClicked"/>
+                <relationship kind="outlet" name="btnBack" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnNewTopic" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnSearch" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnSignIn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnUser" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="sbSearch" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="sbSearchHeight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="topicHeader" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topicsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UserMenuVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserMenuVC.h"/>
+        </class>
+        <class className="VoterTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VoterTVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
