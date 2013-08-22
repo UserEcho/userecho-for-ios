@@ -40,6 +40,8 @@
 		603DABAD17C4BBCE00570EB3 /* UILabelUE.m in Sources */ = {isa = PBXBuildFile; fileRef = 603DABAC17C4BBCE00570EB3 /* UILabelUE.m */; };
 		603DABB017C4C59900570EB3 /* UETopicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603DABAF17C4C59800570EB3 /* UETopicListCell.m */; };
 		603DABB317C4CFF000570EB3 /* UECommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603DABB217C4CFF000570EB3 /* UECommentListCell.m */; };
+		603DABB517C4E50D00570EB3 /* ue-icon-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 603DABB417C4E50D00570EB3 /* ue-icon-114x114.png */; };
+		603DABB717C4E53800570EB3 /* ue-icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 603DABB617C4E53800570EB3 /* ue-icon-57x57.png */; };
 		607D2E5117BE98B600299432 /* glyphicons_158_show_lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */; };
 		607D2E5317BE9B2600299432 /* glyphicons_386_log_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */; };
 		607D2E5517BEA43900299432 /* glyphicons_027_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D2E5417BEA43900299432 /* glyphicons_027_search.png */; };
@@ -134,6 +136,8 @@
 		603DABAF17C4C59800570EB3 /* UETopicListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UETopicListCell.m; path = UserEcho/UETopicListCell.m; sourceTree = "<group>"; };
 		603DABB117C4CFEF00570EB3 /* UECommentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UECommentListCell.h; path = UserEcho/UECommentListCell.h; sourceTree = "<group>"; };
 		603DABB217C4CFF000570EB3 /* UECommentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UECommentListCell.m; path = UserEcho/UECommentListCell.m; sourceTree = "<group>"; };
+		603DABB417C4E50D00570EB3 /* ue-icon-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ue-icon-114x114.png"; sourceTree = "<group>"; };
+		603DABB617C4E53800570EB3 /* ue-icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ue-icon-57x57.png"; sourceTree = "<group>"; };
 		607D2E5017BE98B600299432 /* glyphicons_158_show_lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_158_show_lines.png; path = UserEcho/Resources/glyphicons_158_show_lines.png; sourceTree = "<group>"; };
 		607D2E5217BE9B2600299432 /* glyphicons_386_log_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_386_log_in.png; path = UserEcho/Resources/glyphicons_386_log_in.png; sourceTree = "<group>"; };
 		607D2E5417BEA43900299432 /* glyphicons_027_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glyphicons_027_search.png; path = UserEcho/Resources/glyphicons_027_search.png; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		600E6156178C0F5100B7601B = {
 			isa = PBXGroup;
 			children = (
+				603DABB617C4E53800570EB3 /* ue-icon-57x57.png */,
+				603DABB417C4E50D00570EB3 /* ue-icon-114x114.png */,
 				60F5919717BE3B3D009C3BE6 /* QuartzCore.framework */,
 				600E6168178C0F5100B7601B /* UserEcho for IOS test app */,
 				600E6161178C0F5100B7601B /* Frameworks */,
@@ -530,6 +536,8 @@
 				607D2E5117BE98B600299432 /* glyphicons_158_show_lines.png in Resources */,
 				607D2E5317BE9B2600299432 /* glyphicons_386_log_in.png in Resources */,
 				607D2E5517BEA43900299432 /* glyphicons_027_search.png in Resources */,
+				603DABB517C4E50D00570EB3 /* ue-icon-114x114.png in Resources */,
+				603DABB717C4E53800570EB3 /* ue-icon-57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

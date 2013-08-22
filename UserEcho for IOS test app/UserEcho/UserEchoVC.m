@@ -226,18 +226,18 @@ UIActivityIndicatorView *indicator;
     [[API sharedInstance] get:@"forums"
                  onCompletion:^(NSArray *json) {
                      //got stream
-                     NSLog(@"Stream received");
-                     NSLog(@"%@", json);
+                     //NSLog(@"Stream received");
+                     //NSLog(@"Forums=%@", json);
                      
-                     [UEData getInstance].forums=json;
+                     [UEData getInstance].forums=[(NSDictionary*)json objectForKey:@"forums"];
                      
                      NSPredicate *p = [NSPredicate predicateWithFormat:@"default = %u", 1];
-                     NSArray *matchedDicts = [json filteredArrayUsingPredicate:p];
+                     NSArray *matchedDicts = [[UEData getInstance].forums filteredArrayUsingPredicate:p];
                      
                      NSString *forum_id=[[matchedDicts objectAtIndex:0] objectForKey:@"id"];
                      [UEData getInstance].forum=forum_id;
                      [UEData getInstance].forum_allow_anonymous_feedback=[[matchedDicts objectAtIndex:0] objectForKey:@"allow_anonymous_feedback"];
-                     NSLog(@"%@", forum_id);
+                     //NSLog(@"%@", forum_id);
                      completionBlock();
                  }];
     
@@ -505,6 +505,11 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
         //Set auth flag
         [UEData getInstance].isAuthorised = [NSNumber numberWithInt:1];
         [self loadUser];
+        
+        [self getDefaultForum:^{
+            NSLog(@"Def forum received");
+            [self refreshStream];
+        }];
     }
 }
 

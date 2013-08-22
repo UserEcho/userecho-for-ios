@@ -1,3 +1,7 @@
+## 1.0.9 ##
+
+
+
 ## 1.0.8 ##
 
 * Updated to IOS6 auto-layout support, now we support iPhone, iPhone retina in both portrait and landscape orientations.
