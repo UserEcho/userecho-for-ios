@@ -166,19 +166,38 @@
                                 <items/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="poweredbyue.png" translatesAutoresizingMaskIntoConstraints="NO" id="c4L-n4-cj3"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBH-kj-pnX">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="oPT-Ja-7Nu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="poweredByClicked" destination="nip-hP-Qce" eventType="touchUpInside" id="1kW-kE-wsf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t2H-bq-1fd" firstAttribute="leading" secondItem="nWI-L7-Q42" secondAttribute="leading" type="default" id="0QA-bC-fv2"/>
+                            <constraint firstItem="oBH-kj-pnX" firstAttribute="top" secondItem="Zat-Xs-ENI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4Qo-2H-MvQ"/>
                             <constraint firstItem="Zat-Xs-ENI" firstAttribute="trailing" secondItem="nWI-L7-Q42" secondAttribute="trailing" type="default" id="6ni-nT-toz"/>
+                            <constraint firstItem="c4L-n4-cj3" firstAttribute="centerX" secondItem="opR-BB-SPA" secondAttribute="centerX" type="default" id="A7q-qc-506"/>
                             <constraint firstItem="t2H-bq-1fd" firstAttribute="top" secondItem="nWI-L7-Q42" secondAttribute="top" type="default" id="CKZ-9d-GGg"/>
+                            <constraint firstItem="c4L-n4-cj3" firstAttribute="bottom" secondItem="oBH-kj-pnX" secondAttribute="bottom" type="default" id="Eqb-d9-mdL"/>
                             <constraint firstItem="opR-BB-SPA" firstAttribute="trailing" secondItem="nWI-L7-Q42" secondAttribute="trailing" type="default" id="Euv-UN-GFI"/>
                             <constraint firstItem="Zat-Xs-ENI" firstAttribute="top" secondItem="t2H-bq-1fd" secondAttribute="bottom" type="default" id="GYh-rT-NIL"/>
                             <constraint firstItem="c4L-n4-cj3" firstAttribute="top" secondItem="Zat-Xs-ENI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IBR-kh-nSy"/>
                             <constraint firstItem="opR-BB-SPA" firstAttribute="leading" secondItem="nWI-L7-Q42" secondAttribute="leading" type="default" id="ILy-9q-Jqs"/>
                             <constraint firstItem="Zat-Xs-ENI" firstAttribute="leading" secondItem="nWI-L7-Q42" secondAttribute="leading" type="default" id="JSl-PF-3s6"/>
                             <constraint firstItem="opR-BB-SPA" firstAttribute="bottom" secondItem="nWI-L7-Q42" secondAttribute="bottom" type="user" id="S0m-uR-tVT"/>
-                            <constraint firstItem="c4L-n4-cj3" firstAttribute="centerX" secondItem="opR-BB-SPA" secondAttribute="centerX" type="default" id="eDo-NX-oLv"/>
+                            <constraint firstItem="c4L-n4-cj3" firstAttribute="centerX" secondItem="oBH-kj-pnX" secondAttribute="centerX" type="default" id="b9I-vD-Otb"/>
                             <constraint firstItem="t2H-bq-1fd" firstAttribute="trailing" secondItem="nWI-L7-Q42" secondAttribute="trailing" type="default" id="gyh-Xc-3Fm"/>
                             <constraint firstItem="opR-BB-SPA" firstAttribute="top" secondItem="Zat-Xs-ENI" secondAttribute="bottom" type="user" id="lDF-KP-L6Y"/>
                         </constraints>

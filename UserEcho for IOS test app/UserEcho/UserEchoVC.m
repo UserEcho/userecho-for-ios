@@ -598,15 +598,13 @@ static NSString *const kKeychainItemName = @"UserEcho: auth";
     //NSLog(@"Search button clicked");
     sbSearchHeight.constant=44;
     sbSearch.hidden=NO;
-  
-  /*
-    CGRect frame=topicsTable.frame;
-    frame.origin.x=10;
-    frame.origin.y=44;
-    frame.size.height=frame.size.height-44;
-    topicsTable.frame=frame;*/
-//  [topicsTable setFrame:CGRectMake(0, 0, 320, 188)];
+    }
+
+- (IBAction)poweredByClicked{
+    NSLog(@"PoweredBy button clicked");
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://userecho.com/userecho-for-ios/"]];
 }
+
 
 
 //UserMenu
