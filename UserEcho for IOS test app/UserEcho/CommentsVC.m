@@ -40,27 +40,10 @@ NSMutableDictionary *messageHeightDictionary;
     // Do any additional setup after loading the view.
     [btnSend setTitle:NSLocalizedStringFromTable(@"Send",@"UserEcho",nil) forState:UIControlStateNormal];
     
-    //CGRect frame=btnSend.frame;
-    //[btnSend sizeToFit];
-    
-    //CGRect mframe=message.frame;
-    //mframe.size.width=mframe.size.width+frame.size.width-btnSend.frame.size.width;
-    //[message setFrame:mframe];
-
-    //frame.origin.x=frame.origin.x+frame.size.width-btnSend.frame.size.width;
-    //frame.size.width=btnSend.frame.size.width;
-
-    //[btnSend setFrame:frame];
-    
-    
-    
-    
     [message setPlaceholder:NSLocalizedStringFromTable(@"Type your comment",@"UserEcho",nil)];
     
     [self registerForKeyboardNotifications];
     [self refreshStream];
-    
-    
 
     //NSLog(@"Token=%@",[UEData getInstance].access_token);
 }

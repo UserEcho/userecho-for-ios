@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeftMenuTVC : UITableViewController
+@interface LeftMenuTVC : UIViewController
+
+- (IBAction)backToMainApp;
 
 @end

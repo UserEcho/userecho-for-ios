@@ -1,10 +1,12 @@
+## 1.0.10 ##
+
+* Added back to main app button in the left menu.
+
 ## 1.0.9 ##
 
 * Updated to support new version of UserEcho API.
 * Comments counts on the topic list fixed, title in the comments list fixed.
 * Fixed status pane height in the topic view when official answer text is empty.
-
-
 
 ## 1.0.8 ##
 

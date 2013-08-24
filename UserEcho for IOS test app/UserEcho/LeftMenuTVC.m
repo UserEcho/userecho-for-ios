@@ -22,6 +22,7 @@
 
 NSArray* forums;
 
+/*
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -30,6 +31,7 @@ NSArray* forums;
     }
     return self;
 }
+*/
 
 - (void)viewDidLoad
 {
@@ -159,6 +161,12 @@ NSArray* forums;
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (IBAction)backToMainApp {
+    //[self.sidePanelController showLeftPanelAnimated:YES];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
