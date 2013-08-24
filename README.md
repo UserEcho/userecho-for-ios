@@ -23,8 +23,9 @@ Installation
 * Clone the latest version of library.
 * Drag `UserEcho` into your project.
 * When adding the folders, make sure you have "Create groups for any added folders" selected rather than "Create folder references for any added folders".
-* Add Security and SystemConfiguration frameworks to your project.
+* Add Security, QuartzCore and SystemConfiguration frameworks to your project.
 * Open Project->Target->Built phases->Compile sources and add -fno-objc-arc to the files beginning with GTM*
+* Open Project->Target->Info add new key "Fonts provided by application" add fontawesome.ttf to it list of values.
 
 Once you have completed these steps, you are ready to launch the UserEcho UI
 from your code.
