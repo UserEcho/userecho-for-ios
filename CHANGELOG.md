@@ -1,6 +1,7 @@
 ## 1.0.10 ##
 
 * Added back to main app button in the left menu.
+* Fixed position of input elements on the new topic view for iPad.
 
 ## 1.0.9 ##
 
