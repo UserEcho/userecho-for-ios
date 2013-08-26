@@ -8,6 +8,7 @@
 
 #import "UserEcho.h"
 #import "UEData.h"
+#import "Reachability.h"
 
 @implementation UserEcho
 
@@ -21,9 +22,32 @@
     NSLog(@"Token=%@",[UEData getInstance].access_token);
     
     UIStoryboard *userechoStoryboard = [UIStoryboard storyboardWithName:@"UserEcho" bundle:nil];
-    UIViewController *initialUserechoVC = [userechoStoryboard instantiateInitialViewController];
-    initialUserechoVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [parentViewController presentViewController:initialUserechoVC animated:YES completion:Nil];
+    
+    if([self checkInternetConnection])
+        {
+        UIViewController *initialUserechoVC = [userechoStoryboard instantiateInitialViewController];
+        initialUserechoVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [parentViewController presentViewController:initialUserechoVC animated:YES completion:Nil];
+        }
+        else
+        {
+        UIViewController *controller = [userechoStoryboard instantiateViewControllerWithIdentifier:@"noInternetConnection"];
+        controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [parentViewController presentViewController:controller animated:YES completion:Nil];
+        }
+}
+
++(BOOL)checkInternetConnection {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        //NSLog(@"There IS NO internet connection");
+        return NO;
+    } else {
+        //NSLog(@"There IS internet connection");
+        return YES;
+    }
 }
 
 +(NSString *)version {

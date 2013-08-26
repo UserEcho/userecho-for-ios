@@ -19,6 +19,8 @@
 		600E617F178C0F5100B7601B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E617E178C0F5100B7601B /* ViewController.m */; };
 		600E6187178C151A00B7601B /* MainPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E6186178C151A00B7601B /* MainPageView.m */; };
 		600E618D178C1C9900B7601B /* UserEchoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E618C178C1C9900B7601B /* UserEchoVC.m */; };
+		601CCACE17CB5256001BF24A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 601CCACD17CB5256001BF24A /* Reachability.m */; };
+		601CCAD117CB5734001BF24A /* noInternetConnectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 601CCAD017CB5734001BF24A /* noInternetConnectionVC.m */; };
 		601FFF6717AA715A00652A8E /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 601FFF6617AA715A00652A8E /* CHANGELOG.md */; };
 		602F17CE179E697200111BCB /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 602F17AA179E697100111BCB /* GTMHTTPFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		602F17EA179E6ADB00111BCB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 602F17E9179E6ADB00111BCB /* SystemConfiguration.framework */; };
@@ -96,6 +98,10 @@
 		600E6186178C151A00B7601B /* MainPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageView.m; sourceTree = "<group>"; };
 		600E618B178C1C9900B7601B /* UserEchoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEchoVC.h; path = UserEcho/UserEchoVC.h; sourceTree = "<group>"; };
 		600E618C178C1C9900B7601B /* UserEchoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEchoVC.m; path = UserEcho/UserEchoVC.m; sourceTree = "<group>"; };
+		601CCACC17CB5256001BF24A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		601CCACD17CB5256001BF24A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		601CCACF17CB5734001BF24A /* noInternetConnectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = noInternetConnectionVC.h; path = UserEcho/noInternetConnectionVC.h; sourceTree = "<group>"; };
+		601CCAD017CB5734001BF24A /* noInternetConnectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = noInternetConnectionVC.m; path = UserEcho/noInternetConnectionVC.m; sourceTree = "<group>"; };
 		601FFF6617AA715A00652A8E /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		602F179B179E63DB00111BCB /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
 		602F179C179E63DB00111BCB /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2Authentication.m; sourceTree = "<group>"; };
@@ -312,8 +318,19 @@
 				603DABAF17C4C59800570EB3 /* UETopicListCell.m */,
 				603DABB117C4CFEF00570EB3 /* UECommentListCell.h */,
 				603DABB217C4CFF000570EB3 /* UECommentListCell.m */,
+				601CCACF17CB5734001BF24A /* noInternetConnectionVC.h */,
+				601CCAD017CB5734001BF24A /* noInternetConnectionVC.m */,
 			);
 			name = UserEcho;
+			sourceTree = "<group>";
+		};
+		601CCACB17CB5256001BF24A /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				601CCACC17CB5256001BF24A /* Reachability.h */,
+				601CCACD17CB5256001BF24A /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		602F179A179E60C200111BCB /* gtm-oauth2 */ = {
@@ -374,6 +391,7 @@
 		602F181A17AA34E800111BCB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				601CCACB17CB5256001BF24A /* Reachability */,
 				60F5919F17BE4CA9009C3BE6 /* TDBadgedCell */,
 				60F5919317BE39C9009C3BE6 /* JASidePanel */,
 				609B3C7C17BCB94900E19878 /* ios-fontawesome */,
@@ -589,6 +607,8 @@
 				603DABAD17C4BBCE00570EB3 /* UILabelUE.m in Sources */,
 				603DABB017C4C59900570EB3 /* UETopicListCell.m in Sources */,
 				603DABB317C4CFF000570EB3 /* UECommentListCell.m in Sources */,
+				601CCACE17CB5256001BF24A /* Reachability.m in Sources */,
+				601CCAD117CB5734001BF24A /* noInternetConnectionVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

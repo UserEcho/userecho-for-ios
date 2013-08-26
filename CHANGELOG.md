@@ -2,6 +2,7 @@
 
 * Added back to main app button in the left menu.
 * Fixed position of input elements on the new topic view for iPad.
+* Added detection of internet connection and appropriate message.
 
 ## 1.0.9 ##
 
